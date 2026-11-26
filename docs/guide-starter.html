@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>起步路线 · 研究生第一学期怎么排 · 公开材料精读</title>
+<meta name="description" content="把账号、第一篇论文、第一次汇报与十个项目排进 20 周，每一步都带判据。">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · 起步路线</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#阶段一-第-14-周账号第一篇论文与第一次汇报" data-title="阶段一 · 第 1–4 周：账号、第一篇论文与第一次汇报">阶段一 · 第 1–4 周：账号、第一篇论文与第一次汇报</a>
+      <a class="toc-item" href="#阶段二-第-512-周两个有工程量的项目" data-title="阶段二 · 第 5–12 周：两个有工程量的项目">阶段二 · 第 5–12 周：两个有工程量的项目</a>
+      <a class="toc-item" href="#阶段三-第-1320-周从会用模型到能碰论文" data-title="阶段三 · 第 13–20 周：从会用模型到能碰论文">阶段三 · 第 13–20 周：从会用模型到能碰论文</a>
+      <a class="toc-item" href="#贯穿学期" data-title="贯穿学期">贯穿学期</a>
+      <a class="toc-item" href="#调整规则" data-title="调整规则">调整规则</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/handbook/%E8%B5%B7%E6%AD%A5%E8%B7%AF%E7%BA%BF.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+      <div class="sidebar-sub">手册其他篇目</div>
+      <a class="sidebar-guide" href="./guide-free-resources.html">免费资源清单</a>
+      <a class="sidebar-guide" href="./guide-projects.html">实战项目路线</a>
+      <a class="sidebar-guide" href="./guide-paper-reading.html">论文精读方法</a>
+      <a class="sidebar-guide" href="./guide-ai-boundaries.html">AI 使用边界</a>
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="起步路线研究生第一学期怎么排">起步路线：研究生第一学期怎么排</h1>
+<p><strong>适用对象</strong>：计算机视觉方向的研究生新生。这份路线把 <a href="./guide-free-resources.html">《免费资源清单》</a>、<a href="./guide-projects.html">《实战项目路线》</a>、<a href="./guide-paper-reading.html">《论文精读方法》</a>、<a href="./guide-ai-boundaries.html">《AI 使用边界》</a> 四篇里的动作排进一条时间线。
+<strong>复核日期</strong>：2026-09-28。
+<strong>时间口径</strong>：从学期第 1 周开始算，周次按学期推进；导师安排的任务优先，遇到冲突就把周次整体顺延。</p>
+<h2 id="阶段一-第-14-周账号第一篇论文与第一次汇报">阶段一 · 第 1–4 周：账号、第一篇论文与第一次汇报</h2>
+<h3 id="第-1-周账号与第一篇论文的第一遍">第 1 周：账号与第一篇论文的第一遍</h3>
+<ul>
+<li>校邮箱注册 GitHub，申请 Student Developer Pack。判据：Pack 页面显示已激活，Copilot 可用。</li>
+<li>申请 JetBrains 学生授权（校邮箱、ISIC 或 GitHub 学生包三选一）。判据：授权页面显示有效期。</li>
+<li>注册 Colab、Kaggle、Hugging Face；Kaggle 立刻完成手机号验证。判据：账号设置里能看到每周 GPU 配额。</li>
+<li>取得导师指定的论文，做第一遍阅读（10–15 分钟）。判据：不看论文也能说出类型、上下文、贡献与自己没看懂的地方。</li>
+<li>建立精读笔记文件，把 <a href="https://github.com/73mtq/public-reading/blob/main/handbook/templates/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0%E6%A8%A1%E6%9D%BF.md" target="_blank" rel="noopener noreferrer">论文精读笔记模板</a> 复制进去。判据：文件已存在，第 0、1 节填完。</li>
+</ul>
+<h3 id="第-2-周第二遍精读与背景补齐">第 2 周：第二遍精读与背景补齐</h3>
+<ul>
+<li>通读全文，跳过数学证明，逐张图表过一遍。判据：能向同学复述论文的主张与支撑证据。</li>
+<li>重点看消融实验表，记下每个模块去掉后掉多少点。判据：能说清哪个组件真正有效、提升来自哪里。</li>
+<li>补齐背景：骨干网络或相关工作里有没读过的经典论文，先补 1–2 篇。判据：能说出这篇论文继承了哪条脉络。</li>
+</ul>
+<h3 id="第-3-周第三遍与汇报准备">第 3 周：第三遍与汇报准备</h3>
+<ul>
+<li>第三遍虚拟复现，填笔记第 7、8 节。判据：合上论文能重构整篇结构，并指出至少一条隐含假设。</li>
+<li>做汇报 PPT：大纲、内容、图自己定。判据：每页不超过 7 行，正文不小于 24 号字，每页的逻辑链自己讲得通。</li>
+<li>用 AI 做多轮模拟答辩。判据：事先写好 6 个可能被追问的问题与答案。</li>
+<li>完整预演一遍并计时。判据：实际用时不超过规定时长。</li>
+</ul>
+<h3 id="第-4-周组会汇报与第一个项目">第 4 周：组会汇报与第一个项目</h3>
+<ul>
+<li>组会汇报，全程自己讲。判据：当天不依赖任何 AI 工具。</li>
+<li>项目 1：MNIST 手写数字识别。判据：测试集准确率 ≥98%，能解释每一行代码在做什么。</li>
+<li>与项目 3 并行：OpenCV 图像处理小工具箱。判据：摄像头实时人脸框跑通，能用 Canny 加轮廓完成计数任务。</li>
+</ul>
+<h3 id="第-25-周并行前置知识">第 2–5 周并行：前置知识</h3>
+<ul>
+<li>Python 与 NumPy（CS231n 官方教程）。判据：能独立完成数组切片、广播与矩阵乘法，并说清 shape 变化。</li>
+<li>PyTorch（小土堆 33 集或官方 60 分钟入门）。判据：不看教程能写出 nn.Module 子类、Dataset 与 DataLoader，并跑通一次训练。</li>
+<li>CNN 基础（《动手学深度学习》第 6、7、13 章）。判据：能手算 3×3 卷积核在 5×5 输入上的输出尺寸，能说清感受野的累积方式。</li>
+</ul>
+<h2 id="阶段二-第-512-周两个有工程量的项目">阶段二 · 第 5–12 周：两个有工程量的项目</h2>
+<h3 id="第-58-周目标检测">第 5–8 周：目标检测</h3>
+<ul>
+<li>项目 4：YOLO 目标检测，从预训练推理到自定义数据集训练。判据：mAP50 明显高于随机水平；能在新照片上稳定检出自定义类别；说清输出里 bbox、置信度与类别各是什么。</li>
+<li>项目 2：CIFAR-10 图像分类，自建 CNN 与 ResNet18 微调对比。判据：自建网络 ≈75% 以上，微调 ≈90% 以上，能画出两条 loss 曲线并解释差异。</li>
+<li>标注工具按数据性质选：课程练习用 Roboflow Public（项目会被强制公开），导师课题或未发表数据用本地自托管的 Label Studio。</li>
+</ul>
+<h3 id="第-912-周分割或识别">第 9–12 周：分割或识别</h3>
+<ul>
+<li>项目 5：U-Net 语义分割。判据：验证集 Dice ≥0.85（视数据集而定），能把分割结果与原图叠加可视化。</li>
+<li>项目 6 或项目 7 二选一：PaddleOCR 文字识别系统，或者人脸检测与识别小系统。判据：OCR 对清晰印刷体目测准确率 90% 以上；人脸识别能在实时视频流里标注是谁，并解释 128 维特征向量的含义。</li>
+<li>这一阶段把复现与训练环境切到常驻云环境（Lightning AI 一类），本地只留 IDE。</li>
+</ul>
+<h2 id="阶段三-第-1320-周从会用模型到能碰论文">阶段三 · 第 13–20 周：从会用模型到能碰论文</h2>
+<h3 id="第-1316-周kaggle-入门赛">第 13–16 周：Kaggle 入门赛</h3>
+<ul>
+<li>项目 8：Digit Recognizer 或 Dogs vs Cats。判据：提交成绩进入前 50%；至少精读 3 份高分公开 Notebook，并复现其中 1 个技巧。</li>
+</ul>
+<h3 id="第-1720-周论文复现与导师方向">第 17–20 周：论文复现与导师方向</h3>
+<ul>
+<li>项目 9：复现一篇经典论文（先 ResNet，再迷尼 ViT）。判据：复现精度与论文差距小于 2–3 个百分点；产出 2–3 页复现报告，含超参、训练曲线与踩过的坑。约束：只允许看论文与官方文档，复现完成后再让 AI 审查代码找差距。</li>
+<li>项目 10：跑通导师方向的开源项目（读、跑、改）。判据：官方训练与评测跑通；完成至少一次「自己改一处、指标变化、能解释原因」的实验。</li>
+</ul>
+<h2 id="贯穿学期">贯穿学期</h2>
+<ul>
+<li>每天：读完一节就合上论文，白纸复述要点。</li>
+<li>每篇笔记完成后：隔 1 天、3 天、7 天各回看第 3、7、8 节。</li>
+<li>每周留半天：无 AI 学习日，手推公式、手画结构图、白板复述论文。</li>
+<li>每月一次：按《免费资源清单》第八节的表回访免费额度。</li>
+<li>学期末：检查《AI 使用披露清单模板》的记录是否完整；把精读笔记合并成一份领域地图，每个研究主题一行。</li>
+</ul>
+<h2 id="调整规则">调整规则</h2>
+<ul>
+<li>判据没达到的项留在原处继续做，不带着空缺往前走。</li>
+<li>导师安排的任务插进来时，周次整体顺延，不与原计划并列。</li>
+<li>算力不够时的升级顺序：Kaggle 每周 30 小时先用满，其次 Colab，其次 Lightning AI 的启动额度，最后才考虑组内服务器或付费平台。</li>
+</ul>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"><a href="./guide-free-resources.html">免费资源清单 →</a></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>

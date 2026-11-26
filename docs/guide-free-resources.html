@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>免费资源与算力清单 · 公开材料精读</title>
+<meta name="description" content="算力、学生认证、数据集、标注工具、模型平台、作品集托管与学生权益，每条额度都带来源等级与复核日期。">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · 免费资源清单</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#一免费算力与-notebook-环境cv-实验的生命线" data-title="一、免费算力与 Notebook 环境（CV 实验的生命线）">一、免费算力与 Notebook 环境（CV 实验的生命线）</a>
+      <a class="toc-item" href="#二学生认证与开发工具先认证再谈其他" data-title="二、学生认证与开发工具（先认证，再谈其他）">二、学生认证与开发工具（先认证，再谈其他）</a>
+      <a class="toc-item" href="#三数据与标注cv-特色环节数据集就是实验的原料" data-title="三、数据与标注（CV 特色环节：数据集就是实验的原料）">三、数据与标注（CV 特色环节：数据集就是实验的原料）</a>
+      <a class="toc-item" href="#四模型平台与-ai-服务写代码之外的第二引擎" data-title="四、模型平台与 AI 服务（写代码之外的第二引擎）">四、模型平台与 AI 服务（写代码之外的第二引擎）</a>
+      <a class="toc-item" href="#五作品集与成果展示简历的弹药库" data-title="五、作品集与成果展示（简历的弹药库）">五、作品集与成果展示（简历的弹药库）</a>
+      <a class="toc-item" href="#六学生专属权益专项清单一个校邮箱-数千美元年" data-title="六、学生专属权益专项清单（一个校邮箱 ≈ 数千美元/年）">六、学生专属权益专项清单（一个校邮箱 ≈ 数千美元/年）</a>
+      <a class="toc-item" href="#七风险与注意事项" data-title="七、风险与注意事项">七、风险与注意事项</a>
+      <a class="toc-item" href="#八每月复核清单" data-title="八、每月复核清单">八、每月复核清单</a>
+      <a class="toc-item" href="#九来源链接汇总" data-title="九、来源链接汇总">九、来源链接汇总</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/handbook/%E5%85%8D%E8%B4%B9%E8%B5%84%E6%BA%90%E6%B8%85%E5%8D%95.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+      <div class="sidebar-sub">手册其他篇目</div>
+      <a class="sidebar-guide" href="./guide-starter.html">起步路线</a>
+      <a class="sidebar-guide" href="./guide-projects.html">实战项目路线</a>
+      <a class="sidebar-guide" href="./guide-paper-reading.html">论文精读方法</a>
+      <a class="sidebar-guide" href="./guide-ai-boundaries.html">AI 使用边界</a>
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="免费资源与算力清单">免费资源与算力清单</h1>
+<ul>
+<li><strong>适用对象</strong>：CV 方向的研究生新生，需要一个不花钱就能开跑的环境组合。</li>
+<li><strong>复核日期</strong>：2026-09-28（星标数、免费额度与定价）。</li>
+<li><strong>推进顺序</strong>：先注册哪些、什么时候用上，见 <a href="./guide-starter.html">《起步路线》</a>。</li>
+</ul>
+<p><strong>来源</strong>：free-for.dev 官方仓库 README（ripienaar/free-for-dev，2026-09-28 读得 138,744 stars，最后推送 2026-09-27），加上各官方定价页与文档逐一核对。第九节列出每个地址的复核结果，未能回源的条目已标明。</p>
+<table>
+<thead>
+<tr>
+<th>等级</th>
+<th>含义</th>
+<th>处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>甲级</td>
+<td>直接读取官方接口或官方页面正文取得的数值</td>
+<td>直接写入，标注读取日期</td>
+</tr>
+<tr>
+<td>乙级</td>
+<td>从官方文档、FAQ 或仓库 README 读到，本次未重复核对</td>
+<td>写入并注明未重复核对</td>
+</tr>
+<tr>
+<td>丙级</td>
+<td>社区汇总、第三方博客、二手转述</td>
+<td>只写方向性结论，注明「社区反馈」</td>
+</tr>
+<tr>
+<td>丁级</td>
+<td>本次没有可靠来源（域名解析失败、请求被拒、正文未读取）</td>
+<td>保留原数值，注明未核实</td>
+</tr>
+</tbody>
+</table>
+<p><strong>优先级定义</strong>：<strong>必用</strong> = 入学第一周就注册；<strong>推荐</strong> = 入门 2–4 周内用上；<strong>可选</strong> = 按需启用。</p>
+<hr />
+<h2 id="一免费算力与-notebook-环境cv-实验的生命线">一、免费算力与 Notebook 环境（CV 实验的生命线）</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>免费额度（2026-09 复核）</th>
+<th>CV 新生使用场景</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google Colab</strong></td>
+<td>免费 Jupyter 环境 + 免费 <strong>T4 GPU（16GB 显存）</strong>；资源不保证、限额动态浮动；会话最长 12 小时，空闲即断；免费运行时禁止 SSH/远程控制等</td>
+<td>跑通第一个 PyTorch/CNN 实验、复现论文代码、导师指定论文的官方开源代码试跑；配合 Google Drive 持久化数据</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>Kaggle Notebooks</strong></td>
+<td>CPU：4 核 + 30GB RAM，<strong>无每周上限</strong>；手机验证后可开 <strong>P100×1 或 T4×2</strong>，<strong>每周 30 GPU 小时</strong>；身份验证后 <strong>TPU v3-8（96 核 330GB）每周 20 小时</strong>；单会话 12h（TPU 9h），20GB 自动保存空间</td>
+<td>算力主力：每周 30h GPU 足够跑 ResNet/YOLO 级别的入门训练；30 万+ 公开数据集直接挂载，无需下载</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>Lightning AI</strong></td>
+<td>免费层：1 个 Studio <strong>24/7 常驻</strong>（每 4h 需重启）、32 核 CPU、<strong>50GB 持久存储</strong>、新用户启动额度折合约 <strong>75 小时 T4</strong>（官方口径"up to 80 free GPU hours"，A100-40G 约折 10h）；无限后台执行</td>
+<td>云端常驻开发环境（SSH/本地 IDE 可连），PyTorch Lightning 作者出品，做持久化实验环境比 Colab 更稳；另注意其与 <strong>Ultralytics（YOLO 官方）已整合</strong>，Ultralytics 侧提供工作邮箱 <strong>$25 免费额度</strong>（一键标注/训练/部署 YOLO）</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td><strong>百度飞桨 AI Studio</strong></td>
+<td>每日登录送 8 点算力（社区反馈约合 8 小时 V100/天），社区项目可申请更多</td>
+<td>国内访问快、无需科学上网的备选算力；中文文档友好；适合跑飞桨系教程与入门比赛</td>
+<td>推荐（国内）</td>
+</tr>
+<tr>
+<td><strong>Modal</strong></td>
+<td>每月 <strong>$30 免费额度</strong>（部分账号 $5），serverless GPU 按秒计费</td>
+<td>进阶：写 Python 函数即上云跑 GPU，适合自动化实验流水线；有一定工程门槛</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>Camber（学生包）</strong></td>
+<td>学生免费：每月 <strong>40 CPU 小时 + 5 GPU 小时 + 50GB 存储</strong> + 50 条 Agent 消息</td>
+<td>AI 数据科学代理平台，GPU 时长少，作为补充算力</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>Azure for Students</strong></td>
+<td><strong>$100 额度 / 12 个月，无需信用卡</strong>；⚠️ 2025 年起学生身份审核明显趋严（部分地区新申请受阻，社区有"无权访问"反馈），中国高校学生认证通过率不稳定</td>
+<td>需要更强算力时的兜底（可开 NC 系列GPU）；建议先注册 GitHub 学生包再关联尝试</td>
+<td>可选</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键事实（易踩坑）：</strong>
+- Colab 的 "Colab Pro for Education" 档位面向特定美国高校的师生，中国学生不必寻找这个入口（来源：Colab 官方 FAQ）。
+- Colab 免费层对"重度/自动化/挖矿/远程控制"等行为限流，GPU 可用性随时段波动，重要实验前先把代码在 CPU 上调通再用 GPU。
+- Kaggle 的 30h/周 GPU 需在账号设置中完成<strong>手机号验证</strong>；TPU 需<strong>证件级身份验证</strong>。两者独立计数，可同时拥有（即理论上每周 30h GPU + 20h TPU）。</p>
+<hr />
+<h2 id="二学生认证与开发工具先认证再谈其他">二、学生认证与开发工具（先认证，再谈其他）</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>免费额度（2026-09 复核）</th>
+<th>CV 新生使用场景</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Student Developer Pack</strong></td>
+<td>一次认证，数十项权益打包（明细见第六节）：GitHub Pro、<strong>Copilot 免费</strong>、Codespaces Pro 级、.TECH 域名 1 年、Microsoft 365、Heroku $13/月×24 个月等</td>
+<td>简历与作品集的技术底座；Copilot 免费用（注意 AI 依赖边界，见《AI 使用边界》）；认证需校邮箱 .edu.cn 或学籍材料</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>JetBrains 学生授权</strong></td>
+<td><strong>PyCharm Professional 等全系 IDE 免费</strong>，学生身份按年续期（校邮箱 / ISIC 国际学生证 / GitHub 学生包三种认证通道）</td>
+<td>PyCharm Pro 的远程解释器（连 Colab/Kaggle/服务器调试）、科学模式、Jupyter 集成是本地写 CV 代码最佳体验</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>Deepnote</strong></td>
+<td>免费层：无限个人项目 + 无限基础机器（2 vCPU / 5GB RAM）；<strong>学生包送 Team 计划</strong>（多人协作）</td>
+<td>实时协作 Notebook，和同学/师兄远程结对调试、汇报演示比本地 Jupyter 直观</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>GitHub Codespaces</strong></td>
+<td>学生包含 Pro 级访问（个人账户一般免费 120 核心小时/月，学生更高）</td>
+<td>浏览器里直接得到配好环境的 Linux 开发机，临时环境/换电脑续写代码</td>
+<td>可选</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="三数据与标注cv-特色环节数据集就是实验的原料">三、数据与标注（CV 特色环节：数据集就是实验的原料）</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>免费额度（2026-09 复核）</th>
+<th>CV 新生使用场景</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kaggle Datasets</strong></td>
+<td>免费浏览/下载/在线分析，公开数据集 30 万+</td>
+<td>找入门练手数据（MNIST/COCO 子集/各类比赛数据），Notebook 内一键挂载</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>Hugging Face Hub</strong></td>
+<td>公开模型/数据集/<strong>Spaces 无限托管</strong>；免费 CPU Spaces（48h 不活动自动休眠）；免费账户每月附少量推理额度（约 $0.1 量级，PRO 为 $2/月）</td>
+<td>下载预训练权重（ViT/CLIP/SD 系列）、托管训练 demo、数据集版本管理；<code>transformers</code>/<code>diffusers</code> 生态入口</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>Roboflow（Public 计划）</strong></td>
+<td>免费、无需信用卡：<strong>15 credits/月、2 用户、单数据集上限 25 万张图、3x 数据增强</strong>；⚠️ 所有项目<strong>必须公开</strong>到 Roboflow Universe</td>
+<td>图片标注（AI 辅助）、格式转换（YOLO/COCO/VOC 互转）、小目标检测数据集管理、在 Universe 学别人的公开项目；涉及未公开数据/导师课题勿用</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td><strong>Label Studio</strong></td>
+<td>开源（Apache-2.0），<strong>自托管完全免费且无配额</strong>；支持检测框、多边形分割、关键点、视频追踪</td>
+<td>需要私有/大量标注时本地部署；配合 CVAT 类工具构成实验室标注流水线</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td><strong>CVAT</strong></td>
+<td>开源（MIT），自托管免费，工业界标准标注工具之一</td>
+<td>课题组级标注管理；入门阶段可先了解</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>国内备选：启智 OpenI / 九天·毕昇</strong></td>
+<td>免费算力券与免费 GPU 环境（社区汇总信息）</td>
+<td>国内补充算力，支持国产框架（昇思 MindSpore）</td>
+<td>可选（国内）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键事实：</strong>
+- Roboflow 2025 年改为 credits 计费后免费额度明显缩水（免费层 15 credits/月，社区有涨价抱怨），适合轻量课程作业，重标注任务请自托管 Label Studio/CVAT。
+- CV 新生第一个自建数据集建议流程：Roboflow Universe 找类似公开项目 fork 学习 → 小规模练手用 Roboflow Public → 涉及私有数据切 Label Studio 本地部署。</p>
+<hr />
+<h2 id="四模型平台与-ai-服务写代码之外的第二引擎">四、模型平台与 AI 服务（写代码之外的第二引擎）</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>免费额度（2026-09 复核）</th>
+<th>CV 新生使用场景</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Google AI Studio</strong></td>
+<td>免费使用 Gemini 系列模型（网页端 + API 免费层）。具体配额以官方限额页实时数值为准：https://ai.google.dev/gemini-api/docs/rate-limits</td>
+<td>读论文时贴截图问公式/图表、生成代码骨架、把英文论文的文字转成讲解；比 ChatGPT 免费版上下文更长</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td><strong>OpenRouter（:free 模型）</strong></td>
+<td>免费 API 聚合：<code>:free</code> 后缀模型 <strong>20 请求/分、50 请求/日</strong>（未充值账户；历史充值 ≥$10 后升至 1000 请求/日）</td>
+<td>一个 Key 调用数十家免费模型（含视觉模型），写自动化脚本/批量处理时的免费 LLM API；新号每日 50 次够轻度使用</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td><strong>Hugging Face Inference API</strong></td>
+<td>免费账户每月少量推理额度（配合 HF 生态）</td>
+<td>快速验证开源 CV 模型效果，不部署直接 API 调用</td>
+<td>可选</td>
+</tr>
+</tbody>
+</table>
+<p><strong>⚠️ 与《AI 使用边界》的衔接：</strong> 以上生成式 AI 工具用于"解释术语、检验理解、debug"属于提效；用于"代读论文、代写汇报"则触碰认知负债红线，具体规则见 <a href="./guide-ai-boundaries.html">《AI 使用边界》</a>。</p>
+<hr />
+<h2 id="五作品集与成果展示简历的弹药库">五、作品集与成果展示（简历的弹药库）</h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>免费额度（2026-09 复核）</th>
+<th>CV 新生使用场景</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GitHub Pages</strong></td>
+<td>公开仓库免费静态托管；<strong>非强制上限：100GB 带宽/月、10 次构建/小时、站点体积 1GB</strong>（docs.github.com 官方口径）</td>
+<td>个人主页 + 项目页（课程作业、复现项目），配合 GitHub 学生包绑免费 .TECH 域名一年</td>
+<td>★必用</td>
+</tr>
+<tr>
+<td><strong>Vercel Hobby</strong></td>
+<td>个人<strong>非商业用途免费</strong>；100GB 带宽/月</td>
+<td>更现代的部署体验（Next.js 生态），自动预览链接适合展示交互式 CV demo（如 Gradio 前端）</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td><strong>Netlify Free</strong></td>
+<td>$0 永久：<strong>300 credits/月</strong>（2025 年新计费体系：额度覆盖部署/带宽/函数/表单等，带宽约按 20 credits/GB 计）</td>
+<td>传统静态站备选；与 Vercel 二选一即可</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>Notion（学生包）</strong></td>
+<td>学生包含 Plus 级免费（原教育版）</td>
+<td>知识库/读书笔记/论文精读笔记公开分享，作品集的"文字层"</td>
+<td>可选</td>
+</tr>
+<tr>
+<td><strong>Overleaf</strong></td>
+<td>免费版 + 大量<strong>简历模板</strong>（free-for.dev 推荐条目）</td>
+<td>学术简历（LaTeX 排版），研究生找实习/申请必备</td>
+<td>推荐</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六学生专属权益专项清单一个校邮箱-数千美元年">六、学生专属权益专项清单（一个校邮箱 ≈ 数千美元/年）</h2>
+<p><strong>认证通道提示（中国高校学生适用）：</strong>
+1. GitHub Student Pack：<code>.edu.cn</code> 校邮箱 或 学籍证明材料（部分学校需拍照学生证+英文说明），建议优先用校邮箱自动通道；
+2. JetBrains：校邮箱 / ISIC 国际学生证 / GitHub 学生包三选一；
+3. Azure for Students：需实名+学生证明，2025 年审核趋严，失败可改用 GitHub Pack 内 Azure 权益路径。</p>
+<table>
+<thead>
+<tr>
+<th>权益</th>
+<th>内容</th>
+<th>对 CV 学生的实际价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Copilot（学生免费）</td>
+<td>Pro 级编码助手</td>
+<td>每天写 PyTorch 代码的效率倍增器（注意 AI 依赖边界）</td>
+</tr>
+<tr>
+<td>GitHub Pro</td>
+<td>私有仓库、CI 分钟数等</td>
+<td>课程代码/实验代码私有管理</td>
+</tr>
+<tr>
+<td>Codespaces Pro 级</td>
+<td>云开发机时长</td>
+<td>暑期实训/临时环境</td>
+</tr>
+<tr>
+<td>Heroku</td>
+<td><strong>$13/月 × 24 个月</strong>信用额</td>
+<td>部署小型 Web demo（毕设展示）</td>
+</tr>
+<tr>
+<td>Camber</td>
+<td>40 CPU h + 5 GPU h + 50GB/月</td>
+<td>补充算力</td>
+</tr>
+<tr>
+<td>.TECH 域名</td>
+<td>免费一年</td>
+<td>个人品牌站</td>
+</tr>
+<tr>
+<td>Microsoft 365</td>
+<td>教育版（含 Copilot 入口）</td>
+<td>Office 套件</td>
+</tr>
+<tr>
+<td>DataCamp</td>
+<td>3 个月完整会员</td>
+<td>Python/数据科学补课</td>
+</tr>
+<tr>
+<td>Deepnote Team</td>
+<td>团队协作 Notebook</td>
+<td>组会前和同学联调</td>
+</tr>
+<tr>
+<td>JetBrains 全家桶</td>
+<td>PyCharm Pro 等，年续</td>
+<td>本地 IDE 主力</td>
+</tr>
+<tr>
+<td>1Password</td>
+<td>学生免费</td>
+<td>密码管理（管住一堆平台账号）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七风险与注意事项">七、风险与注意事项</h2>
+<ol>
+<li><strong>免费额度随时间变动</strong>：本清单的数字复核于 2026-09-28，Roboflow 与 Netlify 都已发生过计费方式变更，注册前再看一眼定价页；</li>
+<li><strong>隐私红线</strong>：Roboflow Public 计划强制公开项目；导师课题/未发表数据一律走自托管（Label Studio/CVAT）；</li>
+<li><strong>平台条款</strong>：Colab 免费层禁止长时间后台挂机、SSH 隧道等行为，违规会触发限流甚至封号；</li>
+<li><strong>国内访问</strong>：Colab/Kaggle/HF/Lightning 均需科学上网；百度飞桨 AI Studio / 启智 OpenI 为国内无门槛替代；</li>
+<li><strong>学生认证</strong>：Azure 学生 $100 审核趋严（2025 社区反馈），申请失败别恋战，转 GitHub Pack 路径。</li>
+</ol>
+<h2 id="八每月复核清单">八、每月复核清单</h2>
+<p>免费额度是这份清单里最容易变化的部分。每个月花二十分钟按下面的表过一遍，改动有变化的那几行，并更新文首的复核日期。</p>
+<table>
+<thead>
+<tr>
+<th>复核对象</th>
+<th>打开哪个页面</th>
+<th>2026-09-28 的可达性</th>
+<th>失效判据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Colab 免费层政策</td>
+<td>https://research.google.com/colaboratory/faq.html</td>
+<td>域名无法解析</td>
+<td>GPU 型号、会话时长上限、禁止事项发生变化</td>
+</tr>
+<tr>
+<td>Kaggle Notebooks 规格</td>
+<td>https://www.kaggle.com/docs/notebooks</td>
+<td>请求被拒</td>
+<td>每周 GPU 小时数变化，或手机验证要求变化</td>
+</tr>
+<tr>
+<td>Lightning AI 免费层</td>
+<td>https://lightning.ai/pricing</td>
+<td>可达，未读取正文</td>
+<td>常驻 Studio 数量、存储容量、GPU 额度变化</td>
+</tr>
+<tr>
+<td>Roboflow Public 计划</td>
+<td>https://roboflow.com/pricing</td>
+<td>可达</td>
+<td>credits/月、用户数、公开要求变化</td>
+</tr>
+<tr>
+<td>Netlify Free</td>
+<td>https://www.netlify.com/pricing/</td>
+<td>可达</td>
+<td>credits/月、带宽单价变化</td>
+</tr>
+<tr>
+<td>Vercel Hobby</td>
+<td>https://vercel.com/pricing</td>
+<td>可达，未读取正文</td>
+<td>带宽额度、商用限制变化</td>
+</tr>
+<tr>
+<td>GitHub Student Pack 权益表</td>
+<td>https://education.github.com/pack</td>
+<td>可达</td>
+<td>某项权益下架或改为付费</td>
+</tr>
+<tr>
+<td>Google AI Studio 配额</td>
+<td>https://ai.google.dev/gemini-api/docs/rate-limits</td>
+<td>域名无法解析</td>
+<td>请求频率或每日上限变化</td>
+</tr>
+<tr>
+<td>李沐论文精读合集</td>
+<td>https://github.com/mli/paper-reading</td>
+<td>可达</td>
+<td>新增条目，篇数需要更新</td>
+</tr>
+</tbody>
+</table>
+<p>复核结果按三种情况处理：数值变化就改对应行并记下新的读取日期；权益下架就删掉该行、换同类替代资源，并同步调整《起步路线》里的对应步骤；页面打不开就写明失败原因与尝试过的地址，不要写成「已验证」。</p>
+<h2 id="九来源链接汇总">九、来源链接汇总</h2>
+<table>
+<thead>
+<tr>
+<th>核实对象</th>
+<th>来源</th>
+<th>复核情况（2026-09-28）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>free-for.dev 总清单</td>
+<td>https://github.com/ripienaar/free-for-dev</td>
+<td>138,744 stars，最后推送 2026-09-27</td>
+</tr>
+<tr>
+<td>Google Colab 政策</td>
+<td>https://research.google.com/colaboratory/faq.html</td>
+<td>本次域名解析失败，未能回源</td>
+</tr>
+<tr>
+<td>Kaggle 规格/配额</td>
+<td>https://www.kaggle.com/docs/notebooks</td>
+<td>本次请求被拒，未能回源</td>
+</tr>
+<tr>
+<td>Lightning AI 定价</td>
+<td>https://lightning.ai/pricing</td>
+<td>可访问</td>
+</tr>
+<tr>
+<td>Ultralytics 集成与 $25 额度</td>
+<td>https://lightning.ai</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>Hugging Face 免费层</td>
+<td>https://huggingface.co/docs/inference-providers</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>Google AI Studio 限额</td>
+<td>https://ai.google.dev/gemini-api/docs/rate-limits</td>
+<td>本次域名解析失败，未能回源</td>
+</tr>
+<tr>
+<td>OpenRouter 免费限额</td>
+<td>https://openrouter.ai/docs/api-reference/limits</td>
+<td>可访问（官方文档页）</td>
+</tr>
+<tr>
+<td>GitHub Student Pack</td>
+<td>https://education.github.com/pack</td>
+<td>可访问</td>
+</tr>
+<tr>
+<td>JetBrains 学生授权</td>
+<td>https://www.jetbrains.com/community/education/</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>GitHub Pages 限额</td>
+<td>https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>Vercel Hobby</td>
+<td>https://vercel.com/pricing</td>
+<td>可访问</td>
+</tr>
+<tr>
+<td>Netlify 新计费</td>
+<td>https://www.netlify.com/pricing/</td>
+<td>可访问（Free $0，300 credits/月，带宽 20 credits/GB，生产部署 15 credits/次）</td>
+</tr>
+<tr>
+<td>Roboflow Public 计划</td>
+<td>https://roboflow.com/pricing</td>
+<td>可访问（15 credits/月、2 用户、数据与模型在 Universe 公开）</td>
+</tr>
+<tr>
+<td>Azure for Students</td>
+<td>官方政策页 + 社区反馈（审核趋严）</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>百度飞桨 AI Studio</td>
+<td>https://aistudio.baidu.com（社区多源：每日 8 点免费算力）</td>
+<td>未回源</td>
+</tr>
+</tbody>
+</table>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"><a href="./guide-starter.html">← 起步路线</a><a href="./guide-projects.html">实战项目路线 →</a></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>

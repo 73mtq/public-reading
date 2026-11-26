@@ -15,7 +15,7 @@ PAGES = {
     "004": "https://tabthursday.com/004.md",
 }
 EXPECTED = {"001": 18, "002": 21, "003": 22, "004": 21}
-UA = "Mozilla/5.0 (compatible; tab-thursday-notes-link-builder/1.1)"
+UA = "Mozilla/5.0 (compatible; public-reading-link-builder/1.1)"
 MEDIA_HOST = "media.jant.me"
 
 IMAGE_RE = re.compile(r"!\[[^\]]*\]\([^)]*\)")

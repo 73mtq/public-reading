@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>论文精读方法 · 三遍阅读与组会汇报 · 公开材料精读</title>
+<meta name="description" content="三遍阅读法、CV 经典论文地图、精读笔记模板、组会汇报结构与文献调研五步法。">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · 论文精读方法</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#一核心方法论三遍阅读法keshav-经典版-李沐-cv-实践版" data-title="一、核心方法论：三遍阅读法（Keshav 经典版 × 李沐 CV 实践版）">一、核心方法论：三遍阅读法（Keshav 经典版 × 李沐 CV 实践版）</a>
+      <a class="toc-item" href="#二cv-经典论文阅读地图为看懂导师给的论文补背景" data-title="二、CV 经典论文阅读地图（为&quot;看懂导师给的论文&quot;补背景）">二、CV 经典论文阅读地图（为&quot;看懂导师给的论文&quot;补背景）</a>
+      <a class="toc-item" href="#三论文精读笔记模板可直接照做" data-title="三、论文精读笔记模板（可直接照做）">三、论文精读笔记模板（可直接照做）</a>
+      <a class="toc-item" href="#四读论文时-ai-可以做什么不能做什么" data-title="四、读论文时 AI 可以做什么、不能做什么">四、读论文时 AI 可以做什么、不能做什么</a>
+      <a class="toc-item" href="#五组会汇报技巧直接服务近期必须完成的任务" data-title="五、组会汇报技巧（直接服务近期必须完成的任务）">五、组会汇报技巧（直接服务近期必须完成的任务）</a>
+      <a class="toc-item" href="#六传统文献工具链zotero-上手" data-title="六、传统文献工具链：Zotero 上手">六、传统文献工具链：Zotero 上手</a>
+      <a class="toc-item" href="#七文献调研与综述入门从读一篇到读一片" data-title="七、文献调研与综述入门（从&quot;读一篇&quot;到&quot;读一片&quot;）">七、文献调研与综述入门（从&quot;读一篇&quot;到&quot;读一片&quot;）</a>
+      <a class="toc-item" href="#八科研入门的底层心态与习惯浓缩版" data-title="八、科研入门的底层心态与习惯（浓缩版）">八、科研入门的底层心态与习惯（浓缩版）</a>
+      <a class="toc-item" href="#附信息来源" data-title="附：信息来源">附：信息来源</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/handbook/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E6%96%B9%E6%B3%95.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+      <div class="sidebar-sub">手册其他篇目</div>
+      <a class="sidebar-guide" href="./guide-starter.html">起步路线</a>
+      <a class="sidebar-guide" href="./guide-free-resources.html">免费资源清单</a>
+      <a class="sidebar-guide" href="./guide-projects.html">实战项目路线</a>
+      <a class="sidebar-guide" href="./guide-ai-boundaries.html">AI 使用边界</a>
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="论文精读方法三遍阅读组会汇报与文献调研">论文精读方法：三遍阅读、组会汇报与文献调研</h1>
+<ul>
+<li><strong>适用对象</strong>：计算机技术方向的研究生新生，CV 方向，没有科研经历，近期任务多半是精读导师指定的一篇论文并做学习汇报。</li>
+<li><strong>复核日期</strong>：2026-09-27。本文属于方法与流程，不含会过期的额度与星标数。</li>
+<li><strong>相关篇目</strong>：哪些环节可以交给 AI，见 <a href="./guide-ai-boundaries.html">《AI 使用边界》</a>；可直接复制填写的模板见 <a href="https://github.com/73mtq/public-reading/blob/main/handbook/templates/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB%E7%AC%94%E8%AE%B0%E6%A8%A1%E6%9D%BF.md" target="_blank" rel="noopener noreferrer">论文精读笔记模板</a>。</li>
+</ul>
+<hr />
+<h2 id="一核心方法论三遍阅读法keshav-经典版-李沐-cv-实践版">一、核心方法论：三遍阅读法（Keshav 经典版 × 李沐 CV 实践版）</h2>
+<p>论文阅读领域有两个被广泛验证的"三遍法"：一个是滑铁卢大学 S. Keshav 教授 2007 年写的经典方法论《How to Read a Paper》（CCCR 特约文章，被全球众多高校研究生课程列为必读）；另一个是李沐（前亚马逊首席科学家、《动手学深度学习》作者）在 B 站公开课《如何读论文【论文精读·1】》中分享的实战版，专门面向深度学习/CV 论文。<strong>两个版本本质一致：先建立全局视角，再深入局部，最后主动质疑。</strong> 以下融合两版，并直接套用到 CV 论文的阅读场景。</p>
+<h3 id="11-第一遍海选题1015-分钟决定要不要继续读">1.1 第一遍：海选题（10–15 分钟，决定要不要继续读）</h3>
+<p><strong>Keshav 原版动作：</strong>
+1. 仔细读标题、摘要、引言；
+2. 只读各章节与小节标题，忽略其他内容；
+3. 读结论；
+4. 扫一眼参考文献，心里标记已读过的。</p>
+<p><strong>李沐 CV 版动作：</strong> 读标题、摘要后<strong>直接跳到结论</strong>，然后"稍微瞄一眼"主要的图和表（CV 论文的第一遍就是看方法框架图和主结果表）。</p>
+<p><strong>读完第一遍，应当能回答 Keshav 的"五个 C"：</strong>
+| 提问 | CV 论文语境下的具体问法 |
+|---|---|
+| Category（类型） | 这是检测/分割/分类/生成论文？是新方法、新数据集，还是综述/分析类？ |
+| Context（上下文） | 它基于什么已有工作（CNN系/Transformer系）？和哪些论文相关？ |
+| Correctness（正确性） | 假设看起来合理吗？实验设置是否有明显问题？ |
+| Contributions（贡献） | 主要贡献是什么？新结构？新损失？新数据？SOTA提升？ |
+| Clarity（写作质量） | 写得是否清晰、图表是否规范？ |</p>
+<p><strong>决策点（这是三遍法最省时间的价值）：</strong> 若论文与自己的方向无关 → 停止；若太难读不懂 → 先去读它引用的前置论文再回来（李沐原话：感觉一篇论文值得读但太难，先读它引用的之前的研究，再回头读门槛会低）；只有真正需要深入的论文才进入第二遍。</p>
+<h3 id="12-第二遍抓方法约-1-小时搞懂做了什么怎么做的">1.2 第二遍：抓方法（约 1 小时，搞懂"做了什么、怎么做的"）</h3>
+<p><strong>动作清单：</strong>
+- 从头到尾完整过一遍正文，<strong>忽略数学证明细节</strong>；公式先只看输入输出是什么、直觉上在优化什么，推导放第三遍；
+- <strong>重点看懂论文里每一张图和表</strong>（CV 论文的精华所在）：
+  - 方法框架图：数据如何流动、模块如何拼接（例如 ResNet 的残差块结构图、ViT 的 patch embedding 流程图）；
+  - 主结果表：在哪些数据集（ImageNet/COCO/VOC）上、用什么指标（mAP/Top-1 Acc/FLOPs/Params）、比 baseline 提了多少；
+  - 消融实验表（Ablation）：每个模块去掉后掉多少点——这是判断"哪个组件真正有效"的关键证据；
+  - 可视化图：注意力热图、特征可视化、检测框示例；
+- 检查图表严谨性（Keshav 特别强调）：坐标轴是否标注完整？结果是否带误差棒/多次运行均值？对比是否公平（相同数据、相同训练预算）？——这些细节能区分赶工的粗糙论文和真正的优秀工作；
+- 边读边在页边记要点，<strong>标记未读但相关的参考文献</strong>（这是顺藤摸瓜扩文献库的最好方式）。</p>
+<p><strong>第二遍的验收标准（Keshav 原文标准）：</strong> 能向别人（想象向导师或组会同学）<strong>概括论文的主张和支持证据</strong>。李沐的表述："搞清楚论文在研究什么问题、用了什么方法、跟别的方法差距多大。"</p>
+<h3 id="13-第三遍虚拟复现新手-45-小时吃透为什么这样做">1.3 第三遍：虚拟复现（新手 4–5 小时，吃透"为什么这样做"）</h3>
+<p>这是导师指定精读论文必须走到的一步。</p>
+<p><strong>Keshav 原版核心思想——"虚拟重做一遍"（virtually re-implement）：</strong> 假设自己与作者做出同样假设，在脑中把工作重新实现一遍，与论文实际做法对比。由此不仅能看清创新点，还能发现<strong>隐藏的缺陷与假设</strong>。</p>
+<p><strong>李沐的实操表述：</strong> 弄懂论文中每一句话在说什么，读的时候"脑补"如果是自己来做这个工作会怎么做、同样的方法自己能做出什么优化。"这样读完后好像自己动手做了一遍似的，即使合上文章也能回忆起许多细节。"</p>
+<p><strong>CV 论文第三遍的具体检查单：</strong>
+- 网络结构逐层推演：输入张量形状如何变化？参数量/FLOPs 大概多少？
+- 损失函数设计：为什么用这个 loss？分类用交叉熵、检测还要回归损失，权重怎么配？
+- 训练细节：数据增强策略、学习率调度、batch size、训练轮数——这些"工程细节"往往才是复现成败的关键；
+- <strong>主动质疑（第三遍的灵魂）：</strong> 每个假设都要挑战——如果换个数据集结论还成立吗？提升是否可能主要来自更大模型/更多数据而非方法本身？消融实验覆盖了所有组件吗？</p>
+<p><strong>第三遍的验收标准：</strong> 合上论文能凭记忆<strong>重构整篇论文的结构</strong>，说出强项与弱点，能指出隐含假设、缺失引用和实验设计的潜在问题——并且能回答"如果我来做，我会怎么做"。</p>
+<h3 id="14-三遍法的时间经济学">1.4 三遍法的时间经济学</h3>
+<p>三遍耗时递增（15分钟 → 1小时 → 4-5小时），<strong>中途随时可以停止</strong>。这正是它的精髓：不是每篇论文都值得第三遍。参照"摘要回顾三阶法"（扫盲式泛读→针对性精读→批判性审视），日常跟踪领域进展用第一遍，组会要汇报的论文用第二、三遍。李沐的完整演示视频（B 站《如何读论文【论文精读·1】》，BV1H44y1t75x，2021-10-06 发布，时长 6:39）用 AlexNet、ResNet 实际演示了全过程，<strong>强烈建议第一次实践前先看这期视频</strong>。</p>
+<hr />
+<h2 id="二cv-经典论文阅读地图为看懂导师给的论文补背景">二、CV 经典论文阅读地图（为"看懂导师给的论文"补背景）</h2>
+<p>零基础读 CV 论文的最大障碍在于背景断层。导师给的论文大概率建立在下述脉络之上（源自李沐 B 站论文精读系列的项目规划 mli/paper-reading，README「录制完成的论文」表 2026-09-28 实测 60 条，是中文社区系统性最强的论文精读资源）：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>论文</th>
+<th>为什么必须懂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>深度学习奠基</td>
+<td><strong>AlexNet (2012)</strong></td>
+<td>深度学习在 CV 的起点：ReLU、Dropout、GPU训练、数据增强的源头</td>
+</tr>
+<tr>
+<td>骨干网络</td>
+<td><strong>ResNet (2015)</strong></td>
+<td>残差连接是几乎所有现代 backbone 的基础，"最难懂但最值得精读的一篇"</td>
+</tr>
+<tr>
+<td>检测</td>
+<td>Faster R-CNN / <strong>YOLO 系列</strong></td>
+<td>两阶段 vs 单阶段检测范式</td>
+</tr>
+<tr>
+<td>Transformer 时代</td>
+<td><strong>ViT (2020)</strong> → Swin Transformer (2021)</td>
+<td>NLP 架构迁移到图像，当前 CV 主流范式</td>
+</tr>
+<tr>
+<td>自监督</td>
+<td>MAE (2021)</td>
+<td>掩码重建预训练，数据效率的思路</td>
+</tr>
+<tr>
+<td>多模态</td>
+<td>CLIP (2021)</td>
+<td>图文对比学习，零样本能力的来源</td>
+</tr>
+</tbody>
+</table>
+<p><strong>实操建议：</strong> 拿到导师论文后，第一遍先做"依赖检查"——看它的 related work 和 backbone。如果连 ResNet/ViT 都没读过，先按上表补 1–2 篇再读指定论文（李沐原话：先读它引用的前置研究，回头再读门槛会低）。</p>
+<hr />
+<h2 id="三论文精读笔记模板可直接照做">三、论文精读笔记模板（可直接照做）</h2>
+<p>读而不记 = 白读。建议每篇精读论文建立一页笔记（Markdown/Obsidian/纸质均可），模板：</p>
+<pre><code># 论文名 + 会议/年份 + 一行字概括
+## 0. 元信息：作者/机构/代码链接/是否开源
+## 1. 问题定义：解决什么问题？为什么重要？
+## 2. 已有方法及其缺陷（related work 一行一派）
+## 3. 核心思想（用自己的话，≤5句）
+## 4. 方法细节：结构图手画一遍 + 关键公式直觉解释
+## 5. 实验设置：数据集/指标/对比方法/训练细节
+## 6. 主结果 &amp; 消融：哪些组件真正有效？提升来自哪里？
+## 7. 我的质疑（第三遍产出）：假设成立吗？实验公平吗？
+## 8. 如果我来做：我的改进想法
+## 9. 对我课题的启发 + 遗留问题（问导师/师姐）
+</code></pre>
+<p>第 7、8 条是第三遍的直接产物，也是<strong>组会汇报时导师最爱问的问题</strong>（"你觉得这个方法有什么问题？""如果换你会怎么做？"）。科研笔记的核心原则：<strong>记录的目的是被检索和复用，而非存档</strong>——按论文/主题组织，按日期组织会让笔记变成流水账。</p>
+<hr />
+<h2 id="四读论文时-ai-可以做什么不能做什么">四、读论文时 AI 可以做什么、不能做什么</h2>
+<p>每一行是精读流程的一步，左列自己做，右列是 AI 可以参与的环节。依据（科学证据、高校规范与逐条判据）见 <a href="./guide-ai-boundaries.html">《AI 使用边界》</a>。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>自己做</th>
+<th>AI 可做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一遍 海选</td>
+<td>读标题、摘要、结论；扫方法与主结果表；记下类型、上下文、贡献与没看懂的地方</td>
+<td>无。这一步只要 10–15 分钟</td>
+</tr>
+<tr>
+<td>补背景概念</td>
+<td>查教材、维基与经典论文原文</td>
+<td>解释看不懂的术语与公式直觉，结论回教材或原文核对</td>
+</tr>
+<tr>
+<td>第二遍 精读</td>
+<td>全文通读，看懂每张图表，记笔记</td>
+<td>就卡住的单个问题提问，例如「这个损失为什么这样设计」</td>
+</tr>
+<tr>
+<td>第三遍 虚拟复现</td>
+<td>逐层推演结构，质疑每条假设，写「如果我来做」</td>
+<td>无。个人思考与判断不能交出去</td>
+</tr>
+<tr>
+<td>写笔记</td>
+<td>按模板完整填写九节</td>
+<td>让 AI 对已经写好的总结提改进建议</td>
+</tr>
+<tr>
+<td>做汇报 PPT</td>
+<td>大纲、内容、图自己定</td>
+<td>版式美化、生成母版样式</td>
+</tr>
+<tr>
+<td>排练</td>
+<td>完整讲两遍并计时</td>
+<td>模拟答辩、多轮追问</td>
+</tr>
+<tr>
+<td>汇报当天</td>
+<td>全程自己讲</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>底线：与研究方向密切相关、对结论有重要影响的论文（尤其是导师指定的精读论文），必须亲自通读原文；参考文献列表逐条自己核实，不要让 AI 生成。</p>
+<hr />
+<h2 id="五组会汇报技巧直接服务近期必须完成的任务">五、组会汇报技巧（直接服务近期必须完成的任务）</h2>
+<p>综合科研 PPT 方法论（global-meetings《如何做科研PPT：从逻辑架构到视觉呈现》、xsjxkt《研究生组会文献汇报技巧》、unisa 学术报告指南）：</p>
+<h3 id="51-汇报定位讲一个完整的故事">5.1 汇报定位：讲一个完整的故事</h3>
+<p>科研汇报的本质是<strong>用逻辑清晰的方式向听众讲一个完整的研究故事</strong>：开头（为什么做）→ 发展（怎么做）→ 高潮（发现了什么）→ 结尾（意味着什么/对课题组有什么启发）。听众来听的是讲述本身，读论文是他们自己会做的事。先用一行字写出主线，如："这篇论文针对 X 问题提出 Y 方法，在 Z 数据集上比 baseline 提升 N%，思路可供我们课题借鉴。"</p>
+<h3 id="52-精读汇报的推荐结构">5.2 精读汇报的推荐结构</h3>
+<ol>
+<li><strong>论文信息</strong>：题目、作者、机构、发表会议/年份（用一行字交代这篇工作的位置）；</li>
+<li><strong>研究背景与动机</strong>：这个问题为什么重要？已有方法的瓶颈是什么？（用 1-2 张图讲清领域脉络）</li>
+<li><strong>核心思想</strong>：先给直觉（最好一张自己画的示意图），再进细节；</li>
+<li><strong>方法详解</strong>：按框架图分模块讲，每页一个模块，配结构图与关键公式（公式要讲"在干什么"而非逐步推导）；</li>
+<li><strong>实验结果</strong>：主表 + 消融表 + 可视化，讲清"提升来自哪里"；</li>
+<li><strong>总结与个人思考</strong>（最重要的加分项）：论文优缺点、对本课题组的启发、可借鉴点、不足与解决思路——这部分直接对应笔记模板第 7–9 条，是导师判断有没有读进去的核心依据。</li>
+</ol>
+<h3 id="53-ppt-制作要点">5.3 PPT 制作要点</h3>
+<ul>
+<li><strong>先想后做</strong>：明确时长（5/15/30 分钟决定详略）、听众（组内师兄师姐 vs 外专业）、目的（学习汇报 vs 进展汇报）；</li>
+<li><strong>极简原则</strong>：每页文字不超过 7 行；正文不小于 24 号字；"看图说话"——能用图表不用文字墙；</li>
+<li><strong>方法</strong>：最快捷径是<strong>参考师兄师姐以往的组会 PPT 模板</strong>（组内习惯 &gt; 通用美学）；</li>
+<li>逻辑三段式：背景问题 → 方法 → 结果结论，目录页让听众知道讲到哪一步。</li>
+</ul>
+<h3 id="54-讲述与问答">5.4 讲述与问答</h3>
+<ul>
+<li><strong>预演</strong>：至少完整讲一遍并计时（新手常见问题是超时）；</li>
+<li><strong>问答准备</strong>：提前列出导师可能问的问题并写好答案——包括：某个公式细节、为什么选这个 baseline、这篇论文和我们课题的关系、自己认为的缺陷、"如果换你会怎么做"；</li>
+<li><strong>心态</strong>：第一次汇报人人都会紧张，讲得磕绊完全正常，导师对研一第一学期的期待是"读懂+诚实"，不是"完美"。被问住时坦诚说"这个我还没深入查，会后我去确认"远好于编造（学术圈对编造零容忍）。参考口诀：<strong>完成比完美更重要</strong>。</li>
+</ul>
+<hr />
+<h2 id="六传统文献工具链zotero-上手">六、传统文献工具链：Zotero 上手</h2>
+<p>本文只管传统文献工具。Zotero 是开源免费的文献管理标准工具（zotero-chinese 中文社区维护官方文档翻译）。</p>
+<h3 id="61-研究生为什么需要文献管理工具">6.1 研究生为什么需要文献管理工具</h3>
+<p>两年下来会积累上百篇文献，靠文件夹和重命名管理必然失控。Zotero 解决两个核心痛点：<strong>文献多了记不住、引用格式排不对</strong>。</p>
+<h3 id="62-30-分钟上手清单来源zotero-中文社区官方快速开始-上科大图书馆指南">6.2 30 分钟上手清单（来源：Zotero 中文社区官方快速开始 + 上科大图书馆指南）</h3>
+<ol>
+<li><strong>安装</strong>：zotero.org 下载桌面端（免费开源），注册 Zotero 账号（免费 300MB 附件同步空间，条目元数据同步不限量）；</li>
+<li><strong>浏览器插件 Zotero Connector</strong>：装到 Chrome/Edge 后，打开 arXiv/CVPR/知网页面，点一下插件图标即可自动抓取标题、作者、会议、年份等元数据并入库（CV 论文在 arXiv/出版社会页支持极佳）；</li>
+<li><strong>PDF 附件</strong>：抓取条目时可同时保存 PDF；中文文献可配合茉莉清单插件（jasminum）完善支持；</li>
+<li><strong>组织</strong>：用"分类（文件夹）"+"标签"双维度组织——建议一个分类对应一个研究主题/课题（如 CV-检测、CV-自监督），标签标注方法属性（如 #transformer #backbone）；</li>
+<li><strong>笔记</strong>：条目下直接挂笔记，与精读笔记模板（本文第三节）联动；</li>
+<li><strong>Word 引用</strong>：安装 Zotero Word 插件后，在 Word 里一键插入引文、自动生成参考文献列表、一键切换引用样式（GB/T 7714、IEEE、CVPR 格式随心换）——写综述和论文时是刚需；</li>
+<li><strong>同步</strong>：多设备登录同一账号即可同步条目与笔记；附件超出 300MB 可用 WebDAV（如坚果云）扩容。</li>
+</ol>
+<blockquote>
+<p>提示：Zotero 管"有哪些文献"（户口本），精读理解靠自己（见《AI 使用边界》里的许可范围）。上科大图书馆指南（library.shanghaitech.edu.cn）亦提供本校版中文教程可参考。</p>
+</blockquote>
+<hr />
+<h2 id="七文献调研与综述入门从读一篇到读一片">七、文献调研与综述入门（从"读一篇"到"读一片"）</h2>
+<p><strong>Keshav 原文的文献调研五步法（做综述/开题调研的权威流程）：</strong>
+1. 用 Google Scholar / Semantic Scholar + 恰当选词，找 <strong>3–5 篇近期论文</strong>，各做第一遍阅读；
+2. 找它们的 related work 章节 + 共同引用与重复出现的作者 → 圈出<strong>关键论文与关键研究者</strong>；
+3. 去关键研究者的主页看其近期发表 → 识别该领域<strong>顶级会议</strong>（CV 领域：CVPR/ICCV/ECCV/NeurIPS/ICML）；
+4. 翻顶级会议近两年 proceedings，快速扫出高相关工作；
+5. 对集合起来的论文做两遍阅读，迭代补漏（所有论文都引用而仍未读的那篇，必须补）。</p>
+<p><strong>零基础阶段的可行目标</strong>：研一上学期不必写正式综述，但可维护一份"活文档"文献综述笔记——每篇一行：问题/方法/结果/局限。积累 20-30 行后，领域地图自然浮现。写综述的常见误区是"只堆砌摘要"——正确做法是按<strong>方法流派/时间脉络组织</strong>，并明确指出各派的取舍与课题的关系（参考文献：ais.cn 研究生科研方法；选择"精读+泛读结合"：奠基性论文反复读，相关领域文献快速浏览拓展视野）。</p>
+<hr />
+<h2 id="八科研入门的底层心态与习惯浓缩版">八、科研入门的底层心态与习惯（浓缩版）</h2>
+<p>来自研究生科研方法论的共识性结论（ais.cn、global-meetings 等）：
+1. <strong>选题做小题</strong>：结合实验室条件选"小而深"的题，一点做透，忌大而空；
+2. <strong>表达即思维</strong>：写作与汇报不只是展示成果，<strong>写/讲的过程本身就是发现逻辑漏洞的过程</strong>——这也是导师安排汇报的价值；
+3. <strong>基础技能没有捷径</strong>：实验技术、数据分析唯有反复训练，"知其然更知其所以然"；
+4. <strong>主动沟通</strong>：与导师、师兄师姐的定期沟通能避开 80% 的弯路；组会被问倒不丢人，沉默一学期才丢人；
+5. <strong>完成比完美更重要</strong>：先读懂大意、搭起汇报骨架，再迭代打磨。</p>
+<hr />
+<h2 id="附信息来源">附：信息来源</h2>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>来源</th>
+<th>复核情况（2026-09-28）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>三遍法经典版（五C、虚拟复现、文献调研五步）</td>
+<td>S. Keshav, "How to Read a Paper", CCR 2007（原文 PDF: web.stanford.edu/class/ee384m/Handouts/HowtoReadPaper.pdf）</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>李沐三步法、CV论文精读演示、mli/paper-reading 项目</td>
+<td>量子位报道《AI大神李沐B站走红》(qbitai.com/2021/10/29816.html)；B站《如何读论文【论文精读·1】》(BV1H44y1t75x，2021-10-06 发布，时长 6:39)；GitHub mli/paper-reading（README「录制完成的论文」表实测 60 条，仓库最后推送 2025-03-22）</td>
+<td>已回源</td>
+</tr>
+<tr>
+<td>组会汇报结构/PPT/问答技巧</td>
+<td>global-meetings.com《如何做科研PPT：从逻辑架构到视觉呈现的完整指南》；xsjxkt.com《读研必备技能之研究生组会文献汇报技巧》；unisa.ac.za 学术报告指南</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>Zotero 上手</td>
+<td>zotero-chinese.com/user-guide/quick-start（官方中文文档）；上海科技大学图书馆 Zotero 指南</td>
+<td>未回源</td>
+</tr>
+<tr>
+<td>科研入门方法/综述方法</td>
+<td>ais.cn《研究生如何科研》；Keshav 原文第3节</td>
+<td>未回源</td>
+</tr>
+</tbody>
+</table>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"><a href="./guide-projects.html">← 实战项目路线</a><a href="./guide-ai-boundaries.html">AI 使用边界 →</a></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>

@@ -1,13 +1,6 @@
-#!/usr/bin/env python3
-"""Build the static site for the Tab Thursday reading notes.
-
-Usage:
-    python build_site.py
-
-Reads the two Markdown deep-read notes in the repository root and writes a
-self-contained static site into docs/. GitHub Pages is configured to serve
-/docs on the main branch. Requires Python-Markdown (pip install markdown).
-"""
+# 构建 public-reading 静态站点：读取 tab-thursday/ 与 handbook/ 的 Markdown，输出到 docs/。
+# 用法：python build_site.py
+# 依赖：Python-Markdown（python -m pip install markdown）
 
 from __future__ import annotations
 
@@ -25,14 +18,14 @@ DOCS = ROOT / "docs"
 ASSETS = DOCS / "assets"
 LINKS_FILE = ROOT / "links.json"
 
-REPO_URL = "https://github.com/73mtq/tab-thursday-notes"
-SITE_URL = "https://73mtq.github.io/tab-thursday-notes/"
+REPO_URL = "https://github.com/73mtq/public-reading"
+SITE_URL = "https://73mtq.github.io/public-reading/"
 BLOB = REPO_URL + "/blob/main/"
 
 ISSUES = [
     {
         "key": "001",
-        "src": "Tab星期四第一期-18位分享者内容精读.md",
+        "src": "tab-thursday/第一期-18位分享者内容精读.md",
         "label": "第一期",
         "date": "2026-10-29",
         "place": "706 上海（迎龙大厦）",
@@ -50,7 +43,7 @@ ISSUES = [
     },
     {
         "key": "002",
-        "src": "Tab星期四第二期-21位分享者内容精读.md",
+        "src": "tab-thursday/第二期-21位分享者内容精读.md",
         "label": "第二期",
         "date": "2026-11-05",
         "place": "上海幸福里",
@@ -68,7 +61,7 @@ ISSUES = [
     },
     {
         "key": "003",
-        "src": "Tab星期四第三期-22位分享者内容精读.md",
+        "src": "tab-thursday/第三期-22位分享者内容精读.md",
         "label": "第三期",
         "date": "2026-11-12",
         "place": "上海幸福里",
@@ -86,7 +79,7 @@ ISSUES = [
     },
     {
         "key": "004",
-        "src": "Tab星期四第四期-21位分享者内容精读.md",
+        "src": "tab-thursday/第四期-21位分享者内容精读.md",
         "label": "第四期",
         "date": "2026-11-19",
         "place": "上海幸福里",
@@ -104,7 +97,52 @@ ISSUES = [
     },
 ]
 
-STAMP = "2026-11-25"
+GUIDES = [
+    {
+        "key": "starter",
+        "src": "handbook/起步路线.md",
+        "label": "起步路线",
+        "title": "起步路线 · 研究生第一学期怎么排",
+        "desc": "把账号、第一篇论文、第一次汇报与十个项目排进 20 周，每一步都带判据。",
+        "stamp": "2026-09-28",
+    },
+    {
+        "key": "free-resources",
+        "src": "handbook/免费资源清单.md",
+        "label": "免费资源清单",
+        "title": "免费资源与算力清单",
+        "desc": "算力、学生认证、数据集、标注工具、模型平台、作品集托管与学生权益，每条额度都带来源等级与复核日期。",
+        "stamp": "2026-09-28",
+    },
+    {
+        "key": "projects",
+        "src": "handbook/实战项目路线.md",
+        "label": "实战项目路线",
+        "title": "实战项目路线 · 从零基础到能碰论文",
+        "desc": "十个项目分三档，从 MNIST 到论文复现，每个项目给出数据集、完成判据与容易出错的地方。",
+        "stamp": "2026-09-28",
+    },
+    {
+        "key": "paper-reading",
+        "src": "handbook/论文精读方法.md",
+        "label": "论文精读方法",
+        "title": "论文精读方法 · 三遍阅读与组会汇报",
+        "desc": "三遍阅读法、CV 经典论文地图、精读笔记模板、组会汇报结构与文献调研五步法。",
+        "stamp": "2026-09-27",
+    },
+    {
+        "key": "ai-boundaries",
+        "src": "handbook/AI-使用边界.md",
+        "label": "AI 使用边界",
+        "title": "AI 使用边界 · 哪些环节可以交出去",
+        "desc": "认知负债的实验证据、国内高校的 AI 规范盘点、红黄绿灯清单与依赖预警自查表。",
+        "stamp": "2026-09-27",
+    },
+]
+
+TEMPLATES = ["templates/论文精读笔记模板.md", "templates/AI使用披露清单模板.md"]
+
+STAMP = "2026-11-26"
 NEXT_EVENT = {
     "label": "#005",
     "date": "2026-11-26",
@@ -117,7 +155,11 @@ NAME_ALIASES = {
     "草原张": "草原张（Naren）",
     "LingXinxia": "Xinxia Ling",
 }
-SRC_TO_PAGE = {issue["src"]: "./issue-%s.html" % issue["key"] for issue in ISSUES}
+SRC_TO_PAGE = {Path(issue["src"]).name: "./issue-%s.html" % issue["key"] for issue in ISSUES}
+GUIDE_TO_PAGE = {Path(guide["src"]).name: "./guide-%s.html" % guide["key"] for guide in GUIDES}
+HREF_MAP = {"./" + name: page for name, page in SRC_TO_PAGE.items()}
+HREF_MAP.update({"./" + name: page for name, page in GUIDE_TO_PAGE.items()})
+HREF_MAP.update({"./" + name: BLOB + quote("handbook/" + name) for name in TEMPLATES})
 CN_NUM = {1: "一", 2: "两", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九", 10: "十"}
 
 CSS = r"""
@@ -277,6 +319,13 @@ a,button,input{-webkit-tap-highlight-color:transparent}
 .table-wrap table{margin:0}
 .table-hint{display:none}
 .issue-card.featured{background:#fbfdff;border-color:#c6ddf2;border-left:3px solid var(--blue)}
+section#tab-thursday,section#handbook{scroll-margin-top:84px}
+.section-title.sub{font-size:15.5px;color:var(--muted);margin:34px 0 14px}
+.official-row{margin-top:20px}
+.guide-card h2{font-size:19px}
+.guide-card .issue-meta{margin-bottom:10px}
+.sidebar-sub{font-size:11.5px;color:var(--faint);margin:8px 0 2px}
+.sidebar-guide{font-weight:500}
 .section-title{display:flex;align-items:center;gap:12px}
 .section-title::after{content:"";flex:1;height:1px;background:var(--line)}
 .chip,.quick-grid a,.toc a,.topbar nav a,.to-top,.menu-toggle,.toc-fab,.drawer-close{transition:background-color 150ms var(--ease-out),color 150ms var(--ease-out),border-color 150ms var(--ease-out),transform 80ms var(--ease-out)}
@@ -467,19 +516,17 @@ PAGE_TPL = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{TITLE}} · Tab 星期四精读</title>
+<title>{{TITLE}} · 公开材料精读</title>
 <meta name="description" content="{{DESC}}">
 <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 <div id="progress"></div>
 <header class="topbar">
-  <a class="brand" href="./index.html">Tab 星期四 · 精读</a>
+  <a class="brand" href="./index.html">公开材料精读</a>
   <nav>
     <a href="./index.html">首页</a>
 {{NAV}}
-    <a class="nav-official" href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
-    <a class="nav-repo" href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
   <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
 </header>
@@ -489,7 +536,7 @@ PAGE_TPL = r"""<!doctype html>
     <div class="sidebar-head">
       <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
       <div class="sidebar-title">目录 · {{LABEL}}</div>
-      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节 / 分享者" autocomplete="off">
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
       <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
     </div>
     <nav class="toc" id="toc">
@@ -497,6 +544,7 @@ PAGE_TPL = r"""<!doctype html>
     </nav>
     <div class="sidebar-foot">
       <a href="{{BLOB}}" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+{{SIDEBAR_EXTRA}}
       <a href="./index.html">← 返回首页</a>
     </div>
   </aside>
@@ -522,43 +570,55 @@ HOME_TPL = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tab 星期四 · 分享内容精读</title>
+<title>公开材料精读 · 活动精读与学习手册</title>
 <meta name="description" content="{{HOME_DESC}}">
 <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 <div id="progress"></div>
 <header class="topbar">
-  <a class="brand" href="./index.html">Tab 星期四 · 精读</a>
+  <a class="brand" href="./index.html">公开材料精读</a>
   <nav>
     <a href="./index.html" class="active">首页</a>
 {{NAV}}
-    <a class="nav-official" href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
-    <a class="nav-repo" href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
 </header>
 <main class="home">
   <section class="hero">
-    <span class="kicker">线下版 Hacker News · 上海 · 每周四</span>
-    <h1>Tab 星期四 · 分享内容精读</h1>
+    <span class="kicker">活动分享 · 免费资源 · 读论文的方法</span>
+    <h1>公开材料精读</h1>
     <p>{{HERO}}</p>
     <div class="hero-links">
-{{OFFICIAL_LINKS}}
-      <a href="https://tabthursday.com/about" target="_blank" rel="noopener noreferrer">活动规则</a>
+      <a href="#tab-thursday">活动精读</a>
+      <a href="#handbook">学习手册</a>
       <a href="{{REPO}}" target="_blank" rel="noopener noreferrer">仓库与 Markdown 原文</a>
     </div>
   </section>
 
   <div class="notice">{{NOTICE}}</div>
 
-  <h2 class="section-title">{{ISSUE_COUNT}}期文档</h2>
-  <section class="issue-grid">
+  <section id="tab-thursday">
+    <h2 class="section-title">活动精读 · {{ISSUE_COUNT}}期</h2>
+    <p class="index-note">{{ISSUE_NOTE}}</p>
+    <section class="issue-grid">
 {{CARDS}}
+    </section>
+    <div class="hero-links official-row">
+{{OFFICIAL_LINKS}}
+      <a href="https://tabthursday.com/about" target="_blank" rel="noopener noreferrer">活动规则</a>
+    </div>
+    <h3 class="section-title sub">{{LATEST_LABEL}} · 按主题跳转</h3>
+    <section class="quick-grid">
+{{QUICK}}
+    </section>
   </section>
 
-  <h2 class="section-title">{{LATEST_LABEL}} · 按主题跳转</h2>
-  <section class="quick-grid">
-{{QUICK}}
+  <section id="handbook">
+    <h2 class="section-title">学习手册 · {{GUIDE_COUNT}} 篇</h2>
+    <p class="index-note">{{GUIDE_NOTE}}</p>
+    <section class="issue-grid guide-grid">
+{{GUIDE_CARDS}}
+    </section>
   </section>
 
   <h2 class="section-title">分享者与项目链接</h2>
@@ -583,7 +643,7 @@ NOTFOUND_TPL = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>页面不存在 · Tab 星期四精读</title>
+<title>页面不存在 · 公开材料精读</title>
 <style>
 body{margin:0;background:#faf9f6;color:#2c2c2a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.8}
 .wrap{max-width:620px;margin:0 auto;padding:90px 24px}
@@ -612,12 +672,12 @@ code{background:#302e29}
   <div class="code">404</div>
   <h1>这个地址没有对应的页面</h1>
   <p id="msg">请检查地址是否完整，或从下面的入口重新进入。</p>
-  <div class="box" id="tip" hidden>看起来地址末尾多复制了字符（例如 <code>**</code>）。正确地址是：<br><code>https://73mtq.github.io/tab-thursday-notes/</code><br>正在自动跳转到首页…</div>
+  <div class="box" id="tip" hidden>看起来地址末尾多复制了字符（例如 <code>**</code>）。正确地址是：<br><code>https://73mtq.github.io/public-reading/</code><br>正在自动跳转到首页…</div>
   <div class="links">
     <a href="./">返回首页</a>
 {{NAV_LINKS}}
   </div>
-  <div class="hint">Tab 星期四 · 分享内容精读 · GitHub Pages</div>
+  <div class="hint">公开材料精读 · GitHub Pages</div>
 </div>
 <script>
 (function(){
@@ -691,8 +751,8 @@ def convert(src: Path, linkify: bool) -> tuple[str, list[tuple[str, str, str]]]:
     )
     body = md.convert(text)
 
-    for src_name, page in SRC_TO_PAGE.items():
-        body = body.replace("./" + src_name, page)
+    for href, target in HREF_MAP.items():
+        body = body.replace('href="%s"' % href, 'href="%s"' % target)
     body = re.sub(
         r'<a href="(https?://[^"]+)"',
         r'<a href="\1" target="_blank" rel="noopener noreferrer"',
@@ -811,20 +871,80 @@ def cjk_count(text: str) -> int:
     return len(re.findall(r"[\u4e00-\u9fff]", text))
 
 
-def nav_html(active: str | None = None) -> str:
-    latest = ISSUES[-1]["key"]
+def nav_html(kind: str, active: str | None = None) -> str:
     rows = []
-    for issue in ISSUES:
-        cls = ["nav-issue"]
-        if issue["key"] != latest:
-            cls.append("nav-old")
-        if issue["key"] == active:
-            cls.append("active")
+    if kind == "issues":
+        latest = ISSUES[-1]["key"]
+        for issue in ISSUES:
+            cls = ["nav-issue"]
+            if issue["key"] != latest:
+                cls.append("nav-old")
+            if issue["key"] == active:
+                cls.append("active")
+            rows.append(
+                '    <a class="%s" href="./issue-%s.html">%s</a>'
+                % (" ".join(cls), issue["key"], html.escape(issue["label"]))
+            )
+        rows.append('    <a class="nav-cross" href="./index.html#handbook">学习手册</a>')
         rows.append(
-            '    <a class="%s" href="./issue-%s.html">%s</a>'
-            % (" ".join(cls), issue["key"], html.escape(issue["label"]))
+            '    <a class="nav-official" href="https://tabthursday.com/notes"'
+            ' target="_blank" rel="noopener noreferrer">官方汇总</a>'
+        )
+    elif kind == "guides":
+        rows.append('    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>')
+    else:
+        rows.append('    <a class="nav-issue" href="#tab-thursday">活动精读</a>')
+        rows.append('    <a class="nav-issue" href="#handbook">学习手册</a>')
+    rows.append(
+        '    <a class="nav-repo" href="%s" target="_blank" rel="noopener noreferrer">GitHub</a>'
+        % REPO_URL
+    )
+    return "\n".join(rows)
+
+
+def sidebar_extra_html(active: str | None) -> str:
+    if active is None:
+        return ""
+    rows = ['      <div class="sidebar-sub">手册其他篇目</div>']
+    for guide in GUIDES:
+        if guide["key"] == active:
+            continue
+        rows.append(
+            '      <a class="sidebar-guide" href="./guide-%s.html">%s</a>'
+            % (guide["key"], html.escape(guide["label"]))
         )
     return "\n".join(rows)
+
+
+def guide_prev_next(idx: int) -> tuple[str, str]:
+    prev_html = ""
+    next_html = ""
+    if idx > 0:
+        guide = GUIDES[idx - 1]
+        prev_html = '<a href="./guide-%s.html">← %s</a>' % (guide["key"], html.escape(guide["label"]))
+    if idx < len(GUIDES) - 1:
+        guide = GUIDES[idx + 1]
+        next_html = '<a href="./guide-%s.html">%s →</a>' % (guide["key"], html.escape(guide["label"]))
+    return prev_html, next_html
+
+
+def guide_card(idx: int, guide: dict) -> str:
+    return (
+        '    <a class="issue-card guide-card" href="./guide-%s.html">\n'
+        '      <div class="issue-no">第 %d 篇</div>\n'
+        '      <h2>%s</h2>\n'
+        '      <div class="issue-meta">复核 %s</div>\n'
+        '      <p class="issue-theme">%s</p>\n'
+        '      <span class="cta">开始阅读 →</span>\n'
+        '    </a>'
+        % (
+            guide["key"],
+            idx,
+            html.escape(guide["label"]),
+            guide["stamp"],
+            html.escape(guide["desc"]),
+        )
+    )
 
 
 def prev_next(idx: int) -> tuple[str, str]:
@@ -860,8 +980,15 @@ def main() -> None:
     (ASSETS / "style.css").write_text(CSS, encoding="utf-8", newline="\n")
     (ASSETS / "app.js").write_text(JS, encoding="utf-8", newline="\n")
     nav_links = "\n".join(
-        '    <a href="./issue-%s.html">%s</a>' % (issue["key"], html.escape(issue["label"]))
-        for issue in ISSUES
+        [
+            '    <a href="./index.html#tab-thursday">活动精读</a>',
+            '    <a href="./index.html#handbook">学习手册</a>',
+        ]
+        + [
+            '    <a href="./issue-%s.html">%s</a>'
+            % (issue["key"], html.escape(issue["label"]))
+            for issue in ISSUES
+        ]
     )
     (DOCS / "404.html").write_text(render(NOTFOUND_TPL, NAV_LINKS=nav_links), encoding="utf-8", newline="\n")
 
@@ -896,7 +1023,8 @@ def main() -> None:
             DESC=html.escape(issue["desc"]),
             REPO=REPO_URL,
             LABEL=html.escape(issue["label"]),
-            NAV=nav_html(issue["key"]),
+            NAV=nav_html("issues", issue["key"]),
+            SIDEBAR_EXTRA="",
             BLOB=BLOB + quote(issue["src"]),
             TOC=build_toc(heads),
             BODY=body,
@@ -904,6 +1032,35 @@ def main() -> None:
             NEXT=next_html,
         )
         out = DOCS / ("issue-%s.html" % issue["key"])
+        out.write_text(page, encoding="utf-8", newline="\n")
+        print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
+
+    guides_converted = {}
+    for guide in GUIDES:
+        src = ROOT / guide["src"]
+        body, heads = convert(src, linkify=False)
+        cjk = cjk_count(src.read_text(encoding="utf-8"))
+        guides_converted[guide["key"]] = (body, heads, cjk)
+        print("  guide %-14s %2d headings, %.1f 千汉字" % (guide["key"], len(heads), cjk / 1000))
+
+    for idx, guide in enumerate(GUIDES):
+        body, heads, _ = guides_converted[guide["key"]]
+        prev_html, next_html = guide_prev_next(idx)
+        page = render(
+            PAGE_TPL,
+            TITLE=html.escape(guide["title"]),
+            DESC=html.escape(guide["desc"]),
+            REPO=REPO_URL,
+            LABEL=html.escape(guide["label"]),
+            NAV=nav_html("guides", guide["key"]),
+            SIDEBAR_EXTRA=sidebar_extra_html(guide["key"]),
+            BLOB=BLOB + quote(guide["src"]),
+            TOC=build_toc(heads),
+            BODY=body,
+            PREV=prev_html,
+            NEXT=next_html,
+        )
+        out = DOCS / ("guide-%s.html" % guide["key"])
         out.write_text(page, encoding="utf-8", newline="\n")
         print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
 
@@ -992,12 +1149,21 @@ def main() -> None:
     unique_people = unique_share_people(links)
     issue_count_cn = CN_NUM.get(len(ISSUES), str(len(ISSUES)))
     hero = (
-        "每人带一个本周想分享的浏览器标签页，现场投票决定讲述时长。"
-        "这里把%s期共 %d 个分享席位（%d 位分享者）的内容，"
-        "在逐条访问产品站点、GitHub 仓库与公开报道后扩写成可独立阅读的章节，并各收敛出 5 条判断。"
+        "两类整理放在一起：Tab 星期四%s期共 %d 个分享席位（%d 位分享者）的逐章精读，"
+        "以及面向计算机视觉方向研究生的学习手册——免费资源与算力、起步路线、实战项目、"
+        "论文精读方法与 AI 使用边界。每条数字都标了来源等级与复核日期，推断与事实分开写。"
         % (issue_count_cn, total_cards, unique_people)
     )
-    notice = "正文所有外部链接都会在新标签页打开；左侧目录可按分享者姓名筛选，点击即可跳到对应章节。"
+    issue_note = (
+        "每人带一个本周想分享的浏览器标签页，现场投票决定讲述时长。%s期共 %d 个分享席位、%d 位分享者，"
+        "逐条访问产品站点、GitHub 仓库与公开报道后扩写成可独立阅读的章节，每期各收敛出 5 条判断。"
+        % (issue_count_cn, total_cards, unique_people)
+    )
+    guide_note = (
+        "五篇手册整理于 2026 年 9 月，复核日期写在每篇文首。"
+        "免费额度与政策类数字会过期，注册前按官网确认一次。"
+    )
+    notice = "正文里的外部链接都会在新标签页打开；文章页左侧目录可以按章节标题筛选，点击直达对应位置。"
     if NEXT_EVENT:
         notice += (
             '下一期 %s 正在报名：%s %s · %s · '
@@ -1011,7 +1177,8 @@ def main() -> None:
             )
         )
     home_desc = (
-        "Tab 星期四%s期分享汇总的深度精读：%d 个分享席位、%d 位分享者，收敛成可操作的判断。"
+        "公开材料精读：Tab 星期四%s期分享的深度精读（%d 个分享席位、%d 位分享者），"
+        "以及免费资源、起步路线、实战项目、论文精读方法与 AI 使用边界五篇学习手册。"
         % (issue_count_cn, total_cards, unique_people)
     )
 
@@ -1021,18 +1188,26 @@ def main() -> None:
         HOME_DESC=html.escape(home_desc),
         HERO=html.escape(hero),
         NOTICE=notice,
-        NAV=nav_html(None),
+        NAV=nav_html("home"),
         OFFICIAL_LINKS=official_links,
         CARDS="\n".join(cards),
+        GUIDE_CARDS="\n".join(guide_card(i, guide) for i, guide in enumerate(GUIDES, 1)),
         QUICK="\n".join(quick),
         ISSUE_COUNT=issue_count_cn,
+        GUIDE_COUNT=str(len(GUIDES)),
+        ISSUE_NOTE=html.escape(issue_note),
+        GUIDE_NOTE=html.escape(guide_note),
         LATEST_LABEL=html.escape(latest["label"]),
         INDEX_BLOCKS="\n\n".join(index_blocks),
         STAMP=STAMP,
     )
     (DOCS / "index.html").write_text(home, encoding="utf-8", newline="\n")
-    print("wrote %-28s %7d bytes  (%d parts, %d sharer cards)" % (
-        "index.html", (DOCS / "index.html").stat().st_size, len(quick), total_cards
+    print("wrote %-28s %7d bytes  (%d issue cards, %d guide cards, %d sharer cards)" % (
+        "index.html",
+        (DOCS / "index.html").stat().st_size,
+        len(cards),
+        len(GUIDES),
+        total_cards,
     ))
     print("\nPreview locally:  open docs/index.html")
     print("After push:       " + SITE_URL)
