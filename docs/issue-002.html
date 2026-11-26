@@ -307,7 +307,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>活动群线上分享</strong>（不计入上表）：Cassie 推荐 Excalidraw、HackerTube、social-auto-upload；CC 推荐 PhotoCraft；司马光砸缸推荐 Ego Lite、monid.ai、BestBlogs.dev、smg.fm；海涛贴出 DeepSeek Harness 的 Super-agent 文章并推荐 uu-remote-linux；Colleen 贴出 Teamily 增长拆解帖；陈雅娜贴出团队站与 genz ppt。集中整理在第四部分之后。</p>
+<p><strong>活动群线上分享</strong>（不计入上表）：Cassie 推荐 Excalidraw、HackerTube、social-auto-upload；CC 推荐 PhotoCraft；司马光砸缸推荐 Ego Lite、<a href="https://monid.ai" target="_blank" rel="noopener noreferrer">monid.ai</a>、<a href="https://BestBlogs.dev" target="_blank" rel="noopener noreferrer">BestBlogs.dev</a>、smg.fm；海涛贴出 DeepSeek Harness 的 Super-agent 文章并推荐 uu-remote-linux；Colleen 贴出 Teamily 增长拆解帖；陈雅娜贴出团队站与 genz ppt。集中整理在第四部分之后。</p>
 </blockquote>
 <hr />
 <h1 id="第一部分-agent-的工作形态从会话到任务">第一部分 · Agent 的工作形态：从会话到任务</h1>
@@ -360,7 +360,7 @@
 </ol>
 <h3 id="关键点拆解_1">关键点拆解</h3>
 <p><strong>第一，benchmark 是整套方法的支点。</strong> Agent 自主研究最大的障碍不是不会写代码，而是不知道「做得更好」具体是什么。没有可自动计算的标量目标，自主迭代就退化成随机游走：每一步都能自圆其说，但没有方向。把任务翻译成一个能跑出分数的评测，等于给 Agent 装上了梯度。<strong>这也是本期最反复出现的动作</strong>——JJ Ying 给字体建五维量表、Hao 把咨询输出准确率从 80% 提到 95%、David Jiang 把课标拆成可检查的知识点，本质上都是先把「好」定义成可测的东西。</p>
-<p><strong>第二，把推理平台封装成工具，是「能力接口化」。</strong> 不是让 Agent 读文档、自己拼底层 API，而是给它一组语义明确的调用：跑一次推理、取一次特征、算一次指标。这样既降低了上下文负担，也把错误收敛到工具边界内。它与本期 Colleen 用 MCP 暴露市场研究能力、monid.ai 用一个 skill 接 2900 多个工具，以及第一期 yytyyf 的 KeyKeeper「可用不可读」，是同一条思路的不同实现：<strong>给 Agent 的不是权限，是动作</strong>。</p>
+<p><strong>第二，把推理平台封装成工具，是「能力接口化」。</strong> 不是让 Agent 读文档、自己拼底层 API，而是给它一组语义明确的调用：跑一次推理、取一次特征、算一次指标。这样既降低了上下文负担，也把错误收敛到工具边界内。它与本期 Colleen 用 MCP 暴露市场研究能力、<a href="https://monid.ai" target="_blank" rel="noopener noreferrer">monid.ai</a> 用一个 skill 接 2900 多个工具，以及第一期 yytyyf 的 KeyKeeper「可用不可读」，是同一条思路的不同实现：<strong>给 Agent 的不是权限，是动作</strong>。</p>
 <p><strong>第三，「不训练、改投票调权」是算力约束下的正确取舍。</strong> 训练需要数据、显存与时间；集成只需要推理。更关键的是搜索空间的大小：权重是少数几个可调参数，优化空间小，小样本下更容易收敛，适合 Agent 在两天里反复试错。这是<strong>用搜索空间换算力</strong>，而不是用性能换便利。</p>
 <p><strong>第四，「超过两个月成果」需要谨慎解读。</strong> 缺少公开指标、数据集与对照组，结论无法独立验证；「两个月」也可能包含调研、工程化、部署、写文档等非模型指标工作。这条经验真正证明的是「领域门槛可以被跨越」，不是「AI 超过专家」。把它当成方法可行性的信号更合适。</p>
 <p><strong>第五，无背景既可能是优势，也划定了风险边界。</strong> 不会被「应该先训个模型」的惯性绑定，因此更容易接受投票 + 调权这种不体面但有效的方案；但同时也难以判断统计显著性、是否过拟合到验证集、以及检测任务在真实分布上的漂移。<strong>外行能跨过实现门槛，跨不过评估门槛</strong>——这恰好是第五部分要展开的判断。</p>
@@ -384,7 +384,7 @@
 <p>Hao 现在每月在 AI 上花费约 <strong>1000 美元</strong>，AI 承担约 <strong>95% 的执行环节</strong>，交付周期从<strong>两周缩短到两天</strong>，<strong>报价降至原来的三分之一到五分之一</strong>。</p>
 <p>做法是把咨询经验拆成标准化的 skill，并对高频场景单独优化，把输出准确率从约 <strong>80% 提高到 95% 以上</strong>。其中查找品牌官方 logo 的 Brand Logo Finder 已经开源，它会<strong>保留来源证据，把不确定的结果交给人工复核</strong>。</p>
 <blockquote>
-<p><strong>核查说明</strong>：<a href="https://www.goodinsight.ai" target="_blank" rel="noopener noreferrer">goodinsight.ai</a> 实际是 Substack 上的「好AI营销周报」，站点上没有上述 1000 美元、95%、两周→两天、报价 1/3~1/5、80%→95% 等任何数字，因此这些<strong>均为现场口述，无公开页面佐证</strong>。真正可核实的是 <a href="https://github.com/haopsy/brand-logo-finder" target="_blank" rel="noopener noreferrer">Brand Logo Finder 仓库</a>（作者 Hao Wu / GoodInsight.Ai，MIT，Python 3.10+，需 Pillow 与 curl_cffi），其 README 自述是 "A small Agent Skill for a deceptively difficult task"，做的是 "Source-traceable brand logo collection with explicit identity review and image-bound QC"，并声明这套公开版"从 HaoLifeLab 私有品牌资产工作流中提取了身份、图像与验收约束"。</p>
+<p><strong>核查说明</strong>：<a href="https://www.goodinsight.ai" target="_blank" rel="noopener noreferrer">goodinsight.ai</a> 实际是 Substack 上的「好AI营销周报」，站点上没有上述 1000 美元、95%、两周→两天、报价 1/3~1/5、80%→95% 等任何数字，因此这些<strong>均为现场口述，无公开页面佐证</strong>。真正可核实的是 <a href="https://github.com/haopsy/brand-logo-finder" target="_blank" rel="noopener noreferrer">Brand Logo Finder 仓库</a>（作者 Hao Wu / <a href="https://GoodInsight.Ai" target="_blank" rel="noopener noreferrer">GoodInsight.Ai</a>，MIT，Python 3.10+，需 Pillow 与 curl_cffi），其 README 自述是 "A small Agent Skill for a deceptively difficult task"，做的是 "Source-traceable brand logo collection with explicit identity review and image-bound QC"，并声明这套公开版"从 HaoLifeLab 私有品牌资产工作流中提取了身份、图像与验收约束"。</p>
 </blockquote>
 <p><strong>Brand Logo Finder 的可核实机制</strong>：输入 <code>companies.csv</code> 与 <code>input/brands.json</code> → <code>helper.py fetch/fetch-plan</code> 按 manifest 逐条取图 → 输出 <code>output/report.json</code>、contact sheet 与全尺寸图 → <code>reviews.json</code>（人工确认品牌身份与授权）→ <code>review</code> → <code>qc</code>。三条硬约束写得很清楚：<strong>"Downloaded successfully does not mean correct brand."</strong>、<strong>"Pin every review to the current image SHA-256"</strong>（复核绑定到图片哈希，换图即失效，防止复核与文件错配）、<strong>"Missing, failed, uncertain and unreviewed items block QC"</strong>（缺失、失败、存疑、未复核一律阻断验收）。退出码分三级：0 为全部通过，2 为待复核或 QC 失败，1 为输入或运行错误——<strong>「需要人工」被编码成了可被 CI 识别的退出状态</strong>。仓库还明确写了边界：无需私有 API Key、没有隐藏搜索服务、不自动保证品牌身份；确认官方域名/市场/子品牌、SVG 转换、历史或地区版本取舍、去不透明背景、判断是否为真实品牌，都留给人或 Agent。</p>
 <h3 id="关键点拆解_2">关键点拆解</h3>
@@ -415,7 +415,7 @@
 <p><strong>公开页面补充</strong>（<a href="https://springbrand.ai/" target="_blank" rel="noopener noreferrer">springbrand.ai</a>，2026-11-09 可访问）：官网列出的<strong>「实证优先」数据源</strong>包括 Google Search、Semrush、Ahrefs、TikTok、Instagram、YouTube、Apollo、Google Maps、Amazon，以及 Reddit、TikTok 论坛、X、小红书等讨论区——<strong>汇总页提到的「微博」未出现在官网数据源中</strong>。MCP 侧提供 discover-then-run 五件套：<code>search_tools</code> / <code>get_tool_schemas</code> / <code>execute_tools</code> / <code>get_execution</code> / <code>manage_connections</code>，按 Credits 计费，注册有 300 免费额度（最多 20 个任务）；列出的客户端包括 Claude Code、ChatGPT、Cursor、OpenClaw、Hermes Agent、WorkBuddy 与 DeepSeek Harness。</p>
 <p>样例报告本身比汇总页更谨慎：它把每条结论标成四级证据——<strong>Verified source on record / Inferred / Disputed / Company-reported unverified</strong>。「32× 增长」在报告里被明确标为 <em>Company-reported unverified</em>，来源是 Summer Chen 的长帖《32× Growth in One Quarter With a Small Team》（2026-11-03），报告还注明「该季度的日期与其他已报数字对不上」；「两轮投放驱动增长」标为 <em>Inferred</em>，第二轮更是写明「该步骤大部分没有可识别来源」。报告的落款建议是：<strong>"Copy the tactics, not the numbers. Pressure-test the channel attribution..."</strong></p>
 <h3 id="关键点拆解_3">关键点拆解</h3>
-<p><strong>第一，MCP 在这里不是技术选型，是分发决策。</strong> SpringBrand 没有自建 UI 工作流，而是把能力挂到用户已经在用的 Agent 上。获客成本因此变成「被接入的成本」，产品也不必与 Claude、ChatGPT 争夺用户入口。把它和第一期 Ego Lite 用 Skill 而非 SDK 接入、本期 monid.ai 用一个 skill 接 2900 多个工具放在一起，能看出一条清晰的路径：<strong>能力型产品的接口正在从「给人用的界面」变成「给 Agent 用的能力描述」</strong>，集成成本从 N×M 压到 N+M。</p>
+<p><strong>第一，MCP 在这里不是技术选型，是分发决策。</strong> SpringBrand 没有自建 UI 工作流，而是把能力挂到用户已经在用的 Agent 上。获客成本因此变成「被接入的成本」，产品也不必与 Claude、ChatGPT 争夺用户入口。把它和第一期 Ego Lite 用 Skill 而非 SDK 接入、本期 <a href="https://monid.ai" target="_blank" rel="noopener noreferrer">monid.ai</a> 用一个 skill 接 2900 多个工具放在一起，能看出一条清晰的路径：<strong>能力型产品的接口正在从「给人用的界面」变成「给 Agent 用的能力描述」</strong>，集成成本从 N×M 压到 N+M。</p>
 <p><strong>第二，「抓数据 + 生成报告」的价值不在抓取，在证据分级。</strong> 从公开信号反推一个产品的季度注册量增长 32 倍，这是估算而非事实。但这份报告的处理方式值得肯定：它没有把估算写成结论，而是给每条论断打上四级标签，把「公司自报未经核实」「推断」「有争议」与「有来源可查」分开，甚至主动指出季度日期对不上、第二轮投放缺乏来源。<strong>这比给出一个漂亮数字难得多，也更能进 B 端决策流程</strong>——第一期为 Ego Lite 厂商自测数字定下的原则是「给出对照与口径，数字才有意义」，这里是同一原则的更高配版本：给数字标可信度等级。</p>
 <p>值得单独指出的是，汇总页写「根据公开数据推算，Teamily 一个季度注册量增长 32 倍，主要来自两轮付费投放」，语气比原报告肯定得多。<strong>信息在转述中被抹平了不确定性</strong>——这恰好是阅读这类活动汇总时最需要警惕的一层损耗：现场一句话、汇总页一句话、原始页面一句话，三者的置信度并不相同。</p>
 <p><strong>第三，「让多个大模型同桌打牌」看似闲笔，实则是一次很聪明的能力展示。</strong> 德扑与麻将都有不完全信息、诈唬、风险偏好与对手建模，在同一规则下横向比较，比列一串 benchmark 分数更直观地暴露模型的行为倾向。它也是一种产品叙事——<strong>用可观察的对比，替代抽象的能力宣称</strong>。</p>
@@ -942,8 +942,8 @@
 </tbody>
 </table>
 <p><strong>三条值得单独记下的观察：</strong></p>
-<p><strong>第一，工具正在把「给 Agent 用的能力描述」当作标配交付物。</strong> social-auto-upload 附带 Skill、Ego Lite 配 ego browser 技能、monid.ai 用一个 skill 接入数千工具（其官网口径为 3,100+ tools / 97+ providers / 约 $0.0013 每次调用，提供 Skill、MCP、CLI 三种接入）、PostPiper 与 SpringBrand 走 MCP。与第 01、04 章合看，本期至少有六处出现同一形态：<strong>产品不再只交付界面，而是同时交付一份机器可读的能力说明</strong>。</p>
-<p><strong>第二，「AI 初评 + 人工精审」这个组合出现了两次。</strong> BestBlogs.dev 从 600 多个来源先经 AI 评分再人工精审（公开页给出 0–100 的质量分与多维度评分，并开源了 RSS 源列表、评分工作流与核心提示词）；HackerTube 则用「被 HN 反复推荐」作为人的筛选信号。与正文的 Owen、ZotWatch、custombili 合起来，<strong>本期共有五个「自己决定看什么」的案例</strong>，且几乎都把人放在筛选链路的最后一环，而不是完全交给模型。</p>
+<p><strong>第一，工具正在把「给 Agent 用的能力描述」当作标配交付物。</strong> social-auto-upload 附带 Skill、Ego Lite 配 ego browser 技能、<a href="https://monid.ai" target="_blank" rel="noopener noreferrer">monid.ai</a> 用一个 skill 接入数千工具（其官网口径为 3,100+ tools / 97+ providers / 约 $0.0013 每次调用，提供 Skill、MCP、CLI 三种接入）、PostPiper 与 SpringBrand 走 MCP。与第 01、04 章合看，本期至少有六处出现同一形态：<strong>产品不再只交付界面，而是同时交付一份机器可读的能力说明</strong>。</p>
+<p><strong>第二，「AI 初评 + 人工精审」这个组合出现了两次。</strong> <a href="https://BestBlogs.dev" target="_blank" rel="noopener noreferrer">BestBlogs.dev</a> 从 600 多个来源先经 AI 评分再人工精审（公开页给出 0–100 的质量分与多维度评分，并开源了 RSS 源列表、评分工作流与核心提示词）；HackerTube 则用「被 HN 反复推荐」作为人的筛选信号。与正文的 Owen、ZotWatch、custombili 合起来，<strong>本期共有五个「自己决定看什么」的案例</strong>，且几乎都把人放在筛选链路的最后一环，而不是完全交给模型。</p>
 <p><strong>第三，两处跨期回响。</strong> 其一，第一期第 04 位 Gloria X 分享的 Ego Lite，在第二期成了司马光砸缸工作流里的一个组件，Yorkson 还补充了与 Codex 内置浏览器的比较——一个被分享的产品，下一期变成了别人的基础设施。其二，海涛推荐的 uu-remote-linux 与他第一期自己的 iPhone Use Pro 同属「观察协议、绕开官方限制做互通」类项目：纯 Rust、GPL-3.0、带免责声明与明确的未验证范围清单，两期之间同一个人对「让 Agent 或客户端操作真实设备」的兴趣线索非常连贯。</p>
 <hr />
 <h1 id="第五部分-横向总结21-个案例收敛出的-5-条判断">第五部分 · 横向总结：21 个案例收敛出的 5 条判断</h1>
@@ -953,7 +953,7 @@
 <ul>
 <li><strong>Comma</strong> 的官方定义是 "sessionless"、"built around Tasks, not chats"，架构为 Router 承接、Worker 执行，决策项停在 Needs Review 看板；</li>
 <li>海涛同时贴出的 <strong>DeepSeek Harness</strong> 文章独立给出同一套双层架构，并点明「Session 应当是系统的实现细节，而不应是用户的认知负担」「多任务的上限取决于人的注意力」；</li>
-<li><strong>Hao</strong> 把咨询经验拆成可版本化的 skill，<strong>SpringBrand</strong> 用 MCP 分发能力，<strong>monid.ai</strong> 用一个 skill 接入数千工具，<strong>Ego Lite</strong> 配 ego browser 技能把无 API 的 SaaS 变成 CLI，<strong>social-auto-upload</strong> 附带供 Agent 调用的 Skill，<strong>PostPiper</strong> 通过 MCP 在 Agent 里起草与排期。</li>
+<li><strong>Hao</strong> 把咨询经验拆成可版本化的 skill，<strong>SpringBrand</strong> 用 MCP 分发能力，<strong><a href="https://monid.ai" target="_blank" rel="noopener noreferrer">monid.ai</a></strong> 用一个 skill 接入数千工具，<strong>Ego Lite</strong> 配 ego browser 技能把无 API 的 SaaS 变成 CLI，<strong>social-auto-upload</strong> 附带供 Agent 调用的 Skill，<strong>PostPiper</strong> 通过 MCP 在 Agent 里起草与排期。</li>
 </ul>
 <p>两层变化要分开看。<strong>能力的粒度变细了</strong>：接口从「给人用的界面」变成「给 Agent 用的能力描述」，集成成本从 N×M 压成 N+M。<strong>工作的单位也变了</strong>：从会话变成任务，不是因为任务更先进，而是因为并行之后 bottleneck 落在人的注意带上——一个人只能同时跟进 3–5 个活跃会话，于是「把决策攒成队列」比「让 Agent 随时打断你」更合理。</p>
 <blockquote>
@@ -962,7 +962,7 @@
 <h2 id="判断二筛选权回流个人同时被-ai-选中成为新战场">判断二：筛选权回流个人，同时「被 AI 选中」成为新战场</h2>
 <p>这两件事看起来相反，实际是同一场变化的两面。</p>
 <ul>
-<li><strong>收回筛选权</strong>：Owen 把摘要与译文前移到 RSS 列表层、ZotWatch 在私有空间跑两级筛选、custombili 让用户自己写规则、HackerTube 用「被反复推荐」作信号、BestBlogs.dev 用「AI 初评 + 人工精审」——本期共五个案例，几乎都把人放在筛选链路的最后一环。</li>
+<li><strong>收回筛选权</strong>：Owen 把摘要与译文前移到 RSS 列表层、ZotWatch 在私有空间跑两级筛选、custombili 让用户自己写规则、HackerTube 用「被反复推荐」作信号、<a href="https://BestBlogs.dev" target="_blank" rel="noopener noreferrer">BestBlogs.dev</a> 用「AI 初评 + 人工精审」——本期共五个案例，几乎都把人放在筛选链路的最后一环。</li>
 <li><strong>争取被选中</strong>：绘页的 robots.txt 与 llms.txt、0xinhua 从 Network 面板拆出模型真实搜索词、司马光砸缸的模块化提示词、SpringBrand 的四级证据标签。</li>
 </ul>
 <p><strong>当推荐系统的调用方从人变成 Agent，「我要看什么」与「我要被看见」就合并成了一个问题</strong>：都是在给机器准备一份可读、可切分、可引用的结构。llms.txt 里写的「用途、人群、定价、与竞品区别」，和 0xinhua 观察到的「更新时间、准确数字、对比表格、页首摘要」，本质是同一类东西——<strong>可被直接引用的事实卡</strong>。</p>
@@ -1109,7 +1109,7 @@
 <tr>
 <td>02</td>
 <td>Peter Lei</td>
-<td>github.com/Peterleixx（无对应实践材料）</td>
+<td><a href="https://github.com/Peterleixx" target="_blank" rel="noopener noreferrer">github.com/Peterleixx</a>（无对应实践材料）</td>
 </tr>
 <tr>
 <td>03</td>
@@ -1189,7 +1189,7 @@
 <tr>
 <td>18</td>
 <td>雨杭</td>
-<td>okjk.co/hC0GE1（无对应公开材料）</td>
+<td><a href="https://okjk.co/hC0GE1" target="_blank" rel="noopener noreferrer">okjk.co/hC0GE1</a>（无对应公开材料）</td>
 </tr>
 <tr>
 <td>19</td>
@@ -1220,7 +1220,7 @@
 <li><strong>《孩子要学的一切》</strong>：首页「84 个领域 · 1,083 个概念 · 2,071 条先修关系」、「我们不做的事」清单、三国课标 + 2024–2026 新教材 + 2025 指南、离线可用，均来自 <a href="https://curriculum.theory-a.com/" target="_blank" rel="noopener noreferrer">产品页</a>。</li>
 <li><strong>ZotWatch</strong>：README 的「私有 GitHub 工作空间」「最多 30 篇是上限而非保底」「不凑数量」「基础推荐不需要 AI Key、AI 功能默认关闭」、三仓库架构、MIT、Python 3.11+，与作者博客的 FAISS、SJR 加权、预印本 ≤30%、每天 6 点、约 15 分钟处理一千多篇等，均有页面依据。</li>
 <li><strong>Gesture Synth</strong>：和弦映射、右手手势、7 种音色、12 根音、"Camera access is required to play"、自定义非商业许可证、「流行歌曲可能需要权利人许可」，均来自<a href="https://gesture-synth-weld.vercel.app/" target="_blank" rel="noopener noreferrer">页面</a>与<a href="https://github.com/ericwei97-cloud/gesture-synth" target="_blank" rel="noopener noreferrer">仓库</a>。</li>
-<li><strong>Occupy SaaS / PhotoCraft / SpringBrand / monid.ai / BestBlogs.dev / uu-remote-linux / TwitterShots / PostPiper / Bob / Anyway.Fonts</strong>：产品定位、许可证、定价、数据源或功能清单均有页面依据（详见对应章节）。</li>
+<li><strong>Occupy SaaS / PhotoCraft / SpringBrand / <a href="https://monid.ai" target="_blank" rel="noopener noreferrer">monid.ai</a> / <a href="https://BestBlogs.dev" target="_blank" rel="noopener noreferrer">BestBlogs.dev</a> / uu-remote-linux / TwitterShots / PostPiper / Bob / Anyway.Fonts</strong>：产品定位、许可证、定价、数据源或功能清单均有页面依据（详见对应章节）。</li>
 </ol>
 <h3 id="二仅为现场口述公开页面无佐证的内容">二、仅为现场口述、公开页面无佐证的内容</h3>
 <table>
@@ -1233,7 +1233,7 @@
 <tbody>
 <tr>
 <td>Hao 的 1000 美元/月、95% 执行、两周→两天、报价 1/3~1/5、准确率 80%→95%</td>
-<td>goodinsight.ai 实为 Substack「好AI营销周报」，站点上<strong>没有任何上述数字</strong></td>
+<td><a href="https://goodinsight.ai" target="_blank" rel="noopener noreferrer">goodinsight.ai</a> 实为 Substack「好AI营销周报」，站点上<strong>没有任何上述数字</strong></td>
 </tr>
 <tr>
 <td>Peter Lei「超过资深算法科学家两个月成果」</td>

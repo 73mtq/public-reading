@@ -703,6 +703,48 @@ def slugify(value: str, separator: str = "-") -> str:
     return value.strip(separator)
 
 
+AUTOLINK = re.compile(
+    r"(?<![\w/@.+:-])"
+    r"((?:https?://)?(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+"
+    r"(?:com|cn|org|net|io|ai|edu|co|me|dev|app|cc|tv|info|xyz|sh|so)"
+    r"(?:\.[a-z]{2})?(?:/[\w./?=&%#+:~-]*)?)",
+    re.I,
+)
+TAG_OR_TEXT = re.compile(r"<[^>]+>|[^<]+")
+PROTECT_OPEN = ("<a ", "<a>", "<code", "<pre")
+PROTECT_CLOSE = ("</a>", "</code>", "</pre>")
+
+
+def autolink_html(body: str) -> str:
+    """Turn bare domains and URLs in visible text into links."""
+    out = []
+    depth = 0
+    for token in TAG_OR_TEXT.findall(body):
+        if token.startswith("<"):
+            low = token.lower()
+            if low.startswith(PROTECT_OPEN):
+                depth += 1
+            elif low.startswith(PROTECT_CLOSE):
+                depth = max(0, depth - 1)
+            out.append(token)
+            continue
+        if depth:
+            out.append(token)
+            continue
+        out.append(AUTOLINK.sub(link_token, token))
+    return "".join(out)
+
+
+def link_token(match: "re.Match[str]") -> str:
+    text = match.group(1).rstrip(".,;:*")
+    suffix = match.group(1)[len(text):]
+    href = text if text.lower().startswith(("http://", "https://")) else "https://" + text
+    return (
+        '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>%s'
+        % (html.escape(href, quote=True), text, suffix)
+    )
+
+
 DOMAIN_FIND = re.compile(
     r"(?<![\w/])(?:[a-zA-Z0-9][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}"
     r"(?:/[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]*)?)"
@@ -758,6 +800,7 @@ def convert(src: Path, linkify: bool) -> tuple[str, list[tuple[str, str, str]]]:
         r'<a href="\1" target="_blank" rel="noopener noreferrer"',
         body,
     )
+    body = autolink_html(body)
 
     heads = [
         (level, hid, strip_tags(raw))
