@@ -130,12 +130,12 @@
 ## 附：信息来源
 | 内容 | 来源 |
 |---|---|
-| MIT 认知负债研究（设计、数据、83%/78%/89%、55%） | arXiv:2506.08872 v2（arxiv.org/abs/2506.08872）；MIT 官方科普 MIT News《Your brain on ChatGPT》（news.mit.edu）；British Journal of General Practice 2025 评论（PMC12723506）；雅虎新闻/心理学今日等报道；**注意其为未经同行评审的预印本** |
+| MIT 认知负债研究（设计、数据、83%/78%/89%、55%） | arXiv:2506.08872 v2（[arxiv.org/abs/2506.08872](https://arxiv.org/abs/2506.08872)）；MIT 官方科普 MIT News《Your brain on ChatGPT》（[news.mit.edu](https://news.mit.edu/)）；British Journal of General Practice 2025 评论（PMC12723506）；雅虎新闻/心理学今日等报道；**注意其为未经同行评审的预印本** |
 | 认知卸载机制 | ScienceDirect《Cognitive offloading in student–AI collaboration》(2026)；BJGP 2025 |
-| 清华 AI 学院《AI 使用指南》科研篇的风险分档 | 清华大学人工智能学院官网《清华大学人工智能学院AI使用指南（2026年版）》，发布页 https://collegeai.tsinghua.edu.cn/info/1464/1293.htm （2026-06-04），手册 PDF 链接 https://collegeai.tsinghua.edu.cn/pdf/GuidelinesforAIUse.pdf ；配套观点文章《AI Use in Higher Education Requires Risk-Graded, Actionable Guidelines》 |
-| 清华《人工智能教育应用指导原则》五原则 | 清华大学官网 tsinghua.edu.cn/info/1182/122828.htm；腾讯新闻 2025-12-23 报道（调研 25 所全球顶尖高校 70 份文件） |
+| 清华 AI 学院《AI 使用指南》科研篇的风险分档 | 清华大学人工智能学院官网《清华大学人工智能学院AI使用指南（2026年版）》，发布页 https://collegeai.tsinghua.edu.cn/info/1464/1293.htm （2026-06-04），手册 PDF 链接 https://collegeai.tsinghua.edu.cn/pdf/GuidelinesforAIUse.pdf ；学院教学资料页 https://collegeai.tsinghua.edu.cn/xspy/yjspy/zyzl.htm ；配套观点文章《AI Use in Higher Education Requires Risk-Graded, Actionable Guidelines》 |
+| 清华《人工智能教育应用指导原则》五原则 | 清华大学官网 [tsinghua.edu.cn/info/1182/122828.htm](https://www.tsinghua.edu.cn/info/1182/122828.htm)；腾讯新闻 2025-12-23 报道（调研 25 所全球顶尖高校 70 份文件） |
 | 复旦"六个禁止" | 复旦大学教务处 2024-11 规定，新华网/澎湃新闻 2024-12 报道 |
-| 华东师大+北师大《生成式AI学生使用指南》(20%标红) | ecnu.edu.cn 官网发布页；新华网上海 2024-07-01；澎湃新闻 2025-03 沪上高校盘点 |
+| 华东师大+北师大《生成式AI学生使用指南》(20%标红) | [ecnu.edu.cn](https://www.ecnu.edu.cn/) 官网发布页；新华网上海 2024-07-01；澎湃新闻 2025-03 沪上高校盘点 |
 | 交大规范、天津科大 40% 检测线、大学生使用数据 | 澎湃新闻 2025-03-05；新华网客户端 2024-12-21/30 |
 | 学习方法论（主动回忆、间隔重复、先己后人） | MIT 作者访谈（雅虎新闻）；eLearningCollege 2026 AI 学习法综述；哈佛 BSP 自我觉察方法 |
 
