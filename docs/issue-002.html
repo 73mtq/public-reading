@@ -13,10 +13,12 @@
   <a class="brand" href="./index.html">Tab 星期四 · 精读</a>
   <nav>
     <a href="./index.html">首页</a>
-    <a href="./issue-001.html">第一期</a>
-    <a href="./issue-002.html" class="active">第二期</a>
-    <a href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
-    <a href="https://github.com/73mtq/tab-thursday-notes" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="nav-issue nav-old" href="./issue-001.html">第一期</a>
+    <a class="nav-issue nav-old active" href="./issue-002.html">第二期</a>
+    <a class="nav-issue nav-old" href="./issue-003.html">第三期</a>
+    <a class="nav-issue" href="./issue-004.html">第四期</a>
+    <a class="nav-official" href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
+    <a class="nav-repo" href="https://github.com/73mtq/tab-thursday-notes" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
   <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
 </header>
@@ -78,8 +80,8 @@
 <h1 id="tab-星期四-第二期-21-位分享者内容精读">Tab 星期四 · 第二期 21 位分享者内容精读</h1>
 <blockquote>
 <p><strong>来源</strong>：<a href="https://tabthursday.com/002" target="_blank" rel="noopener noreferrer">Tab 星期四 #002 分享汇总</a>（2026-11-06 发布）</p>
-<p><strong>活动</strong>：2026 年 11 月 5 日（周四）19:30–22:00 · 上海市长宁区番禺路 381 号幸福里
-<strong>整理时间</strong>：2026-11-09
+<p><strong>活动</strong>：2026 年 11 月 5 日（周四）19:00–21:30 · 上海市长宁区番禺路 381 号幸福里
+<strong>整理时间</strong>：2026-11-09 · <strong>核对</strong>：2026-11-25
 <strong>体量</strong>：21 位现场分享者 + 一组活动群线上分享；正文约 3.5 万汉字，单章约 1200–1800 字，文档总字符约 6.6 万
 <strong>配套文档</strong>：<a href="./issue-001.html">《Tab 星期四 · 第一期 18 位分享者内容精读》</a>（2026-10-30）</p>
 <p><strong>说明</strong>：原汇总页是官方记录，每位分享者一段客观描述加若干外链，本身已相当详实。本文在此基础上，逐条访问产品站点、GitHub 仓库、幻灯片与公开报道后扩写而成。所有<strong>功能、参数、数字、定价、时间</strong>均以官方汇总页与可访问的公开页面为准；凡属方法论推演、行业通行框架或作者判断，均标明为分析而非事实。现场口述且无公开材料可核验的部分（如 Peter Lei 的实验结果、雨杭的客户端细节），在对应章节开头单独说明。</p>
@@ -1288,7 +1290,7 @@
 <li><strong>《孩子要学的一切》知识点数</strong>：首页 1,083，作者站另一处 1,082，第一期文档记为 1082，汇总页取 1083。另，汇总页「以英美课程标准为底，对照中国 2022 版课标」与页面「取中国、美国、英国教育之长」的表述侧重略有不同。</li>
 <li><strong>ZotWatch 的两步筛选</strong>：README 把「大模型精选」列为<strong>可选的叠加处理层</strong>（基础推荐不需要 AI Key），与汇总页「先用嵌入模型召回、再由大模型精选」的基础流程描述存在层次差异；V2 开发文档自陈「未运行真实用户文库、AI 计费调用或线上端到端验收」。</li>
 <li><strong>Gesture Synth 第 6 和弦手势</strong>：README 与网页提示卡说明不一致（食指+小指 vs 拇指+无名指），实际应以运行时页面为准。</li>
-<li><strong>人数与时间</strong>：官方 <a href="https://tabthursday.com/about" target="_blank" rel="noopener noreferrer">about 页</a> 写「最多 20 人」，而 #002 汇总页列出 <strong>21 位现场分享者</strong>，1 位差异原因未说明；活动时间为 19:30–22:00（第一期 README 记为 19:30–21:30），本文按官方 about 页。地点第一期在 706 上海（迎龙大厦），第二期在幸福里。</li>
+<li><strong>人数与时间</strong>：官方 <a href="https://tabthursday.com/about" target="_blank" rel="noopener noreferrer">about 页</a>（2026-11-23 更新）写「每周四 19:00–21:30（18:30 起可入场）」「每期 25 人左右」，并在 18:00–18:50 群内匿名投票决定讲述时长；#002 汇总页与各期页面尾注保留发布时的写法「每期最多 20 人」「每人 3 分钟讲述，加 2 分钟互动交流」。本文活动时间按 about 页现行版本记录为 19:00–21:30；#002 现场分享者 21 位，与「25 人左右」不冲突。地点第一期在 706 上海（迎龙大厦），第二期起在幸福里。</li>
 </ol>
 <h3 id="四方法上的限制">四、方法上的限制</h3>
 <ol>
@@ -1346,7 +1348,7 @@
     </article>
     <div class="article-foot">
       <a href="./index.html">← 返回首页</a>
-      <a href="issue-001.html">第一期 →</a>
+      <span class="foot-issues"><a href="./issue-001.html">← 第一期</a><a href="./issue-003.html">第三期 →</a></span>
     </div>
   </main>
 </div>

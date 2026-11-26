@@ -507,5 +507,880 @@
         }
       ]
     }
+  ],
+  "003": [
+    {
+      "name": "海涛",
+      "homepage": {
+        "label": "haitao.wiki",
+        "url": "https://haitao.wiki/"
+      },
+      "links": [
+        {
+          "label": "mymind",
+          "url": "https://mymind.com/"
+        },
+        {
+          "label": "Parallels Desktop",
+          "url": "https://www.parallels.com/"
+        },
+        {
+          "label": "CrossOver",
+          "url": "https://www.codeweavers.com/crossover"
+        },
+        {
+          "label": "iPhone Air",
+          "url": "https://www.apple.com/iphone-air/"
+        }
+      ]
+    },
+    {
+      "name": "罗冉",
+      "homepage": {
+        "label": "github.com/Jocs",
+        "url": "https://github.com/Jocs"
+      },
+      "links": [
+        {
+          "label": "MarkText",
+          "url": "https://www.marktext.me/"
+        }
+      ]
+    },
+    {
+      "name": "Hao",
+      "homepage": {
+        "label": "goodinsight.ai",
+        "url": "https://www.goodinsight.ai/"
+      },
+      "links": []
+    },
+    {
+      "name": "huyixi",
+      "homepage": {
+        "label": "huyixi.com",
+        "url": "https://huyixi.com/"
+      },
+      "links": [
+        {
+          "label": "RSSWise",
+          "url": "https://rss.huyixi.com/"
+        }
+      ]
+    },
+    {
+      "name": "LingXinxia",
+      "homepage": {
+        "label": "linkedin.com/in/xinxia-ling",
+        "url": "https://linkedin.com/in/xinxia-ling"
+      },
+      "links": [
+        {
+          "label": "Hero Section Library",
+          "url": "https://www.herotxt.page/"
+        }
+      ]
+    },
+    {
+      "name": "Yorkson",
+      "homepage": {
+        "label": "blog.yorks0n.com",
+        "url": "https://blog.yorks0n.com/"
+      },
+      "links": [
+        {
+          "label": "Pebble",
+          "url": "https://repebble.com/"
+        },
+        {
+          "label": "博客",
+          "url": "https://blog.yorks0n.com/articles/buy_pebble_steel/"
+        }
+      ]
+    },
+    {
+      "name": "杨云童",
+      "homepage": {
+        "label": "yytyyf.com",
+        "url": "https://yytyyf.com/"
+      },
+      "links": [
+        {
+          "label": "Dispatch",
+          "url": "https://dispatch.yytyyf.com/"
+        },
+        {
+          "label": "幻灯片",
+          "url": "https://my.feishu.cn/wiki/ACfzwxQkoiKTcokgDEtcXuYenhh"
+        }
+      ]
+    },
+    {
+      "name": "LEON",
+      "homepage": {
+        "label": "x.com/llleonzhao",
+        "url": "https://x.com/llleonzhao"
+      },
+      "links": [
+        {
+          "label": "Trancy",
+          "url": "https://www.trancy.org/"
+        },
+        {
+          "label": "Trancy Air",
+          "url": "https://www.trancy.org/trancy-air"
+        }
+      ]
+    },
+    {
+      "name": "祝以南",
+      "homepage": {
+        "label": "小红书",
+        "url": "https://xhslink.cn/o/586ZAU5ct02"
+      },
+      "links": [
+        {
+          "label": "Starland（记忆岛）",
+          "url": "https://starland.app/"
+        }
+      ]
+    },
+    {
+      "name": "Owen",
+      "homepage": {
+        "label": "owenyoung.com",
+        "url": "https://www.owenyoung.com/"
+      },
+      "links": [
+        {
+          "label": "saasmail",
+          "url": "https://github.com/choyiny/saasmail"
+        },
+        {
+          "label": "Outline",
+          "url": "https://outline.tabthursday.com/"
+        },
+        {
+          "label": "共享清单",
+          "url": "https://outline.tabthursday.com/s/fhAlsVc2qTb2f6sL/IBCl0Vl1wiAbM7Lnmx8YePmPfBtJujcu_qN7YKFTguA"
+        },
+        {
+          "label": "PodText",
+          "url": "https://podtext.owenyoung.com/"
+        }
+      ]
+    },
+    {
+      "name": "陈雅娜",
+      "homepage": {
+        "label": "小红书",
+        "url": "https://xhslink.cn/o/3v8TE31vl4g"
+      },
+      "links": [
+        {
+          "label": "RoboDust",
+          "url": "https://github.com/muhraufan/robodust"
+        },
+        {
+          "label": "丑颜工具",
+          "url": "https://linfeibala.fun/"
+        },
+        {
+          "label": "Soft Labor",
+          "url": "https://www.softlabor.biz/"
+        },
+        {
+          "label": "the Free Movie",
+          "url": "https://thefreemovie.buzz/"
+        },
+        {
+          "label": "FKN DO IT",
+          "url": "https://sidewave.link/fkndoit/"
+        }
+      ]
+    },
+    {
+      "name": "草原张（Naren）",
+      "homepage": {
+        "label": "paradigmroadmap.com",
+        "url": "https://www.paradigmroadmap.com/"
+      },
+      "links": [
+        {
+          "label": "산사（山寺）",
+          "url": "https://sansatemple.com/"
+        },
+        {
+          "label": "韩联社",
+          "url": "https://supple.kr/news/cmvw1x37owu9513patyhvxmfi"
+        }
+      ]
+    },
+    {
+      "name": "David Jiang",
+      "homepage": {
+        "label": "dj.theory-a.com",
+        "url": "https://dj.theory-a.com/"
+      },
+      "links": [
+        {
+          "label": "谁来提示提示词",
+          "url": "https://dj.theory-a.com/who-will-prompt-the-prompts"
+        }
+      ]
+    },
+    {
+      "name": "陈今",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://okjk.co/WxsTSH"
+      },
+      "links": [
+        {
+          "label": "长版幻灯片",
+          "url": "https://drive.corespeed.app/drv_18f41626575b4037b4b7f32176e55a0a?k=slFLDqr-Bb3_RC1SBoTizmpXzuQ3IKBdgYQgnxJ9f1w"
+        },
+        {
+          "label": "短版幻灯片",
+          "url": "https://drive.corespeed.app/drv_d41f0b38b9064e05b5cf738cbebe8b12?k=-lQltQDuqGUmMT7Djm1raTFRluLqsCeAvBZ9Trx_Yl4"
+        },
+        {
+          "label": "CoreSpeed",
+          "url": "https://corespeed.io/"
+        },
+        {
+          "label": "Ego Lite",
+          "url": "https://lite.ego.app/"
+        }
+      ]
+    },
+    {
+      "name": "火箭君CC",
+      "homepage": {
+        "label": "xlrocket.blog",
+        "url": "https://xlrocket.blog/"
+      },
+      "links": [
+        {
+          "label": "tldraw offline",
+          "url": "https://offline.tldraw.com/"
+        }
+      ]
+    },
+    {
+      "name": "张潘",
+      "homepage": {
+        "label": "sspai.com/u/s5hoou8h",
+        "url": "https://sspai.com/u/s5hoou8h/"
+      },
+      "links": [
+        {
+          "label": "hmod",
+          "url": "https://codeberg.org/Cecil/hmod"
+        },
+        {
+          "label": "mods",
+          "url": "https://github.com/charmbracelet/mods"
+        }
+      ]
+    },
+    {
+      "name": "Ziliang Chai",
+      "homepage": {
+        "label": "github.com/allin2",
+        "url": "https://github.com/allin2"
+      },
+      "links": [
+        {
+          "label": "AgentForWin7",
+          "url": "https://github.com/allin2/AgentForWin7"
+        }
+      ]
+    },
+    {
+      "name": "司马光砸缸",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://okjk.co/f9FyNU"
+      },
+      "links": [
+        {
+          "label": "Chatlog Alpha",
+          "url": "https://gitflic.ru/project/goring/chatlog_alpha"
+        }
+      ]
+    },
+    {
+      "name": "小鱼",
+      "homepage": {
+        "label": "x.com/sofish",
+        "url": "https://x.com/sofish"
+      },
+      "links": [
+        {
+          "label": "WeChat-MCP",
+          "url": "https://github.com/BiboyQG/WeChat-MCP"
+        },
+        {
+          "label": "Standup",
+          "url": "https://github.com/sofish/standup"
+        }
+      ]
+    },
+    {
+      "name": "大核桃",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://okjk.co/oBQeUV"
+      },
+      "links": [
+        {
+          "label": "Shapr3D",
+          "url": "https://www.shapr3d.com/"
+        }
+      ]
+    },
+    {
+      "name": "鲁彼特",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://okjk.co/oEmcRT"
+      },
+      "links": [
+        {
+          "label": "Variablize（变量）",
+          "url": "https://variablize.app/"
+        },
+        {
+          "label": "变量 I",
+          "url": "https://i.variablize.app/"
+        },
+        {
+          "label": "变量 II",
+          "url": "https://ii.variablize.app/"
+        },
+        {
+          "label": "Felo",
+          "url": "https://felo.ai/"
+        }
+      ]
+    },
+    {
+      "name": "芊蔚",
+      "homepage": null,
+      "links": [
+        {
+          "label": "力生物学",
+          "url": "https://mp.weixin.qq.com/s/KMECMaHni-DPiIj9GAm9LA"
+        }
+      ]
+    }
+  ],
+  "004": [
+    {
+      "name": "海涛",
+      "homepage": {
+        "label": "haitao.wiki",
+        "url": "https://haitao.wiki/"
+      },
+      "links": [
+        {
+          "label": "Ulysses",
+          "url": "https://ulysses.app/"
+        },
+        {
+          "label": "Pinky",
+          "url": "https://github.com/DIYgod/pinky"
+        },
+        {
+          "label": "CLIProxyAPI",
+          "url": "https://github.com/router-for-me/CLIProxyAPI"
+        },
+        {
+          "label": "管理面板",
+          "url": "https://github.com/router-for-me/Cli-Proxy-API-Management-Center"
+        },
+        {
+          "label": "ai-goofish-monitor",
+          "url": "https://github.com/Usagi-org/ai-goofish-monitor"
+        }
+      ]
+    },
+    {
+      "name": "杨云童",
+      "homepage": {
+        "label": "yytyyf.com",
+        "url": "https://yytyyf.com/"
+      },
+      "links": [
+        {
+          "label": "Handoff",
+          "url": "https://handoff.yytyyf.com/"
+        },
+        {
+          "label": "Grok Bot",
+          "url": "https://cursor.com/grok-bot"
+        },
+        {
+          "label": "物页 ManuFold",
+          "url": "https://manufold.yytyyf.com/"
+        },
+        {
+          "label": "KeyKeeper",
+          "url": "https://keykeeper.dev/"
+        },
+        {
+          "label": "Swob",
+          "url": "https://swob.app/"
+        }
+      ]
+    },
+    {
+      "name": "yikai",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://web.okjike.com/u/2a57f026-9048-43bf-951a-89d0715b7578/post/683c73a7f0d718ce7a4b15dd"
+      },
+      "links": [
+        {
+          "label": "ARTEX",
+          "url": "https://github.com/RuoJi6/ARTEX"
+        },
+        {
+          "label": "如何识别封禁AI小子",
+          "url": "https://mp.weixin.qq.com/s/7S0dirp_76vApfjhqWEmNA"
+        },
+        {
+          "label": "Yeta Labs",
+          "url": "https://yeta.ai/"
+        },
+        {
+          "label": "gpt-instruct",
+          "url": "https://github.com/MDX-Tom/gpt-instruct"
+        },
+        {
+          "label": "heretic",
+          "url": "https://github.com/p-e-w/heretic"
+        }
+      ]
+    },
+    {
+      "name": "Aria",
+      "homepage": {
+        "label": "nekoium.com",
+        "url": "https://nekoium.com/"
+      },
+      "links": [
+        {
+          "label": "Olea",
+          "url": "https://github.com/nekoium/Olea"
+        }
+      ]
+    },
+    {
+      "name": "Yorkson",
+      "homepage": {
+        "label": "blog.yorks0n.com",
+        "url": "https://blog.yorks0n.com/"
+      },
+      "links": [
+        {
+          "label": "PortMaster",
+          "url": "https://portmaster.games/"
+        },
+        {
+          "label": "Zaviya",
+          "url": "https://github.com/hashtagbasit/Zaviya"
+        },
+        {
+          "label": "DroidDeck",
+          "url": "https://droid-deck.dev/"
+        },
+        {
+          "label": "盖世游戏 GameHub",
+          "url": "https://gamehub.xiaoji.com/zh-cn/"
+        },
+        {
+          "label": "Delta",
+          "url": "https://apps.apple.com/us/app/delta-game-emulator/id1048524688"
+        },
+        {
+          "label": "Manic EMU",
+          "url": "https://apps.apple.com/us/app/manic-emu-game-emulator/id6743335790"
+        },
+        {
+          "label": "S2Arm",
+          "url": "https://s2arm.com/"
+        },
+        {
+          "label": "TestFlight",
+          "url": "https://testflight.apple.com/join/fHUB9J9V"
+        }
+      ]
+    },
+    {
+      "name": "张峻玮",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://m.okjike.com/users/7a0ddf6f-de6f-4e6d-8366-29bee03344e8"
+      },
+      "links": [
+        {
+          "label": "iSH",
+          "url": "https://github.com/ish-app/ish"
+        },
+        {
+          "label": "OpenMinis",
+          "url": "https://github.com/OpenMinis/OpenMinis"
+        },
+        {
+          "label": "LinuxRunner",
+          "url": "https://github.com/mxhm11cr/LinuxRunner"
+        },
+        {
+          "label": "crate-ios",
+          "url": "https://github.com/oneamendez/crate-ios"
+        },
+        {
+          "label": "两仪 Twoyi",
+          "url": "https://twoyi.app/zh/"
+        }
+      ]
+    },
+    {
+      "name": "David Jiang",
+      "homepage": {
+        "label": "dj.theory-a.com",
+        "url": "https://dj.theory-a.com/"
+      },
+      "links": [
+        {
+          "label": "小红书",
+          "url": "https://xhslink.cn/o/33vLatLTYxj"
+        },
+        {
+          "label": "原片",
+          "url": "https://dj.theory-a.com/clips/gai.mp4"
+        }
+      ]
+    },
+    {
+      "name": "陈雅娜",
+      "homepage": {
+        "label": "小红书",
+        "url": "https://www.xiaohongshu.com/user/profile/60ba52ba0000000001008d5d"
+      },
+      "links": [
+        {
+          "label": "微信输入法",
+          "url": "https://z.weixin.qq.com/"
+        },
+        {
+          "label": "grug",
+          "url": "https://grug.so/"
+        },
+        {
+          "label": "Random Studio",
+          "url": "https://random.studio/innovation"
+        },
+        {
+          "label": "Universal Everything",
+          "url": "https://www.universaleverything.com/art"
+        },
+        {
+          "label": "叁式 ULTRACOMBOS",
+          "url": "https://ultracombos.com/zh-tw"
+        },
+        {
+          "label": "雷电所 Raiden INST",
+          "url": "https://raideninst.com/"
+        },
+        {
+          "label": "虚拟首饰项目",
+          "url": "https://raideninst.com/zh/moving-media/econtainer-ugc/"
+        },
+        {
+          "label": "CLEVER°FRANKE",
+          "url": "https://www.cleverfranke.com/project/adc-brand-identity"
+        }
+      ]
+    },
+    {
+      "name": "elioWang",
+      "homepage": {
+        "label": "github.com/rynx-cc",
+        "url": "https://github.com/rynx-cc"
+      },
+      "links": [
+        {
+          "label": "mcp-server-nuxt",
+          "url": "https://github.com/rynx-cc/mcp-server-nuxt"
+        }
+      ]
+    },
+    {
+      "name": "火箭君CC",
+      "homepage": {
+        "label": "xlrocket.blog",
+        "url": "https://xlrocket.blog/"
+      },
+      "links": [
+        {
+          "label": "AnyDoc",
+          "url": "https://github.com/firecrawl/anydoc"
+        },
+        {
+          "label": "零上传网页版",
+          "url": "https://firecrawl.github.io/anydoc/"
+        },
+        {
+          "label": "MarkItDown",
+          "url": "https://github.com/microsoft/markitdown"
+        },
+        {
+          "label": "LiteParse",
+          "url": "https://github.com/run-llama/liteparse"
+        }
+      ]
+    },
+    {
+      "name": "Owen",
+      "homepage": {
+        "label": "owenyoung.com",
+        "url": "https://www.owenyoung.com/"
+      },
+      "links": [
+        {
+          "label": "Mobbin",
+          "url": "https://mobbin.com/"
+        },
+        {
+          "label": "WhatShips",
+          "url": "https://whatships.com/"
+        },
+        {
+          "label": "UserOnboard",
+          "url": "https://www.useronboard.com/"
+        },
+        {
+          "label": "Standup",
+          "url": "https://github.com/sofish/standup"
+        },
+        {
+          "label": "Appfigures 实时榜单",
+          "url": "https://app.appfigures.com/top-apps/ios-app-store/united-states/iphone/top-overall"
+        },
+        {
+          "label": "AI Failure 专区",
+          "url": "https://museumoffailure.com/ai-failure"
+        },
+        {
+          "label": "Open the F**king URL Right Now",
+          "url": "https://greasyfork.org/zh-CN/scripts/412612-open-the-f-king-url-right-now"
+        },
+        {
+          "label": "Cloudhiker",
+          "url": "https://cloudhiker.net/"
+        },
+        {
+          "label": "The Whimsical Web",
+          "url": "https://whimsical.club/"
+        },
+        {
+          "label": "tinydogs.at",
+          "url": "https://www.tinydogs.at/"
+        }
+      ]
+    },
+    {
+      "name": "hwang",
+      "homepage": {
+        "label": "x.com/hwwaanng",
+        "url": "https://x.com/hwwaanng"
+      },
+      "links": [
+        {
+          "label": "AirBuild",
+          "url": "https://air.build/"
+        }
+      ]
+    },
+    {
+      "name": "Victoria Zhang",
+      "homepage": {
+        "label": "小红书",
+        "url": "https://xhslink.cn/m/6dMu8ycuH7y"
+      },
+      "links": []
+    },
+    {
+      "name": "草原张（Naren）",
+      "homepage": {
+        "label": "paradigmroadmap.com",
+        "url": "https://www.paradigmroadmap.com/"
+      },
+      "links": [
+        {
+          "label": "三维交互演示网页",
+          "url": "https://tic4206066.pages.dev/"
+        }
+      ]
+    },
+    {
+      "name": "Xinxia Ling",
+      "homepage": {
+        "label": "linkedin.com/in/xinxia-ling",
+        "url": "https://linkedin.com/in/xinxia-ling"
+      },
+      "links": [
+        {
+          "label": "NX2Apple",
+          "url": "https://github.com/LNPANDY/NX2Apple"
+        },
+        {
+          "label": "Murdoku",
+          "url": "https://murdoku.com/"
+        },
+        {
+          "label": "鲁特里一家死了",
+          "url": "https://store.steampowered.com/app/2754380/The_Roottrees_are_Dead/"
+        },
+        {
+          "label": "婆罗洲的红珍珠",
+          "url": "https://store.steampowered.com/app/4488860/The_Red_Pearls_Of_Borneo/"
+        },
+        {
+          "label": "银松镇",
+          "url": "https://store.steampowered.com/app/2333000/Silver_Pines/"
+        }
+      ]
+    },
+    {
+      "name": "Lingo",
+      "homepage": {
+        "label": "sidwith.wordpress.com",
+        "url": "https://sidwith.wordpress.com/"
+      },
+      "links": [
+        {
+          "label": "介绍文章",
+          "url": "https://mp.weixin.qq.com/s/qTW71nGuBODbF_bPv93r7Q"
+        }
+      ]
+    },
+    {
+      "name": "司马光砸缸",
+      "homepage": {
+        "label": "即刻",
+        "url": "https://okjk.co/3IW2oj"
+      },
+      "links": [
+        {
+          "label": "dji-4g-vohive-mac",
+          "url": "https://github.com/wlzh/dji-4g-vohive-mac"
+        },
+        {
+          "label": "VoHive",
+          "url": "https://cool-glitter-88a5.iniwex.workers.dev/#/devices"
+        },
+        {
+          "label": "度云物联 4G Cat.1 USB 短信转发模块",
+          "url": "https://www.yuque.com/doiot/5giot"
+        }
+      ]
+    },
+    {
+      "name": "Chris Pang",
+      "homepage": {
+        "label": "linkedin.com/in/chris-pang-32371196",
+        "url": "https://www.linkedin.com/in/chris-pang-32371196"
+      },
+      "links": [
+        {
+          "label": "Google GTIG 11 月安全报告",
+          "url": "https://thehackernews.com/2026/11/google-finds-hackers-using-ai-agents-to.html?m=1"
+        },
+        {
+          "label": "Today",
+          "url": "https://today.ai/"
+        },
+        {
+          "label": "Hark",
+          "url": "https://hark.com/"
+        },
+        {
+          "label": "Poke",
+          "url": "https://poke.com/"
+        },
+        {
+          "label": "Instinct",
+          "url": "https://instinct.com/"
+        },
+        {
+          "label": "Muse",
+          "url": "https://muse.ai/"
+        }
+      ]
+    },
+    {
+      "name": "Ricky Lin",
+      "homepage": {
+        "label": "linkedin.com/in/chien-lin-b92385253",
+        "url": "https://www.linkedin.com/in/chien-lin-b92385253/"
+      },
+      "links": [
+        {
+          "label": "3 分钟在线版",
+          "url": "https://bauman-ai-3min.vercel.app/#/1"
+        }
+      ]
+    },
+    {
+      "name": "Jeff",
+      "homepage": null,
+      "links": [
+        {
+          "label": "若饭",
+          "url": "https://www.ruffood.com/"
+        },
+        {
+          "label": "Supernote",
+          "url": "https://supernote.com/"
+        }
+      ]
+    },
+    {
+      "name": "古思为",
+      "homepage": {
+        "label": "x.com/wey_gu",
+        "url": "https://x.com/wey_gu"
+      },
+      "links": [
+        {
+          "label": "在线 Slidev 讲稿",
+          "url": "https://siwei.io/talks/tab-2026"
+        },
+        {
+          "label": "Dream Again",
+          "url": "https://open.spotify.com/album/2eNr5z7kVBrGXwIAou3qUR"
+        },
+        {
+          "label": "Nowledge Mem",
+          "url": "https://mem.nowledge.co/"
+        },
+        {
+          "label": "HawDB",
+          "url": "https://hawdb.ai/"
+        },
+        {
+          "label": "con",
+          "url": "https://con.nowledge.co/"
+        },
+        {
+          "label": "Ducter",
+          "url": "https://ducter.ai/"
+        }
+      ]
+    }
   ]
 }

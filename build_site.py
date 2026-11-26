@@ -66,7 +66,59 @@ ISSUES = [
             "门槛从实现侧移到评估侧",
         ],
     },
+    {
+        "key": "003",
+        "src": "Tab星期四第三期-22位分享者内容精读.md",
+        "label": "第三期",
+        "date": "2026-11-12",
+        "place": "上海幸福里",
+        "count": "22 位分享者",
+        "theme": "把信息入口、交付形式与本地工具重新组织",
+        "title": "第三期 · 22 位分享者内容精读",
+        "desc": "ChatGPT Live 陪玩、mymind、MarkText、RSSWise、Pebble、Dispatch、Trancy、Starland、tldraw office、hmod、Chatlog、Shapr3D、力生物学——22 个方向收敛出 5 条判断，并补上与前两期的重复分享者对照。",
+        "bullets": [
+            "信息入口先过机器：AI 先读、先判断",
+            "苦劳与价值分离，交付形式决定内容的位置",
+            "一个人的项目靠边界与规则维持",
+            "老设备、旧文档与本地文件仍有再开发空间",
+            "身体与注意力是自动化覆盖最慢的部分",
+        ],
+    },
+    {
+        "key": "004",
+        "src": "Tab星期四第四期-21位分享者内容精读.md",
+        "label": "第四期",
+        "date": "2026-11-19",
+        "place": "上海幸福里",
+        "count": "21 位分享者",
+        "theme": "上下文、验证与门槛：AI 之下的新分工",
+        "title": "第四期 · 21 位分享者内容精读",
+        "desc": "Ulysses、Pinky、ARTEX、《精益创业》重读、开源掌机、iPhone 本地沙盒、AI 短片《该》、AirBuild、TOI-7930、NX2Apple、WatchWithU、VoHive、Supernote——21 个方向收敛出 5 条判断，并与前三期逐条对照。",
+        "bullets": [
+            "上下文正在变成可以托管、复用与共享的资产",
+            "一次证伪比十次证明更省成本",
+            "门槛移到上架、被看见与被信任",
+            "设备与本地环境重新提供差异",
+            "智能可以租用，记忆与判断需要自己持有",
+        ],
+    },
 ]
+
+STAMP = "2026-11-25"
+NEXT_EVENT = {
+    "label": "#005",
+    "date": "2026-11-26",
+    "time": "19:00–21:30",
+    "place": "上海·长宁幸福里",
+    "url": "https://luma.com/pmb99b5m",
+}
+NAME_ALIASES = {
+    "yytyyf": "杨云童",
+    "草原张": "草原张（Naren）",
+    "LingXinxia": "Xinxia Ling",
+}
+SRC_TO_PAGE = {issue["src"]: "./issue-%s.html" % issue["key"] for issue in ISSUES}
+CN_NUM = {1: "一", 2: "两", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九", 10: "十"}
 
 CSS = r"""
 :root{
@@ -131,6 +183,7 @@ button,input{font-family:inherit}
 .prose a[target="_blank"]::after{content:" \2197";font-size:.78em;color:var(--faint);white-space:nowrap}
 .prose img{max-width:100%;height:auto;border-radius:8px}
 .article-foot{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.foot-issues{display:flex;gap:18px;flex-wrap:wrap}
 .to-top{position:fixed;right:26px;bottom:26px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);color:var(--blue);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .18s;z-index:55}
 .to-top.show{opacity:1;pointer-events:auto}
 .to-top:hover{background:var(--blue50)}
@@ -181,7 +234,7 @@ button,input{font-family:inherit}
   .to-top{right:16px;bottom:16px}
 }
 @media (max-width:560px){
-  .topbar nav a:nth-child(n+4){display:none}
+  .topbar nav a.nav-official,.topbar nav a.nav-repo{display:none}
   .content{padding:24px 16px 40px}
   .prose table{font-size:12.8px}
 }
@@ -239,6 +292,7 @@ a,button,input{-webkit-tap-highlight-color:transparent}
   .topbar{height:calc(var(--topbar-h) + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);padding-left:16px;padding-right:16px;gap:12px}
   .topbar nav{gap:16px}
   .topbar nav a{font-size:13px;min-height:44px;display:inline-flex;align-items:center}
+  .topbar nav a.nav-old{display:none}
   .menu-toggle{display:none}
   .layout{display:block;padding:0 0 calc(72px + env(safe-area-inset-bottom))}
   .content{border:0;border-radius:0;padding:24px 18px 44px;box-shadow:none}
@@ -278,7 +332,6 @@ a,button,input{-webkit-tap-highlight-color:transparent}
   .read-link{min-height:36px;display:inline-flex;align-items:center}
 }
 @media (max-width:560px){
-  .topbar nav a:nth-child(1),.topbar nav a:nth-child(4),.topbar nav a:nth-child(5){display:none}
   .hero h1{font-size:24px}
   .prose{font-size:16px}
 }
@@ -424,10 +477,9 @@ PAGE_TPL = r"""<!doctype html>
   <a class="brand" href="./index.html">Tab 星期四 · 精读</a>
   <nav>
     <a href="./index.html">首页</a>
-    <a href="./issue-001.html"{{A1}}>第一期</a>
-    <a href="./issue-002.html"{{A2}}>第二期</a>
-    <a href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
-    <a href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub</a>
+{{NAV}}
+    <a class="nav-official" href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
+    <a class="nav-repo" href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
   <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
 </header>
@@ -454,7 +506,7 @@ PAGE_TPL = r"""<!doctype html>
     </article>
     <div class="article-foot">
       <a href="./index.html">← 返回首页</a>
-      <a href="{{OTHER}}">{{OTHER_LABEL}} →</a>
+      <span class="foot-issues">{{PREV}}{{NEXT}}</span>
     </div>
   </main>
 </div>
@@ -471,7 +523,7 @@ HOME_TPL = r"""<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tab 星期四 · 分享内容精读</title>
-<meta name="description" content="Tab 星期四第一、二期分享汇总的深度精读：39 位分享者、39 个方向，收敛成可操作的判断。">
+<meta name="description" content="{{HOME_DESC}}">
 <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -480,50 +532,41 @@ HOME_TPL = r"""<!doctype html>
   <a class="brand" href="./index.html">Tab 星期四 · 精读</a>
   <nav>
     <a href="./index.html" class="active">首页</a>
-    <a href="./issue-001.html">第一期</a>
-    <a href="./issue-002.html">第二期</a>
-    <a href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
-    <a href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub</a>
+{{NAV}}
+    <a class="nav-official" href="https://tabthursday.com/notes" target="_blank" rel="noopener noreferrer">官方汇总</a>
+    <a class="nav-repo" href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub</a>
   </nav>
 </header>
 <main class="home">
   <section class="hero">
     <span class="kicker">线下版 Hacker News · 上海 · 每周四</span>
     <h1>Tab 星期四 · 分享内容精读</h1>
-    <p>每人带一个本周想分享的浏览器标签页，讲 3 分钟、交流 2 分钟。这里把第一、二期共 39 位分享者的内容，在逐条访问产品站点、GitHub 仓库与公开报道后扩写成可独立阅读的章节，并各收敛出 5 条判断。</p>
+    <p>{{HERO}}</p>
     <div class="hero-links">
-      <a href="https://tabthursday.com/001" target="_blank" rel="noopener noreferrer">#001 官方汇总</a>
-      <a href="https://tabthursday.com/002" target="_blank" rel="noopener noreferrer">#002 官方汇总</a>
+{{OFFICIAL_LINKS}}
       <a href="https://tabthursday.com/about" target="_blank" rel="noopener noreferrer">活动规则</a>
       <a href="{{REPO}}" target="_blank" rel="noopener noreferrer">仓库与 Markdown 原文</a>
     </div>
   </section>
 
-  <div class="notice">正文所有外部链接都会在新标签页打开；左侧目录可按分享者姓名筛选，点击即可跳到对应章节。</div>
+  <div class="notice">{{NOTICE}}</div>
 
-  <h2 class="section-title">两期文档</h2>
+  <h2 class="section-title">{{ISSUE_COUNT}}期文档</h2>
   <section class="issue-grid">
 {{CARDS}}
   </section>
 
-  <h2 class="section-title">第二期 · 按主题跳转</h2>
+  <h2 class="section-title">{{LATEST_LABEL}} · 按主题跳转</h2>
   <section class="quick-grid">
 {{QUICK}}
   </section>
 
   <h2 class="section-title">分享者与项目链接</h2>
-  <p class="index-note">按官方汇总页整理：每位分享者的个人主页，以及他介绍的项目、源码、幻灯片等链接。点姓名进入本站精读章节，点标签跳转外部站点（新标签页打开）。没有主页或项目链接的分享者会如实标注。</p>
-  <div class="issue-sub">第一期 · 18 位分享者</div>
-  <section class="people-cards">
-{{INDEX_001}}
-  </section>
-  <div class="issue-sub">第二期 · 21 位分享者</div>
-  <section class="people-cards">
-{{INDEX_002}}
-  </section>
+  <p class="index-note">按官方汇总页整理：每位分享者的个人主页，以及他介绍的项目、源码、幻灯片等链接。点姓名进入本站精读章节，点标签跳转外部站点（新标签页打开）。没有主页或项目链接的会如实标注。</p>
+{{INDEX_BLOCKS}}
 
   <div class="site-foot">
-    <span>整理于 2026-11-09 · 学习笔记性质的重述与分析，不是官方记录</span>
+    <span>整理于 {{STAMP}} · 学习笔记性质的重述与分析，非官方记录</span>
     <a href="{{REPO}}" target="_blank" rel="noopener noreferrer">GitHub 仓库</a>
     <a href="https://tabthursday.com" target="_blank" rel="noopener noreferrer">活动官网</a>
   </div>
@@ -572,8 +615,7 @@ code{background:#302e29}
   <div class="box" id="tip" hidden>看起来地址末尾多复制了字符（例如 <code>**</code>）。正确地址是：<br><code>https://73mtq.github.io/tab-thursday-notes/</code><br>正在自动跳转到首页…</div>
   <div class="links">
     <a href="./">返回首页</a>
-    <a href="./issue-001.html">第一期</a>
-    <a href="./issue-002.html">第二期</a>
+{{NAV_LINKS}}
   </div>
   <div class="hint">Tab 星期四 · 分享内容精读 · GitHub Pages</div>
 </div>
@@ -649,11 +691,8 @@ def convert(src: Path, linkify: bool) -> tuple[str, list[tuple[str, str, str]]]:
     )
     body = md.convert(text)
 
-    body = body.replace(
-        "./Tab星期四第一期-18位分享者内容精读.md", "./issue-001.html"
-    ).replace(
-        "./Tab星期四第二期-21位分享者内容精读.md", "./issue-002.html"
-    )
+    for src_name, page in SRC_TO_PAGE.items():
+        body = body.replace("./" + src_name, page)
     body = re.sub(
         r'<a href="(https?://[^"]+)"',
         r'<a href="\1" target="_blank" rel="noopener noreferrer"',
@@ -687,6 +726,9 @@ def build_toc(heads) -> str:
 def render(tpl: str, **kv) -> str:
     for key, value in kv.items():
         tpl = tpl.replace("{{" + key + "}}", value)
+    left = sorted(set(re.findall(r"\{\{[A-Z_]+\}\}", tpl)))
+    if left:
+        raise RuntimeError("unresolved placeholders: %s" % ", ".join(left))
     return tpl
 
 
@@ -700,20 +742,19 @@ def chip_html(link: dict, kind: str = "") -> str:
     )
 
 
-def chapter_map(heads) -> dict:
-    out = {}
+def chapter_index(heads) -> list[tuple[str, str, str, str]]:
+    out = []
     for level, hid, title in heads:
         if level != "2":
             continue
         m = re.match(r"^(\d{2})\s+(.+?)\s*[：:]\s*(.+)$", title)
         if m:
-            out[m.group(1)] = (hid, m.group(3).strip(), title)
+            out.append((m.group(1), m.group(2).strip(), m.group(3).strip(), hid))
     return out
 
 
-def person_card(idx: int, person: dict, cmap: dict, issue_key: str) -> str:
-    num = "%02d" % idx
-    anchor, topic, full = cmap.get(num, ("", "", ""))
+def person_card(num: str, person: dict, anchor: str, topic: str, issue_key: str) -> str:
+    full = "%s %s：%s" % (num, person["name"], topic)
     name = html.escape(person["name"])
     href = (
         "./issue-%s.html#%s" % (issue_key, html.escape(anchor, quote=True))
@@ -766,107 +807,230 @@ def inject_inline_links(body: str, people: list) -> str:
     )
 
 
+def cjk_count(text: str) -> int:
+    return len(re.findall(r"[\u4e00-\u9fff]", text))
+
+
+def nav_html(active: str | None = None) -> str:
+    latest = ISSUES[-1]["key"]
+    rows = []
+    for issue in ISSUES:
+        cls = ["nav-issue"]
+        if issue["key"] != latest:
+            cls.append("nav-old")
+        if issue["key"] == active:
+            cls.append("active")
+        rows.append(
+            '    <a class="%s" href="./issue-%s.html">%s</a>'
+            % (" ".join(cls), issue["key"], html.escape(issue["label"]))
+        )
+    return "\n".join(rows)
+
+
+def prev_next(idx: int) -> tuple[str, str]:
+    prev_html = ""
+    next_html = ""
+    if idx > 0:
+        issue = ISSUES[idx - 1]
+        prev_html = '<a href="./issue-%s.html">← %s</a>' % (
+            issue["key"],
+            html.escape(issue["label"]),
+        )
+    if idx < len(ISSUES) - 1:
+        issue = ISSUES[idx + 1]
+        next_html = '<a href="./issue-%s.html">%s →</a>' % (
+            issue["key"],
+            html.escape(issue["label"]),
+        )
+    return prev_html, next_html
+
+
+def unique_share_people(links: dict) -> int:
+    names = set()
+    for issue in ISSUES:
+        for person in links.get(issue["key"], []):
+            names.add(NAME_ALIASES.get(person["name"], person["name"]))
+    return len(names)
+
+
 def main() -> None:
     DOCS.mkdir(exist_ok=True)
     ASSETS.mkdir(exist_ok=True)
-    (DOCS / ".nojekyll").write_text("", encoding="utf-8")
-    (DOCS / "404.html").write_text(NOTFOUND_TPL, encoding="utf-8")
-    (ASSETS / "style.css").write_text(CSS, encoding="utf-8")
-    (ASSETS / "app.js").write_text(JS, encoding="utf-8")
+    (DOCS / ".nojekyll").write_text("", encoding="utf-8", newline="\n")
+    (ASSETS / "style.css").write_text(CSS, encoding="utf-8", newline="\n")
+    (ASSETS / "app.js").write_text(JS, encoding="utf-8", newline="\n")
+    nav_links = "\n".join(
+        '    <a href="./issue-%s.html">%s</a>' % (issue["key"], html.escape(issue["label"]))
+        for issue in ISSUES
+    )
+    (DOCS / "404.html").write_text(render(NOTFOUND_TPL, NAV_LINKS=nav_links), encoding="utf-8", newline="\n")
 
     links = (
         json.loads(LINKS_FILE.read_text(encoding="utf-8"))
         if LINKS_FILE.exists()
         else {}
     )
+    missing = [issue["key"] for issue in ISSUES if not links.get(issue["key"])]
+    if missing:
+        raise RuntimeError("links.json 缺少期数: %s" % ", ".join(missing))
 
     converted = {}
     for issue in ISSUES:
-        body, heads = convert(ROOT / issue["src"], linkify=True)
+        src = ROOT / issue["src"]
+        body, heads = convert(src, linkify=True)
         people = links.get(issue["key"], [])
-        if people:
-            body = inject_inline_links(body, people)
-            print("  issue %s: link bars injected for %d sharers" % (issue["key"], len(people)))
-        converted[issue["key"]] = (body, heads)
+        body = inject_inline_links(body, people)
+        cjk = cjk_count(src.read_text(encoding="utf-8"))
+        converted[issue["key"]] = (body, heads, cjk)
+        print(
+            "  issue %s: %d sharers, %d headings, %.1f 万汉字"
+            % (issue["key"], len(people), len(heads), cjk / 10000)
+        )
 
-        other = "issue-001.html" if issue["key"] == "002" else "issue-002.html"
-        other_label = "第一期" if issue["key"] == "002" else "第二期"
-        blob = BLOB + quote(issue["src"])
+    for idx, issue in enumerate(ISSUES):
+        body, heads, _ = converted[issue["key"]]
+        prev_html, next_html = prev_next(idx)
         page = render(
             PAGE_TPL,
             TITLE=html.escape(issue["title"]),
             DESC=html.escape(issue["desc"]),
             REPO=REPO_URL,
             LABEL=html.escape(issue["label"]),
-            A1=' class="active"' if issue["key"] == "001" else "",
-            A2=' class="active"' if issue["key"] == "002" else "",
-            BLOB=blob,
+            NAV=nav_html(issue["key"]),
+            BLOB=BLOB + quote(issue["src"]),
             TOC=build_toc(heads),
             BODY=body,
-            OTHER=other,
-            OTHER_LABEL=other_label,
+            PREV=prev_html,
+            NEXT=next_html,
         )
         out = DOCS / ("issue-%s.html" % issue["key"])
-        out.write_text(page, encoding="utf-8")
+        out.write_text(page, encoding="utf-8", newline="\n")
         print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
 
-    cards, quick = [], []
+    latest = ISSUES[-1]
+    cards = []
     for issue in ISSUES:
+        _, _, cjk = converted[issue["key"]]
         bullets = "\n".join("        <li>%s</li>" % html.escape(b) for b in issue["bullets"])
         cards.append(
             '    <a class="issue-card%s" href="./issue-%s.html">\n'
             '      <div class="issue-no">#%s</div>\n'
             '      <h2>%s · %s</h2>\n'
-            '      <div class="issue-meta">%s · %s · 约 3.5 万汉字</div>\n'
+            '      <div class="issue-meta">%s · %s · 约 %.1f 万汉字</div>\n'
             '      <p class="issue-theme">%s</p>\n'
             '      <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px">%s</p>\n'
             '      <ul>\n%s\n      </ul>\n'
             '      <span class="cta">开始阅读 →</span>\n'
             '    </a>'
             % (
-                " featured" if issue["key"] == "002" else "",
+                " featured" if issue["key"] == latest["key"] else "",
                 issue["key"], issue["key"],
                 html.escape(issue["label"]), html.escape(issue["count"]),
-                html.escape(issue["date"]), html.escape(issue["place"]),
+                html.escape(issue["date"]), html.escape(issue["place"]), cjk / 10000,
                 html.escape(issue["theme"]), html.escape(issue["desc"]),
                 bullets,
             )
         )
 
-    body2, heads2 = converted["002"]
+    _, latest_heads, _ = converted[latest["key"]]
+    quick = []
     part_no = 0
     skipped_first = False
-    for level, hid, title in heads2:
+    for level, hid, title in latest_heads:
         if level == "1" and not skipped_first:
             skipped_first = True
             continue
         if level == "1":
             part_no += 1
             quick.append(
-                '    <a href="./issue-002.html#%s">%s<small>第 %d 部分</small></a>'
-                % (html.escape(hid, quote=True), html.escape(title), part_no)
+                '    <a href="./issue-%s.html#%s">%s<small>第 %d 部分</small></a>'
+                % (latest["key"], html.escape(hid, quote=True), html.escape(title), part_no)
             )
-    index_blocks = {}
+    if not quick:
+        raise RuntimeError("最新一期缺少分部标题: %s" % latest["key"])
+
+    index_blocks = []
+    total_cards = 0
     for issue in ISSUES:
-        key = issue["key"]
-        _, heads = converted[key]
-        cmap = chapter_map(heads)
-        entries = links.get(key, [])
-        index_blocks[key] = "\n".join(
-            person_card(i, p, cmap, key) for i, p in enumerate(entries, 1)
+        _, heads, _ = converted[issue["key"]]
+        chapters = chapter_index(heads)
+        entries = links.get(issue["key"], [])
+        if len(entries) != len(chapters):
+            raise RuntimeError(
+                "issue %s: %d link entries vs %d chapter anchors"
+                % (issue["key"], len(entries), len(chapters))
+            )
+        by_name = {p["name"]: p for p in entries}
+        cards_html = []
+        for num, name, topic, hid in chapters:
+            person = by_name.get(name)
+            if person is None:
+                canonical = NAME_ALIASES.get(name, name)
+                person = next(
+                    (p for p in entries if NAME_ALIASES.get(p["name"], p["name"]) == canonical),
+                    None,
+                )
+            if person is None:
+                raise RuntimeError(
+                    "issue %s: 章节 %s 找不到对应分享者" % (issue["key"], num)
+                )
+            cards_html.append(person_card(num, person, hid, topic, issue["key"]))
+        total_cards += len(entries)
+        index_blocks.append(
+            '  <div class="issue-sub">%s · %s</div>\n  <section class="people-cards">\n%s\n  </section>'
+            % (html.escape(issue["label"]), html.escape(issue["count"]), "\n".join(cards_html))
         )
-        print("  issue %s: %d sharer cards, %d chapter anchors" % (key, len(entries), len(cmap)))
+        print("  issue %s: %d sharer cards, %d chapter anchors" % (
+            issue["key"], len(entries), len(chapters)
+        ))
+
+    official_links = "\n".join(
+        '      <a href="https://tabthursday.com/%s" target="_blank" rel="noopener noreferrer">#%s 官方汇总</a>'
+        % (issue["key"], issue["key"])
+        for issue in ISSUES
+    )
+    unique_people = unique_share_people(links)
+    issue_count_cn = CN_NUM.get(len(ISSUES), str(len(ISSUES)))
+    hero = (
+        "每人带一个本周想分享的浏览器标签页，现场投票决定讲述时长。"
+        "这里把%s期共 %d 个分享席位（%d 位分享者）的内容，"
+        "在逐条访问产品站点、GitHub 仓库与公开报道后扩写成可独立阅读的章节，并各收敛出 5 条判断。"
+        % (issue_count_cn, total_cards, unique_people)
+    )
+    notice = "正文所有外部链接都会在新标签页打开；左侧目录可按分享者姓名筛选，点击即可跳到对应章节。"
+    if NEXT_EVENT:
+        notice += (
+            '下一期 %s 正在报名：%s %s · %s · '
+            '<a href="%s" target="_blank" rel="noopener noreferrer">Luma 报名</a>。'
+            % (
+                NEXT_EVENT["label"],
+                NEXT_EVENT["date"],
+                NEXT_EVENT["time"],
+                NEXT_EVENT["place"],
+                NEXT_EVENT["url"],
+            )
+        )
+    home_desc = (
+        "Tab 星期四%s期分享汇总的深度精读：%d 个分享席位、%d 位分享者，收敛成可操作的判断。"
+        % (issue_count_cn, total_cards, unique_people)
+    )
 
     home = render(
         HOME_TPL,
         REPO=REPO_URL,
+        HOME_DESC=html.escape(home_desc),
+        HERO=html.escape(hero),
+        NOTICE=notice,
+        NAV=nav_html(None),
+        OFFICIAL_LINKS=official_links,
         CARDS="\n".join(cards),
         QUICK="\n".join(quick),
-        INDEX_001=index_blocks.get("001", ""),
-        INDEX_002=index_blocks.get("002", ""),
+        ISSUE_COUNT=issue_count_cn,
+        LATEST_LABEL=html.escape(latest["label"]),
+        INDEX_BLOCKS="\n\n".join(index_blocks),
+        STAMP=STAMP,
     )
-    (DOCS / "index.html").write_text(home, encoding="utf-8")
-    total_cards = sum(len(links.get(k, [])) for k in ("001", "002"))
+    (DOCS / "index.html").write_text(home, encoding="utf-8", newline="\n")
     print("wrote %-28s %7d bytes  (%d parts, %d sharer cards)" % (
         "index.html", (DOCS / "index.html").stat().st_size, len(quick), total_cards
     ))
