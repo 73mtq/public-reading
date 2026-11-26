@@ -8,7 +8,7 @@
 |---|---|---|
 | 活动精读 | Tab 星期四四期的逐章精读，82 个分享席位、56 位分享者 | [tab-thursday/](./tab-thursday/) |
 | 学习手册 | 免费资源、起步路线、实战项目、读论文方法、AI 边界 | [handbook/](./handbook/) |
-| 资源索引 | 一个资源导航站的全站索引：100 个页面、3323 条外链 | [在线阅读](https://73mtq.github.io/public-reading/zyscj.html) · [源文件](./resource-grocery/zyscj/) |
+| 资源索引 | 一个资源导航站的全站索引：98 个页面、3323 条外链 | [需求速查](https://73mtq.github.io/public-reading/zyscj.html) · [全部页面](https://73mtq.github.io/public-reading/zyscj-all.html) · [源文件](./resource-grocery/zyscj/) |
 
 ---
 
@@ -134,6 +134,17 @@
 - **每条数字带来源等级与复核日期。** 甲级是直接读官方页面得到的；乙级是从官方文档读到但本次未重复核对；丙级是社区汇总；丁级是本次没有可靠来源。
 - **会过期的内容标明截止日期。** 免费额度、星标数、定价都属于这一类，读者按日期判断它还值不值得信。
 
+## 仓库结构
+
+| 路径 | 内容 |
+|---|---|
+| `tab-thursday/` | 四期精读正文，每期一份 Markdown |
+| `handbook/` | 学习手册五篇；`templates/` 是两份可复制填写的模板 |
+| `resource-grocery/zyscj/` | 资源站镜像：`INDEX.md` 需求速查、`LINKS.md` 外链总表、`docs/` 98 个页面、`scripts/` 抓取脚本 |
+| `scripts/` | `build_site.py` 生成站点、`refresh_links.py` 抓取分享者链接、`check_site.py` 校验站内链接与可达性 |
+| `links.json` | 四期分享者的主页与项目链接，由 `refresh_links.py` 生成 |
+| `docs/` | 构建产物，GitHub Pages 从这一目录发布 |
+
 ## 静态站点
 
 [在线阅读](https://73mtq.github.io/public-reading/) 由仓库 `docs/` 目录通过 GitHub Pages 发布（分支 `main` / 目录 `/docs`）。站点提供：
@@ -141,21 +152,23 @@
 - **首页**：三个栏目（活动精读、学习手册、资源索引）的入口卡片，最新一期按主题跳转，以及 82 个席位的主页加项目链接索引（每张卡片可跳本站精读章节，也可直达外部站点）；
 - **章节内**：每章顶部列出该分享者的主页、介绍的项目、源码、幻灯片、样片等链接，取自官方汇总页；官方没给的会如实标注；
 - **文章页**：粘性侧栏目录（可按分享者姓名筛选、`Ctrl/⌘ + K` 定位）、章节锚点、阅读进度条、返回顶部、上一期与下一期；
+- **学习手册**：五篇正文与两份模板都有独立页面，模板正文可直接复制，侧栏在篇目之间互链；
+- **资源索引**：需求速查、全站外链总表、全部资源页与 98 个资源页，与其它栏目共用侧栏目录、移动端抽屉与夜间模式；任意资源页顶部有面包屑，可逐级回到章节索引；
 - **移动端**：正文 16–16.5px / 行高 1.85，右下角「目录」悬浮按钮打开带遮罩的抽屉，触摸目标 ≥44px，表格可左右滑动并有提示，尊重 iOS 安全区；支持 `prefers-color-scheme: dark` 与 `prefers-reduced-motion`；
-- **资源索引**：需求速查、全站外链总表与 98 个资源页，与其它栏目共用侧栏目录、移动端抽屉与夜间模式；
 - **跳转**：全部外部链接在新标签页打开，正文里的裸域名会自动转成可点击链接；地址误带 `**` 等字符时 404 页会自动跳回首页。
 
 本地重建：
 
 ```powershell
 python -m pip install markdown
-python .\refresh_links.py
-python .\build_site.py
+python .\scripts\refresh_links.py
+python .\scripts\build_site.py
+python .\scripts\check_site.py
 ```
 
-`build_site.py` 读取 `tab-thursday/` 下的四份 Markdown、`handbook/` 下的五份 Markdown 与 `links.json`，生成 `docs/` 下的 HTML、CSS、JS、`404.html` 与 `.nojekyll`。`links.json` 由 `refresh_links.py` 从官方 Markdown 端点抓取并按人结构化（主页 / 项目链接），已随仓库提交，因此构建过程完全离线；官方发布新一期或链接有变动时才需要重跑。
+`scripts/build_site.py` 读取 `tab-thursday/` 下的四份 Markdown、`handbook/` 下的七份 Markdown、`resource-grocery/zyscj/` 的 98 个页面与 `links.json`，生成 `docs/` 下的 HTML、CSS、JS、`404.html` 与 `.nojekyll`。`links.json` 由 `scripts/refresh_links.py` 从官方 Markdown 端点抓取并按人结构化（主页 / 项目链接），已随仓库提交，因此构建过程完全离线；官方发布新一期或链接有变动时才需要重跑。`scripts/check_site.py` 逐个检查站内链接与锚点，并从首页做一次可达性遍历，确认每个页面都能点进去。
 
-新增期数时改三处：在 `tab-thursday/` 新增精读 Markdown；在 `refresh_links.py` 的 `PAGES` 与 `EXPECTED` 各加一行；在 `build_site.py` 的 `ISSUES` 加一项。新增手册篇目时在 `build_site.py` 的 `GUIDES` 加一项。随后重跑两个脚本并提交。
+新增期数时改三处：在 `tab-thursday/` 新增精读 Markdown；在 `scripts/refresh_links.py` 的 `PAGES` 与 `EXPECTED` 各加一行；在 `scripts/build_site.py` 的 `ISSUES` 加一项。新增手册篇目时在 `scripts/build_site.py` 的 `GUIDES` 加一项，新增模板时在 `TEMPLATES` 加一项。随后重跑三个脚本并提交。
 
 ## 事实边界
 
@@ -190,3 +203,4 @@ python .\build_site.py
 | 2026-11-26 | 四个精读文件移入 `tab-thursday/`，新增 `handbook/` 学习手册五篇与两份模板，站点扩为两栏目 |
 | 2026-11-26 | 仓库改名为 `public-reading`，站点地址改为 `73mtq.github.io/public-reading` |
 | 2026-11-26 | 资源索引接入站点：需求速查、全站外链总表与 98 个资源页，共 100 页 |
+| 2026-11-26 | 构建脚本移入 `scripts/`，新增 `check_site.py`；两份模板做成站点页面，新增全部资源页，98 个资源页全部可从站内点开 |

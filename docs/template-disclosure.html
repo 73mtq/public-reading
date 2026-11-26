@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 使用披露清单模板 · 逐次记录 · 公开材料精读</title>
+<meta name="description" content="逐条记录工具、环节、生成内容位置与校验方式，供课程与答辩查验。">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-cross" href="./index.html#resources">资源索引</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · AI 披露清单模板</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#一逐次使用记录表" data-title="一、逐次使用记录表">一、逐次使用记录表</a>
+      <a class="toc-item" href="#二提交前自查表" data-title="二、提交前自查表">二、提交前自查表</a>
+      <a class="toc-item" href="#三依赖预警自查每月一次" data-title="三、依赖预警自查（每月一次）">三、依赖预警自查（每月一次）</a>
+      <a class="toc-item" href="#四正面用法清单每条都做" data-title="四、正面用法清单（每条都做）">四、正面用法清单（每条都做）</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/handbook/templates/AI%E4%BD%BF%E7%94%A8%E6%8A%AB%E9%9C%B2%E6%B8%85%E5%8D%95%E6%A8%A1%E6%9D%BF.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+      <div class="sidebar-sub">手册其他篇目</div>
+      <a class="sidebar-guide" href="./guide-starter.html">起步路线</a>
+      <a class="sidebar-guide" href="./guide-free-resources.html">免费资源清单</a>
+      <a class="sidebar-guide" href="./guide-projects.html">实战项目路线</a>
+      <a class="sidebar-guide" href="./guide-paper-reading.html">论文精读方法</a>
+      <a class="sidebar-guide" href="./guide-ai-boundaries.html">AI 使用边界</a>
+      <div class="sidebar-sub">可直接复制的模板</div>
+      <a class="sidebar-guide" href="./template-notes.html">精读笔记模板</a>
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="ai-使用披露清单模板">AI 使用披露清单模板</h1>
+<blockquote>
+<p>用途：按华东师大与北师大模式、复旦"六个禁止"的要求，逐条记录每一次 AI 使用，供课程教师、导师或学位论文答辩时查验。
+依据：<a href="./guide-ai-boundaries.html">《AI 使用边界》</a> 第三节 3.5 与第四节。
+填写原则：用了就记，没用的环节不要补记；故意瞒报属于学术不端。</p>
+</blockquote>
+<hr />
+<h2 id="一逐次使用记录表">一、逐次使用记录表</h2>
+<p>每用一次 AI 工具完成一件可交付的事，就加一行。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>日期</th>
+<th>工具名与版本</th>
+<th>使用环节</th>
+<th>我的提示内容（摘要）</th>
+<th>AI 生成内容的位置</th>
+<th>我对生成内容的校验方式</th>
+<th>最终采纳比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>使用环节</strong>按下列取值填写（对应《AI 使用边界》第三节的三色清单）：</p>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>绿灯：文献检索</td>
+<td>让 AI 推荐该读哪些论文、生成检索式</td>
+</tr>
+<tr>
+<td>绿灯：文献初筛</td>
+<td>按自定关键词对搜索结果分类排序</td>
+</tr>
+<tr>
+<td>绿灯：辅助翻译</td>
+<td>翻译外文文献降低语言门槛</td>
+</tr>
+<tr>
+<td>绿灯：概念答疑</td>
+<td>问背景概念，答案以教材与原始论文为准</td>
+</tr>
+<tr>
+<td>绿灯：文献整理</td>
+<td>整理条目、生成结构化索引、管理引用</td>
+</tr>
+<tr>
+<td>绿灯：排版美化</td>
+<td>生成幻灯片布局、把提纲转成 PPT</td>
+</tr>
+<tr>
+<td>绿灯：模拟问答</td>
+<td>组会前多轮模拟答辩</td>
+</tr>
+<tr>
+<td>绿灯：代码脚手架</td>
+<td>画图脚本、数据预处理样板、环境配置排错</td>
+</tr>
+<tr>
+<td>黄灯：结构化摘要</td>
+<td>快速把握论文结构，不替代对全文的亲自阅读</td>
+</tr>
+<tr>
+<td>黄灯：创新点检索</td>
+<td>辅助检索类似工作，创新性判断自己做出</td>
+</tr>
+<tr>
+<td>黄灯：方案建议</td>
+<td>在目标、假设、方案已明确的前提下要结构性建议</td>
+</tr>
+<tr>
+<td>黄灯：代码报错解释</td>
+<td>解释报错原因，整段代写不在许可范围</td>
+</tr>
+</tbody>
+</table>
+<p><strong>表外事项：</strong> 下列环节属于不允许使用 AI 的范围（《AI 使用边界》第三节 3.3 红灯区），一旦发生不要填表，应当直接停止并独立重做——核心文献的完整阅读与理解、研究问题的凝练与表达、研究方案与算法框架设计、核心实验的设计与执行、论文与汇报正文撰写、参考文献列表生成、汇报中"个人思考/批判/启发"部分。</p>
+<hr />
+<h2 id="二提交前自查表">二、提交前自查表</h2>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 直接生成的内容是否已标注（校内规范普遍要求标红且不超过全文 20%）</td>
+<td></td>
+</tr>
+<tr>
+<td>是否区分了 AI 生成部分与个人贡献部分</td>
+<td></td>
+</tr>
+<tr>
+<td>所有 AI 提供的文献、数据、事实是否逐条核实过来源</td>
+<td></td>
+</tr>
+<tr>
+<td>参考文献列表是否全部由本人核对过（不允许由 AI 生成）</td>
+<td></td>
+</tr>
+<tr>
+<td>是否保留了处理前的原始材料（初稿、提纲、手写笔记）</td>
+<td></td>
+</tr>
+<tr>
+<td>核心论证逻辑是否由本人独立完成</td>
+<td></td>
+</tr>
+<tr>
+<td>课程或课题组是否另有规定，是否已确认教师的许可范围</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="三依赖预警自查每月一次">三、依赖预警自查（每月一次）</h2>
+<p>命中 3 条以上，下一个月安排一周不使用 AI 辅助学习。</p>
+<ul>
+<li>[ ] 打开论文先复制摘要问 AI 讲了什么，跳过自己读标题/结论/图</li>
+<li>[ ] 离开 AI 无法向别人复述论文核心思想</li>
+<li>[ ] 代码报错的第一反应是整段贴给 AI，跳过读报错信息定位行号</li>
+<li>[ ] 写不出一段没有 AI 味的文字；合上文档想不起内容细节</li>
+<li>[ ] 学新概念的路径只剩问 AI，不再查教材或官方文档，且不验证答案</li>
+<li>[ ] 组会汇报的 PPT 文字大部分由 AI 生成、自己讲不通其中的逻辑链</li>
+<li>[ ] 没 AI 时面对空白文档感到恐慌、无从下笔</li>
+</ul>
+<hr />
+<h2 id="四正面用法清单每条都做">四、正面用法清单（每条都做）</h2>
+<ol>
+<li><strong>先己后人</strong>：任何任务先自己干 15~30 分钟（先读、先写、先 debug），卡住了再问 AI。</li>
+<li><strong>AI 当苏格拉底，不当抄写员</strong>：用"你能反问我检验理解吗""我这样理解对吗？请指出漏洞"代替"给我答案"。</li>
+<li><strong>自写总结 → 对照差距</strong>：每篇精读论文自己先写一页总结，再让 AI 写一版对比，看漏了什么。</li>
+<li><strong>AI 产出必须人工验证</strong>：术语查教材、文献查 Google Scholar、代码跑测试。</li>
+</ol>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"><a href="./template-notes.html">← 精读笔记模板</a></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>

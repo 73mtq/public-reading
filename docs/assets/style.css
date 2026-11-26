@@ -39,7 +39,11 @@ button,input{font-family:inherit}
 
 .content{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:46px 56px 64px;min-width:0}
 .prose{font-size:15.5px;line-height:1.92;color:var(--ink)}
-.prose>h1:first-child{font-size:29px;line-height:1.45;margin:0 0 1.1em;font-weight:500;letter-spacing:.01em}
+.prose>h1:first-child,.prose>.breadcrumb+h1{font-size:29px;line-height:1.45;margin:0 0 1.1em;font-weight:500;letter-spacing:.01em}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0 0 18px;font-size:12.5px;line-height:1.7;color:var(--faint)}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--blue)}
+.breadcrumb span{color:var(--line2)}
 .prose h1{font-size:24px;line-height:1.5;margin:2.6em 0 .9em;padding:0 0 .45em;border-bottom:2px solid var(--line);font-weight:500;scroll-margin-top:84px}
 .prose h2{font-size:20px;line-height:1.5;margin:2.3em 0 .8em;padding-left:12px;border-left:3px solid var(--blue);font-weight:500;scroll-margin-top:84px}
 .prose h3{font-size:16.5px;line-height:1.6;margin:1.8em 0 .6em;color:var(--muted);font-weight:500;scroll-margin-top:84px}

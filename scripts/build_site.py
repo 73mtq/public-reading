@@ -1,5 +1,5 @@
-# 构建 public-reading 静态站点：读取 tab-thursday/ 与 handbook/ 的 Markdown，输出到 docs/。
-# 用法：python build_site.py
+# 构建 public-reading 静态站点：读取 tab-thursday/、handbook/ 与 resource-grocery/zyscj/ 的 Markdown，输出到 docs/。
+# 用法：python scripts/build_site.py
 # 依赖：Python-Markdown（python -m pip install markdown）
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ from urllib.parse import quote
 
 import markdown
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 ASSETS = DOCS / "assets"
 LINKS_FILE = ROOT / "links.json"
@@ -140,7 +140,24 @@ GUIDES = [
     },
 ]
 
-TEMPLATES = ["templates/论文精读笔记模板.md", "templates/AI使用披露清单模板.md"]
+TEMPLATES = [
+    {
+        "key": "notes",
+        "src": "handbook/templates/论文精读笔记模板.md",
+        "label": "精读笔记模板",
+        "title": "论文精读笔记模板 · 三遍阅读的记录表",
+        "desc": "按三遍阅读的顺序列出要填的栏目，复制一份就能逐篇填写。",
+        "stamp": "2026-09-27",
+    },
+    {
+        "key": "disclosure",
+        "src": "handbook/templates/AI使用披露清单模板.md",
+        "label": "AI 披露清单模板",
+        "title": "AI 使用披露清单模板 · 逐次记录",
+        "desc": "逐条记录工具、环节、生成内容位置与校验方式，供课程与答辩查验。",
+        "stamp": "2026-09-27",
+    },
+]
 
 STAMP = "2026-11-26"
 NEXT_EVENT = {
@@ -157,9 +174,14 @@ NAME_ALIASES = {
 }
 SRC_TO_PAGE = {Path(issue["src"]).name: "./issue-%s.html" % issue["key"] for issue in ISSUES}
 GUIDE_TO_PAGE = {Path(guide["src"]).name: "./guide-%s.html" % guide["key"] for guide in GUIDES}
+TEMPLATE_TO_PAGE = {
+    "templates/" + Path(template["src"]).name: "./template-%s.html" % template["key"]
+    for template in TEMPLATES
+}
 HREF_MAP = {"./" + name: page for name, page in SRC_TO_PAGE.items()}
 HREF_MAP.update({"./" + name: page for name, page in GUIDE_TO_PAGE.items()})
-HREF_MAP.update({"./" + name: BLOB + quote("handbook/" + name) for name in TEMPLATES})
+HREF_MAP.update({"./" + name: page for name, page in TEMPLATE_TO_PAGE.items()})
+HREF_MAP.update({"../" + name: page for name, page in GUIDE_TO_PAGE.items()})
 
 RESOURCE_DIR = ROOT / "resource-grocery" / "zyscj"
 RESOURCE_DOC_ROOT = RESOURCE_DIR / "docs"
@@ -203,6 +225,137 @@ HREF_MAP.update(
         for path, slug in RESOURCE_SLUGS.items()
     }
 )
+
+
+def resource_heading(path: Path) -> str:
+    """取页面的一级标题，用作分组标题与面包屑文字。"""
+    match = re.search(r"^#\s+(.+?)\s*$", path.read_text(encoding="utf-8"), flags=re.M)
+    return match.group(1) if match else path.stem
+
+
+def resource_link_count(path: Path) -> int:
+    """页面开头的抓取信息里记着外链数；取不到时按正文里的链接统计。"""
+    text = path.read_text(encoding="utf-8")
+    match = re.search(r"外链\s*(\d+)\s*个", text)
+    return int(match.group(1)) if match else len(re.findall(r"\]\(https?://", text))
+
+
+def resource_parent(path: Path) -> "Path | None":
+    """上一级页面：同目录的 index.md，没有就逐级向上找。"""
+    rel = path.relative_to(RESOURCE_DOC_ROOT)
+    if rel.name == "index.md":
+        if rel.parent == Path("."):
+            return None
+        current = rel.parent.parent
+    else:
+        current = rel.parent
+    while True:
+        candidate = RESOURCE_DOC_ROOT / current / "index.md"
+        if candidate.exists() and candidate != path:
+            return candidate
+        if current == Path("."):
+            return None
+        current = current.parent
+
+
+def resource_breadcrumb(path: Path) -> str:
+    chain = []
+    parent = resource_parent(path)
+    while parent is not None:
+        chain.append(parent)
+        parent = resource_parent(parent)
+    steps = ['<a href="./zyscj-all.html">全部资源页</a>']
+    for node in reversed(chain):
+        steps.append(
+            '<a href="./%s.html">%s</a>'
+            % (RESOURCE_SLUGS[node], html.escape(resource_heading(node)))
+        )
+    steps.append(html.escape(resource_heading(path)))
+    return '<nav class="breadcrumb" aria-label="所在位置">%s</nav>' % " <span>›</span> ".join(steps)
+
+
+def resource_entry_sidebar_html(active: str) -> str:
+    """资源索引三个入口页的侧栏：列出另外两个入口与资源站首页。"""
+    entries = [
+        ("zyscj", "需求速查"),
+        ("zyscj-all", "全部 %d 页" % len(RESOURCE_SLUGS)),
+        ("zyscj-links", "外链总表"),
+    ]
+    rows = ['      <div class="sidebar-sub">资源索引</div>']
+    for key, label in entries:
+        if key == active:
+            continue
+        rows.append('      <a class="sidebar-guide" href="./%s.html">%s</a>' % (key, label))
+    rows.append('      <a class="sidebar-guide" href="./zyscj-doc-index.html">资源站首页</a>')
+    return "\n".join(rows)
+
+
+def resource_doc_sidebar_html(path: Path) -> str:
+    rows = [
+        '      <div class="sidebar-sub">资源索引</div>',
+        '      <a class="sidebar-guide" href="./zyscj-all.html">全部 %d 页</a>' % len(RESOURCE_SLUGS),
+    ]
+    parent = resource_parent(path)
+    if parent is not None:
+        rows.append(
+            '      <a class="sidebar-guide" href="./%s.html">↑ %s</a>'
+            % (RESOURCE_SLUGS[parent], html.escape(resource_heading(parent)))
+        )
+    rows.append('      <a class="sidebar-guide" href="./zyscj.html">需求速查</a>')
+    return "\n".join(rows)
+
+
+def resource_groups() -> list:
+    """按目录把资源页分组，组内章节索引排在最前。"""
+    groups: dict = {}
+    for path in RESOURCE_DOCS:
+        groups.setdefault(path.parent, []).append(path)
+    ordered = []
+    for parent in sorted(groups, key=lambda p: p.relative_to(RESOURCE_DOC_ROOT).as_posix().lower()):
+        pages = sorted(groups[parent], key=lambda p: (p.name != "index.md", p.name.lower()))
+        ordered.append((parent, pages))
+    return ordered
+
+
+def resource_all_markdown() -> str:
+    lines = ["# 全部资源页", ""]
+    lines.append(
+        "资源站的 %d 个页面全在这里，按目录分组；标题取自各页一级标题，末尾的数字是该页抓取时收录的外链数。"
+        % len(RESOURCE_DOCS)
+    )
+    lines.append("")
+    lines.append(
+        "按用途查找用 [需求速查](./zyscj.html)，要看每页的链接明细用 [外链总表](./zyscj-links.html)。"
+    )
+    lines.append("")
+    for parent, pages in resource_groups():
+        relative = parent.relative_to(RESOURCE_DOC_ROOT).as_posix()
+        index_page = next((page for page in pages if page.name == "index.md"), None)
+        if relative == ".":
+            title = "资源站首页"
+        elif relative == "zy":
+            title = "总索引"
+        elif index_page is not None:
+            title = resource_heading(index_page)
+        else:
+            title = parent.name
+        lines.append("## %s" % title)
+        lines.append("")
+        for page in pages:
+            marker = "章节索引 · " if page.name == "index.md" else ""
+            lines.append(
+                "- [%s](./%s.html) — %s外链 %d 个"
+                % (
+                    resource_heading(page),
+                    RESOURCE_SLUGS[page],
+                    marker,
+                    resource_link_count(page),
+                )
+            )
+        lines.append("")
+    return "\n".join(lines)
+
+
 CN_NUM = {1: "一", 2: "两", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九", 10: "十"}
 
 CSS = r"""
@@ -246,7 +399,11 @@ button,input{font-family:inherit}
 
 .content{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:46px 56px 64px;min-width:0}
 .prose{font-size:15.5px;line-height:1.92;color:var(--ink)}
-.prose>h1:first-child{font-size:29px;line-height:1.45;margin:0 0 1.1em;font-weight:500;letter-spacing:.01em}
+.prose>h1:first-child,.prose>.breadcrumb+h1{font-size:29px;line-height:1.45;margin:0 0 1.1em;font-weight:500;letter-spacing:.01em}
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0 0 18px;font-size:12.5px;line-height:1.7;color:var(--faint)}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--blue)}
+.breadcrumb span{color:var(--line2)}
 .prose h1{font-size:24px;line-height:1.5;margin:2.6em 0 .9em;padding:0 0 .45em;border-bottom:2px solid var(--line);font-weight:500;scroll-margin-top:84px}
 .prose h2{font-size:20px;line-height:1.5;margin:2.3em 0 .8em;padding-left:12px;border-left:3px solid var(--blue);font-weight:500;scroll-margin-top:84px}
 .prose h3{font-size:16.5px;line-height:1.6;margin:1.8em 0 .6em;color:var(--muted);font-weight:500;scroll-margin-top:84px}
@@ -660,7 +817,7 @@ HOME_TPL = r"""<!doctype html>
   </section>
 
   <section id="handbook">
-    <h2 class="section-title">学习手册 · {{GUIDE_COUNT}} 篇</h2>
+    <h2 class="section-title">学习手册 · {{GUIDE_COUNT}}</h2>
     <p class="index-note">{{GUIDE_NOTE}}</p>
     <section class="issue-grid guide-grid">
 {{GUIDE_CARDS}}
@@ -1006,9 +1163,7 @@ def nav_html(kind: str, active: str | None = None) -> str:
     return "\n".join(rows)
 
 
-def sidebar_extra_html(active: str | None) -> str:
-    if active is None:
-        return ""
+def sidebar_extra_html(active: str) -> str:
     rows = ['      <div class="sidebar-sub">手册其他篇目</div>']
     for guide in GUIDES:
         if guide["key"] == active:
@@ -1016,6 +1171,14 @@ def sidebar_extra_html(active: str | None) -> str:
         rows.append(
             '      <a class="sidebar-guide" href="./guide-%s.html">%s</a>'
             % (guide["key"], html.escape(guide["label"]))
+        )
+    rows.append('      <div class="sidebar-sub">可直接复制的模板</div>')
+    for template in TEMPLATES:
+        if template["key"] == active:
+            continue
+        rows.append(
+            '      <a class="sidebar-guide" href="./template-%s.html">%s</a>'
+            % (template["key"], html.escape(template["label"]))
         )
     return "\n".join(rows)
 
@@ -1049,6 +1212,43 @@ def guide_card(idx: int, guide: dict) -> str:
             html.escape(guide["desc"]),
         )
     )
+
+
+def template_card(idx: int, template: dict) -> str:
+    return (
+        '    <a class="issue-card guide-card" href="./template-%s.html">\n'
+        '      <div class="issue-no">模板 %d</div>\n'
+        '      <h2>%s</h2>\n'
+        '      <div class="issue-meta">可直接复制 · 复核 %s</div>\n'
+        '      <p class="issue-theme">%s</p>\n'
+        '      <span class="cta">打开模板 →</span>\n'
+        '    </a>'
+        % (
+            template["key"],
+            idx,
+            html.escape(template["label"]),
+            template["stamp"],
+            html.escape(template["desc"]),
+        )
+    )
+
+
+def template_prev_next(idx: int) -> tuple[str, str]:
+    prev_html = ""
+    next_html = ""
+    if idx > 0:
+        template = TEMPLATES[idx - 1]
+        prev_html = '<a href="./template-%s.html">← %s</a>' % (
+            template["key"],
+            html.escape(template["label"]),
+        )
+    if idx < len(TEMPLATES) - 1:
+        template = TEMPLATES[idx + 1]
+        next_html = '<a href="./template-%s.html">%s →</a>' % (
+            template["key"],
+            html.escape(template["label"]),
+        )
+    return prev_html, next_html
 
 
 def prev_next(idx: int) -> tuple[str, str]:
@@ -1169,6 +1369,28 @@ def main() -> None:
         out.write_text(page, encoding="utf-8", newline="\n")
         print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
 
+    for idx, template in enumerate(TEMPLATES):
+        src = ROOT / template["src"]
+        body, heads = convert(src, linkify=False)
+        prev_html, next_html = template_prev_next(idx)
+        page = render(
+            PAGE_TPL,
+            TITLE=html.escape(template["title"]),
+            DESC=html.escape(template["desc"]),
+            REPO=REPO_URL,
+            LABEL=html.escape(template["label"]),
+            NAV=nav_html("guides", template["key"]),
+            SIDEBAR_EXTRA=sidebar_extra_html(template["key"]),
+            BLOB=BLOB + quote(template["src"]),
+            TOC=build_toc(heads),
+            BODY=body,
+            PREV=prev_html,
+            NEXT=next_html,
+        )
+        out = DOCS / ("template-%s.html" % template["key"])
+        out.write_text(page, encoding="utf-8", newline="\n")
+        print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
+
     resource_pages = [
         (
             "zyscj",
@@ -1194,6 +1416,12 @@ def main() -> None:
                 text,
             )
         body, heads = convert(src, linkify=False, text=text)
+        if key == "zyscj":
+            prev_html = '<a href="./index.html#resources">← 资源索引</a>'
+            next_html = '<a href="./zyscj-all.html">全部 %d 页 →</a>' % len(RESOURCE_SLUGS)
+        else:
+            prev_html = '<a href="./zyscj-all.html">← 全部 %d 页</a>' % len(RESOURCE_SLUGS)
+            next_html = '<a href="./zyscj.html">需求速查 →</a>'
         page = render(
             PAGE_TPL,
             TITLE=html.escape(title),
@@ -1201,12 +1429,12 @@ def main() -> None:
             REPO=REPO_URL,
             LABEL=html.escape(label),
             NAV=nav_html("resources"),
-            SIDEBAR_EXTRA="",
+            SIDEBAR_EXTRA=resource_entry_sidebar_html(key),
             BLOB=BLOB + quote(src.relative_to(ROOT).as_posix()),
             TOC=build_toc(heads),
             BODY=body,
-            PREV="",
-            NEXT="",
+            PREV=prev_html,
+            NEXT=next_html,
         )
         out = DOCS / ("%s.html" % key)
         out.write_text(page, encoding="utf-8", newline="\n")
@@ -1215,24 +1443,49 @@ def main() -> None:
     for path, slug in RESOURCE_SLUGS.items():
         raw = path.read_text(encoding="utf-8")
         body, heads = convert(path, linkify=False, text=strip_self_anchors(raw))
-        heading = re.search(r"^#\s+(.+)$", raw, flags=re.M)
+        parent = resource_parent(path)
+        prev_html = (
+            '<a href="./%s.html">↑ %s</a>'
+            % (RESOURCE_SLUGS[parent], html.escape(resource_heading(parent)))
+            if parent is not None
+            else '<a href="./zyscj-all.html">↑ 全部资源页</a>'
+        )
         page = render(
             PAGE_TPL,
-            TITLE=html.escape(heading.group(1).strip() if heading else path.stem),
-            DESC=html.escape("资源索引 · " + path.stem),
+            TITLE=html.escape(resource_heading(path)),
+            DESC=html.escape("资源索引 · " + resource_heading(path)),
             REPO=REPO_URL,
             LABEL="资源索引",
             NAV=nav_html("resources"),
-            SIDEBAR_EXTRA="",
+            SIDEBAR_EXTRA=resource_doc_sidebar_html(path),
             BLOB=BLOB + quote(path.relative_to(ROOT).as_posix()),
             TOC=build_toc(heads),
-            BODY=body,
-            PREV="",
-            NEXT="",
+            BODY=resource_breadcrumb(path) + body,
+            PREV=prev_html,
+            NEXT='<a href="./zyscj-all.html">全部 %d 页 →</a>' % len(RESOURCE_SLUGS),
         )
         out = DOCS / ("%s.html" % slug)
         out.write_text(page, encoding="utf-8", newline="\n")
     print("wrote zyscj-doc-*.html           %d resource pages" % len(RESOURCE_SLUGS))
+
+    body, heads = convert(RESOURCE_DIR / "INDEX.md", linkify=False, text=resource_all_markdown())
+    page = render(
+        PAGE_TPL,
+        TITLE="全部资源页",
+        DESC=html.escape("资源站 %d 个页面按目录分组，每一页都能在本站打开。" % len(RESOURCE_DOCS)),
+        REPO=REPO_URL,
+        LABEL="资源索引 · 全部页面",
+        NAV=nav_html("resources"),
+        SIDEBAR_EXTRA=resource_entry_sidebar_html("zyscj-all"),
+        BLOB=REPO_URL + "/tree/main/resource-grocery/zyscj/docs",
+        TOC=build_toc(heads),
+        BODY=body,
+        PREV='<a href="./zyscj.html">需求速查</a>',
+        NEXT='<a href="./zyscj-links.html">外链总表 →</a>',
+    )
+    out = DOCS / "zyscj-all.html"
+    out.write_text(page, encoding="utf-8", newline="\n")
+    print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
 
     latest = ISSUES[-1]
     cards = []
@@ -1330,7 +1583,7 @@ def main() -> None:
         % (issue_count_cn, total_cards, unique_people)
     )
     guide_note = (
-        "五篇手册整理于 2026 年 9 月，复核日期写在每篇文首。"
+        "五篇手册整理于 2026 年 9 月，复核日期写在每篇文首；两份模板可以直接复制填写。"
         "免费额度与政策类数字会过期，注册前按官网确认一次。"
     )
     notice = "正文里的外部链接都会在新标签页打开；文章页左侧目录可以按章节标题筛选，点击直达对应位置。"
@@ -1348,7 +1601,7 @@ def main() -> None:
         )
     home_desc = (
         "公开材料精读：Tab 星期四%s期分享的深度精读（%d 个分享席位、%d 位分享者）、"
-        "五篇研究生学习手册，以及一个资源导航站的全站索引（%d 个页面、3323 条外链）。"
+        "五篇研究生学习手册与两份可复制模板，以及一个资源导航站的全站索引（%d 个页面、3323 条外链）。"
         % (issue_count_cn, total_cards, unique_people, len(RESOURCE_DOCS))
     )
 
@@ -1367,6 +1620,14 @@ def main() -> None:
         '      <p class="issue-theme">每个页面的外链按站名与网址列出，可以直接在浏览器里搜关键词。</p>\n'
         '      <span class="cta">开始检索 →</span>\n'
         '    </a>',
+        '    <a class="issue-card guide-card" href="./zyscj-all.html">\n'
+        '      <div class="issue-no">全部页面</div>\n'
+        '      <h2>%d 个资源页的总目录</h2>\n'
+        '      <div class="issue-meta">%d 个页面 · 按目录分组 · 每页带外链数</div>\n'
+        '      <p class="issue-theme">资源站的首页、总索引、各章节索引与正文页全在这里，每一页都能从这一页打开。</p>\n'
+        '      <span class="cta">查看全部 →</span>\n'
+        '    </a>'
+        % (len(RESOURCE_DOCS), len(RESOURCE_DOCS)),
     ]
     resource_note = (
         "这里镜像一个资源导航站的全站内容：%d 个页面与 3323 条外链，按原样收录、未做筛选；"
@@ -1382,13 +1643,16 @@ def main() -> None:
         NAV=nav_html("home"),
         OFFICIAL_LINKS=official_links,
         CARDS="\n".join(cards),
-        GUIDE_CARDS="\n".join(guide_card(i, guide) for i, guide in enumerate(GUIDES, 1)),
+        GUIDE_CARDS="\n".join(
+            [guide_card(i, guide) for i, guide in enumerate(GUIDES, 1)]
+            + [template_card(i, template) for i, template in enumerate(TEMPLATES, 1)]
+        ),
         RESOURCE_CARDS="\n".join(resource_cards),
         RESOURCE_PAGE_COUNT=str(len(RESOURCE_DOCS) + 2),
         RESOURCE_NOTE=html.escape(resource_note),
         QUICK="\n".join(quick),
         ISSUE_COUNT=issue_count_cn,
-        GUIDE_COUNT=str(len(GUIDES)),
+        GUIDE_COUNT="%d 篇 + %d 份模板" % (len(GUIDES), len(TEMPLATES)),
         ISSUE_NOTE=html.escape(issue_note),
         GUIDE_NOTE=html.escape(guide_note),
         LATEST_LABEL=html.escape(latest["label"]),

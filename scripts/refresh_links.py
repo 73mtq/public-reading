@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "links.json"
 PAGES = {
     "001": "https://tabthursday.com/001.md",
