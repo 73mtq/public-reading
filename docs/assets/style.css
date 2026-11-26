@@ -111,6 +111,9 @@ button,input{font-family:inherit}
   .issue-grid{grid-template-columns:1fr}
   .to-top{right:16px;bottom:16px}
 }
+@media (max-width:760px){
+  .topbar nav a.nav-old{display:none}
+}
 @media (max-width:560px){
   .topbar nav a.nav-official,.topbar nav a.nav-repo{display:none}
   .content{padding:24px 16px 40px}

@@ -160,6 +160,49 @@ GUIDE_TO_PAGE = {Path(guide["src"]).name: "./guide-%s.html" % guide["key"] for g
 HREF_MAP = {"./" + name: page for name, page in SRC_TO_PAGE.items()}
 HREF_MAP.update({"./" + name: page for name, page in GUIDE_TO_PAGE.items()})
 HREF_MAP.update({"./" + name: BLOB + quote("handbook/" + name) for name in TEMPLATES})
+
+RESOURCE_DIR = ROOT / "resource-grocery" / "zyscj"
+RESOURCE_DOC_ROOT = RESOURCE_DIR / "docs"
+RESOURCE_DOCS = sorted(RESOURCE_DOC_ROOT.rglob("*.md"))
+
+
+def sanitize_body(body: str) -> str:
+    """Drop links that cannot work on the site: bookmarklets, odd schemes, dead in-page anchors."""
+    ids = set(re.findall(r'id="([^"]+)"', body))
+
+    def repl(match: "re.Match[str]") -> str:
+        attrs, text = match.group(1), match.group(2)
+        href_match = re.search(r'href="([^"]*)"', attrs)
+        if not href_match:
+            return match.group(0)
+        href = href_match.group(1)
+        if re.match(r"^(javascript|whimsical|data|vbscript|about|ftp):", href, flags=re.I):
+            return text
+        if href.startswith("#") and href[1:] not in ids:
+            return text
+        return match.group(0)
+
+    return re.sub(r"<a\b([^>]*)>(.*?)</a>", repl, body, flags=re.S)
+
+
+def strip_self_anchors(text: str) -> str:
+    """Drop in-page anchor links kept from the source site; the sidebar replaces them."""
+    return re.sub(r"\[([^\]]+)\]\(#[^)]*\)", r"\1", text)
+
+
+def resource_slug(path: Path) -> str:
+    rel = path.relative_to(RESOURCE_DOC_ROOT).with_suffix("")
+    return "zyscj-doc-" + "-".join(rel.parts)
+
+
+RESOURCE_SLUGS = {path: resource_slug(path) for path in RESOURCE_DOCS}
+HREF_MAP.update({"LINKS.md": "./zyscj-links.html", "INDEX.md": "./zyscj.html"})
+HREF_MAP.update(
+    {
+        "docs/" + path.relative_to(RESOURCE_DOC_ROOT).as_posix(): "./%s.html" % slug
+        for path, slug in RESOURCE_SLUGS.items()
+    }
+)
 CN_NUM = {1: "一", 2: "两", 3: "三", 4: "四", 5: "五", 6: "六", 7: "七", 8: "八", 9: "九", 10: "十"}
 
 CSS = r"""
@@ -274,6 +317,9 @@ button,input{font-family:inherit}
   .hero h1{font-size:27px}
   .issue-grid{grid-template-columns:1fr}
   .to-top{right:16px;bottom:16px}
+}
+@media (max-width:760px){
+  .topbar nav a.nav-old{display:none}
 }
 @media (max-width:560px){
   .topbar nav a.nav-official,.topbar nav a.nav-repo{display:none}
@@ -621,6 +667,14 @@ HOME_TPL = r"""<!doctype html>
     </section>
   </section>
 
+  <section id="resources">
+    <h2 class="section-title">资源索引 · {{RESOURCE_PAGE_COUNT}} 页</h2>
+    <p class="index-note">{{RESOURCE_NOTE}}</p>
+    <section class="issue-grid guide-grid">
+{{RESOURCE_CARDS}}
+    </section>
+  </section>
+
   <h2 class="section-title">分享者与项目链接</h2>
   <p class="index-note">按官方汇总页整理：每位分享者的个人主页，以及他介绍的项目、源码、幻灯片等链接。点姓名进入本站精读章节，点标签跳转外部站点（新标签页打开）。没有主页或项目链接的会如实标注。</p>
 {{INDEX_BLOCKS}}
@@ -782,8 +836,8 @@ def strip_tags(raw: str) -> str:
     return html.unescape(re.sub(r"<[^>]+>", "", raw)).strip()
 
 
-def convert(src: Path, linkify: bool) -> tuple[str, list[tuple[str, str, str]]]:
-    text = src.read_text(encoding="utf-8")
+def convert(src: Path, linkify: bool, text: str | None = None) -> tuple[str, list[tuple[str, str, str]]]:
+    text = text if text is not None else src.read_text(encoding="utf-8")
     if linkify:
         text = linkify_raw_links_section(text)
 
@@ -801,6 +855,7 @@ def convert(src: Path, linkify: bool) -> tuple[str, list[tuple[str, str, str]]]:
         body,
     )
     body = autolink_html(body)
+    body = sanitize_body(body)
 
     heads = [
         (level, hid, strip_tags(raw))
@@ -929,15 +984,21 @@ def nav_html(kind: str, active: str | None = None) -> str:
                 % (" ".join(cls), issue["key"], html.escape(issue["label"]))
             )
         rows.append('    <a class="nav-cross" href="./index.html#handbook">学习手册</a>')
+        rows.append('    <a class="nav-cross" href="./index.html#resources">资源索引</a>')
         rows.append(
             '    <a class="nav-official" href="https://tabthursday.com/notes"'
             ' target="_blank" rel="noopener noreferrer">官方汇总</a>'
         )
     elif kind == "guides":
         rows.append('    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>')
+        rows.append('    <a class="nav-cross" href="./index.html#resources">资源索引</a>')
+    elif kind == "resources":
+        rows.append('    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>')
+        rows.append('    <a class="nav-cross" href="./index.html#handbook">学习手册</a>')
     else:
         rows.append('    <a class="nav-issue" href="#tab-thursday">活动精读</a>')
         rows.append('    <a class="nav-issue" href="#handbook">学习手册</a>')
+        rows.append('    <a class="nav-issue" href="#resources">资源索引</a>')
     rows.append(
         '    <a class="nav-repo" href="%s" target="_blank" rel="noopener noreferrer">GitHub</a>'
         % REPO_URL
@@ -1026,6 +1087,7 @@ def main() -> None:
         [
             '    <a href="./index.html#tab-thursday">活动精读</a>',
             '    <a href="./index.html#handbook">学习手册</a>',
+            '    <a href="./index.html#resources">资源索引</a>',
         ]
         + [
             '    <a href="./issue-%s.html">%s</a>'
@@ -1106,6 +1168,71 @@ def main() -> None:
         out = DOCS / ("guide-%s.html" % guide["key"])
         out.write_text(page, encoding="utf-8", newline="\n")
         print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
+
+    resource_pages = [
+        (
+            "zyscj",
+            RESOURCE_DIR / "INDEX.md",
+            "资源索引",
+            "需求速查 · 我要找什么，看哪一页",
+            "84 个资源页按用途归类，每行给出外链数与正文入口。",
+        ),
+        (
+            "zyscj-links",
+            RESOURCE_DIR / "LINKS.md",
+            "资源索引",
+            "全站外链总表",
+            "98 个页面的外链按页面分组列出，可以按站名或网址检索。",
+        ),
+    ]
+    for key, src, label, title, desc in resource_pages:
+        text = strip_self_anchors(src.read_text(encoding="utf-8"))
+        if key == "zyscj-links":
+            text = re.sub(
+                r"<!--\s*(docs/[^\s]+\.md)\s*-->",
+                r"[→ 打开这一页的完整清单](\1)",
+                text,
+            )
+        body, heads = convert(src, linkify=False, text=text)
+        page = render(
+            PAGE_TPL,
+            TITLE=html.escape(title),
+            DESC=html.escape(desc),
+            REPO=REPO_URL,
+            LABEL=html.escape(label),
+            NAV=nav_html("resources"),
+            SIDEBAR_EXTRA="",
+            BLOB=BLOB + quote(src.relative_to(ROOT).as_posix()),
+            TOC=build_toc(heads),
+            BODY=body,
+            PREV="",
+            NEXT="",
+        )
+        out = DOCS / ("%s.html" % key)
+        out.write_text(page, encoding="utf-8", newline="\n")
+        print("wrote %-28s %7d bytes  (%d headings)" % (out.name, out.stat().st_size, len(heads)))
+
+    for path, slug in RESOURCE_SLUGS.items():
+        raw = path.read_text(encoding="utf-8")
+        body, heads = convert(path, linkify=False, text=strip_self_anchors(raw))
+        heading = re.search(r"^#\s+(.+)$", raw, flags=re.M)
+        page = render(
+            PAGE_TPL,
+            TITLE=html.escape(heading.group(1).strip() if heading else path.stem),
+            DESC=html.escape("资源索引 · " + path.stem),
+            REPO=REPO_URL,
+            LABEL="资源索引",
+            NAV=nav_html("resources"),
+            SIDEBAR_EXTRA="",
+            BLOB=BLOB + quote(path.relative_to(ROOT).as_posix()),
+            TOC=build_toc(heads),
+            BODY=body,
+            PREV="",
+            NEXT="",
+        )
+        out = DOCS / ("%s.html" % slug)
+        out.write_text(page, encoding="utf-8", newline="\n")
+    print("wrote zyscj-doc-*.html           %d resource pages" % len(RESOURCE_SLUGS))
 
     latest = ISSUES[-1]
     cards = []
@@ -1192,10 +1319,10 @@ def main() -> None:
     unique_people = unique_share_people(links)
     issue_count_cn = CN_NUM.get(len(ISSUES), str(len(ISSUES)))
     hero = (
-        "两类整理放在一起：Tab 星期四%s期共 %d 个分享席位（%d 位分享者）的逐章精读，"
-        "以及面向计算机视觉方向研究生的学习手册——免费资源与算力、起步路线、实战项目、"
-        "论文精读方法与 AI 使用边界。每条数字都标了来源等级与复核日期，推断与事实分开写。"
-        % (issue_count_cn, total_cards, unique_people)
+        "三类整理放在一起：Tab 星期四%s期共 %d 个分享席位（%d 位分享者）的逐章精读；"
+        "面向计算机视觉方向研究生的学习手册；以及一个资源导航站的全站索引（%d 个页面、3323 条外链）。"
+        "每条数字都标了来源等级与复核日期，推断与事实分开写。"
+        % (issue_count_cn, total_cards, unique_people, len(RESOURCE_DOCS))
     )
     issue_note = (
         "每人带一个本周想分享的浏览器标签页，现场投票决定讲述时长。%s期共 %d 个分享席位、%d 位分享者，"
@@ -1220,10 +1347,31 @@ def main() -> None:
             )
         )
     home_desc = (
-        "公开材料精读：Tab 星期四%s期分享的深度精读（%d 个分享席位、%d 位分享者），"
-        "以及免费资源、起步路线、实战项目、论文精读方法与 AI 使用边界五篇学习手册。"
-        % (issue_count_cn, total_cards, unique_people)
+        "公开材料精读：Tab 星期四%s期分享的深度精读（%d 个分享席位、%d 位分享者）、"
+        "五篇研究生学习手册，以及一个资源导航站的全站索引（%d 个页面、3323 条外链）。"
+        % (issue_count_cn, total_cards, unique_people, len(RESOURCE_DOCS))
     )
+
+    resource_cards = [
+        '    <a class="issue-card guide-card" href="./zyscj.html">\n'
+        '      <div class="issue-no">需求速查</div>\n'
+        '      <h2>我要找什么，看哪一页</h2>\n'
+        '      <div class="issue-meta">84 个资源页 · 3323 条外链 · 抓取于 2026-11-01</div>\n'
+        '      <p class="issue-theme">按用途归类：图片与设计素材、音乐、书籍、软件、影视、网盘、学习与工具。</p>\n'
+        '      <span class="cta">开始查找 →</span>\n'
+        '    </a>',
+        '    <a class="issue-card guide-card" href="./zyscj-links.html">\n'
+        '      <div class="issue-no">外链总表</div>\n'
+        '      <h2>全站外链总表</h2>\n'
+        '      <div class="issue-meta">98 个页面 · 3323 条外链</div>\n'
+        '      <p class="issue-theme">每个页面的外链按站名与网址列出，可以直接在浏览器里搜关键词。</p>\n'
+        '      <span class="cta">开始检索 →</span>\n'
+        '    </a>',
+    ]
+    resource_note = (
+        "这里镜像一个资源导航站的全站内容：%d 个页面与 3323 条外链，按原样收录、未做筛选；"
+        "链接能不能打开、有没有版权风险，需要自己判断。"
+    ) % len(RESOURCE_DOCS)
 
     home = render(
         HOME_TPL,
@@ -1235,6 +1383,9 @@ def main() -> None:
         OFFICIAL_LINKS=official_links,
         CARDS="\n".join(cards),
         GUIDE_CARDS="\n".join(guide_card(i, guide) for i, guide in enumerate(GUIDES, 1)),
+        RESOURCE_CARDS="\n".join(resource_cards),
+        RESOURCE_PAGE_COUNT=str(len(RESOURCE_DOCS) + 2),
+        RESOURCE_NOTE=html.escape(resource_note),
         QUICK="\n".join(quick),
         ISSUE_COUNT=issue_count_cn,
         GUIDE_COUNT=str(len(GUIDES)),

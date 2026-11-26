@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🔗网站favicon图标下载 · 公开材料精读</title>
+<meta name="description" content="资源索引 · favicon">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-cross" href="./index.html#handbook">学习手册</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · 资源索引</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#0网页插件" data-title="0.网页插件">0.网页插件</a>
+      <a class="toc-item" href="#1网站下载" data-title="1.网站下载">1.网站下载</a>
+      <a class="toc-item" href="#2直接访问favicon地址获取ico文件" data-title="2.直接访问favicon地址获取ico文件">2.直接访问favicon地址获取ico文件</a>
+      <a class="toc-item" href="#3使用api获取网站favicon" data-title="3.使用API获取网站favicon">3.使用API获取网站favicon</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/resource-grocery/zyscj/docs/zy/tool/imagetool/favicon.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="网站favicon图标下载">🔗网站favicon图标下载</h1>
+<blockquote>
+<p>来源：<a href="https://zyscj.com/zy/tool/imagetool/favicon.html" target="_blank" rel="noopener noreferrer">https://zyscj.com/zy/tool/imagetool/favicon.html</a>  ·  抓取时间：2026-11-01  ·  外链 5 个</p>
+<p>由于杂货铺收集网站都需要加上网站的图标，所以收集了下列网站favicon图标下载的方法：</p>
+</blockquote>
+<h2 id="0网页插件">0.网页插件</h2>
+<p><a href="https://chrome.google.com/webstore/detail/get-favicon/gpipahagclehninhhjkhbkliinfofnhe/related" target="_blank" rel="noopener noreferrer">Get Favicon</a>（chrome插件，推荐）</p>
+<h2 id="1网站下载">1.网站下载</h2>
+<table>
+<thead>
+<tr>
+<th>下载方法</th>
+<th>网址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Favicon Grabber</td>
+<td><a href="https://favicongrabber.com/" target="_blank" rel="noopener noreferrer">https://favicongrabber.com/</a></td>
+</tr>
+<tr>
+<td>The Favicon Finder</td>
+<td><a href="https://besticon-demo.herokuapp.com/" target="_blank" rel="noopener noreferrer">https://besticon-demo.herokuapp.com/</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2直接访问favicon地址获取ico文件">2.直接访问favicon地址获取ico文件</h2>
+<p>对于熟悉网站开发的人来说，相信很多人都知道网站的favicon是如何设置的，就是把一个文件名为 favicon.ico 的图片上传到网站根目录，然后浏览器就会自动识别其为网站的标签页的图标</p>
+<p>知道了这个后，我们就可以直接访问这个网址下载图标，格式为 域名/favicon.ico</p>
+<p>比如Google的网站图标就是</p>
+<pre><code>https://www.google.com/favicon.ico
+</code></pre>
+<p>百度的favicon图标地址就是</p>
+<pre><code>https://www.baidu.com/favicon.ico
+</code></pre>
+<p>访问网址后，我们再右键 – 图片存储为就可以了</p>
+<p>有些网站还需要F12打开开发人员工具，在地址中找到相应的图标，这是不会出错的方法。</p>
+<h2 id="3使用api获取网站favicon">3.使用API获取网站favicon</h2>
+<p>一些网站还提供专门的API给其他的开发者或者特殊用途使用，可以更快捷的获取到网站图标</p>
+<p><strong>Google的API</strong></p>
+<pre><code>https://www.google.com/s2/favicons?domain=google.com
+</code></pre>
+<p>使用Google的API，你只需要把后面的域名改成自己的，就可以获取到对应的网站图标了，图片格式为PNG，大小 16*16 像素</p>
+<p><strong>The Favicon Finder 的 API</strong></p>
+<pre><code>https://besticon-demo.herokuapp.com/icon?url=google.com&amp;size=80..120..200
+</code></pre>
+<p>The Favicon Finder 的API和它的网站一样，提供了很多专业级的参数选项，你可以在它的<a href="https://github.com/mat/besticon/blob/master/Readme.markdown" target="_blank" rel="noopener noreferrer">Github文档</a>上查看到具体的用法</p>
+<p>来源：<a href="https://www.v1tx.com/post/how-to-get-favicon/" target="_blank" rel="noopener noreferrer">下载网站favicon图标的3种方法 – v1tx</a></p>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>

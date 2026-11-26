@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🔗修改DNS防止网站无法访问 · 公开材料精读</title>
+<meta name="description" content="资源索引 · DNS">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-cross" href="./index.html#handbook">学习手册</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · 资源索引</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#软件修改方案" data-title="软件修改方案">软件修改方案</a>
+      <a class="toc-item" href="#手动修改方案" data-title="手动修改方案">手动修改方案</a>
+      <a class="toc-item" href="#dns地址列表" data-title="DNS地址列表">DNS地址列表</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/resource-grocery/zyscj/docs/zy/guide/DNS.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="修改dns防止网站无法访问">🔗修改DNS防止网站无法访问</h1>
+<blockquote>
+<p>来源：<a href="https://zyscj.com/zy/guide/DNS.html" target="_blank" rel="noopener noreferrer">https://zyscj.com/zy/guide/DNS.html</a>  ·  抓取时间：2026-11-01  ·  外链 10 个</p>
+</blockquote>
+<h2 id="软件修改方案">软件修改方案</h2>
+<h3 id="dns优选">DNS优选</h3>
+<p>吾爱破解链接：<a href="https://www.52pojie.cn/thread-976081-1-1.html" target="_blank" rel="noopener noreferrer">https://www.52pojie.cn/thread-976081-1-1.html</a></p>
+<p>直接下载：<a href="https://adzhp.lanzouw.com/b00tbbgwlc" target="_blank" rel="noopener noreferrer">https://adzhp.lanzouw.com/b00tbbgwlc</a> 密码:6qda（<strong>windows报毒，全部点运行即可</strong>）</p>
+<p>直接右键选择DNS，应用即可。</p>
+<p><img alt="image-20250208221000753" src="/assets/image/image-20250208221000753.png" /></p>
+<p>image-20250208221000753</p>
+<h2 id="手动修改方案">手动修改方案</h2>
+<h3 id="windows10linux-ios-android修改dns教程">windows10、Linux 、iOS、 Android修改DNS教程</h3>
+<p>点击以下链接查看：<a href="https://cloud.tencent.com/document/product/302/110786#e13e0d14-191a-4a75-943a-63a67bd4f3f2" target="_blank" rel="noopener noreferrer">https://cloud.tencent.com/document/product/302/110786#e13e0d14-191a-4a75-943a-63a67bd4f3f2</a></p>
+<h3 id="win11系统修改">Win11系统修改</h3>
+<p><strong>打开设置：</strong>右键点击开始菜单，然后选择“<strong>设置</strong>”（或者直接按<strong>Win + I</strong>快捷键）</p>
+<p><strong>进入网络和Internet设置：</strong> 在打开的设置菜单中，找到并选择“<strong>网络和Internet</strong>”选项。</p>
+<p><strong>进入属性界面：</strong> 前面会显示你正在用的网络，我这里是以太网连接，你可能是WiFi链接，点击<strong>属性</strong>。</p>
+<p><img alt="image-20250208214218008" src="/assets/image/image-20250208214218008.png" /></p>
+<p>image-20250208214218008</p>
+<p><strong>编辑DNS服务器：</strong>点击<strong>编辑</strong>按钮即可弹出修改DNS的界面，选择手动修改</p>
+<p><img alt="image-20250208214332662" src="/assets/image/image-20250208214332662.png" /></p>
+<p>image-20250208214332662</p>
+<p><strong>配置DNS服务器地址：</strong>在弹出的属性窗口中，选择IPv4”，填入要使用的DNS服务器地址即可。</p>
+<p><img alt="image-20250208214817199" src="/assets/image/image-20250208214817199.png" /></p>
+<p>image-20250208214817199</p>
+<h2 id="dns地址列表">DNS地址列表</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>服务器地址</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="https://www.114dns.com/" target="_blank" rel="noopener noreferrer">114DNS</a></strong></td>
+<td>首选114.114.114.114，备选114.114.115.115</td>
+<td>老牌的公共DNS，全国三网通用，访问速度快，纯净无劫持</td>
+</tr>
+<tr>
+<td><strong><a href="https://www.alidns.com/" target="_blank" rel="noopener noreferrer">阿里DNS</a></strong></td>
+<td>首选223.5.5.5，备选223.6.6.6</td>
+<td>阿里巴巴集团提供的DNS服务，快速、稳定、智能</td>
+</tr>
+<tr>
+<td><strong><a href="https://dudns.baidu.com/" target="_blank" rel="noopener noreferrer">百度DNS</a></strong></td>
+<td>首选180.76.76.76，备选180.76.76.76</td>
+<td>百度旗下的云解析服务，依托于百度一流基础设施和强大技术实力</td>
+</tr>
+<tr>
+<td><strong><a href="https://www.dnspod.cn/products/publicdns" target="_blank" rel="noopener noreferrer">腾讯DNSPod（DNS+）</a></strong></td>
+<td>首选119.29.29.29，备选182.254.116.116</td>
+<td>国内首家支持ECS的DNS服务，提供更快速、准确、稳定的递归解析服务</td>
+</tr>
+<tr>
+<td><a href="https://developers.google.com/speed/public-dns?hl=zh-cn" target="_blank" rel="noopener noreferrer"><strong>Google DNS</strong></a></td>
+<td>首选8.8.8.8，备选8.8.4.4</td>
+<td>由谷歌公司发布，提供免费的全球性DNS解析服务，高可靠性和安全性</td>
+</tr>
+<tr>
+<td><a href="https://one.one.one.one/zh-Hans/dns/" target="_blank" rel="noopener noreferrer"><strong>Cloudflare DNS</strong></a></td>
+<td>首选1.1.1.1 ，备选1.0.0.1</td>
+<td>由知名云服务商Cloudflare 发布，号称最快的DNS解析</td>
+</tr>
+<tr>
+<td><a href="https://www.opendns.com/" target="_blank" rel="noopener noreferrer"><strong>OpenDNS</strong></a></td>
+<td>首选208.67.222.222，备选208.67.220.220</td>
+<td>知名免费DNS服务，提供快速的解析速度和良好的隐私保护功能</td>
+</tr>
+</tbody>
+</table>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>需求速查 · 我要找什么，看哪一页 · 公开材料精读</title>
+<meta name="description" content="84 个资源页按用途归类，每行给出外链数与正文入口。">
+<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <a class="brand" href="./index.html">公开材料精读</a>
+  <nav>
+    <a href="./index.html">首页</a>
+    <a class="nav-cross" href="./index.html#tab-thursday">活动精读</a>
+    <a class="nav-cross" href="./index.html#handbook">学习手册</a>
+    <a class="nav-repo" href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar" aria-label="章节目录">
+    <div class="sidebar-head">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="关闭目录">×</button>
+      <div class="sidebar-title">目录 · 资源索引</div>
+      <input class="filter" id="tocFilter" type="search" placeholder="筛选章节" autocomplete="off">
+      <div class="filter-hint">Ctrl / ⌘ + K 快速定位</div>
+    </div>
+    <nav class="toc" id="toc">
+      <a class="toc-item" href="#目录结构" data-title="目录结构">目录结构</a>
+      <a class="toc-item" href="#怎么用" data-title="怎么用">怎么用</a>
+      <a class="toc-item" href="#一需求速查我要找什么-看哪页" data-title="一、需求速查（我要找什么 → 看哪页）">一、需求速查（我要找什么 → 看哪页）</a>
+      <a class="toc-item" href="#二分类树官方结构-每页小节" data-title="二、分类树（官方结构 + 每页小节）">二、分类树（官方结构 + 每页小节）</a>
+      <a class="toc-item" href="#三外链总表" data-title="三、外链总表">三、外链总表</a>
+      <a class="toc-item" href="#四维护" data-title="四、维护">四、维护</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a href="https://github.com/73mtq/public-reading/blob/main/resource-grocery/zyscj/INDEX.md" target="_blank" rel="noopener noreferrer">Markdown 原文（GitHub）</a>
+
+      <a href="./index.html">← 返回首页</a>
+    </div>
+  </aside>
+  <main class="content">
+    <article class="prose" id="article">
+<h1 id="资源收藏夹-zyscjcom-全站索引">资源收藏夹 <a href="https://zyscj.com" target="_blank" rel="noopener noreferrer">zyscj.com</a> — 全站索引</h1>
+<blockquote>
+<p>用途：你说「我要找 X 资源 / 我要做 X，用哪个网站」，我先在这份索引里定位到页面，再从页面清单里给你具体的站名 + 链接。
+来源：<a href="https://zyscj.com/zy/office/png.html" target="_blank" rel="noopener noreferrer">https://zyscj.com/zy/office/png.html</a> 全站抓取（sitemap 97 页 + 首页，共 98 页）
+抓取时间：2026-11-01 · 共 <strong>84 个资源页、3324 条外链</strong>
+站点性质：个人资源收藏夹（VuePress 搭建的导航站），本站内容按原样镜像，未做筛选。</p>
+</blockquote>
+<h2 id="目录结构">目录结构</h2>
+<pre><code>resource-grocery/zyscj/
+├── INDEX.md        ← 本文件：需求速查 + 分类树
+├── LINKS.md        ← 全部 3323 条外链总表（按页面分组，可 grep）
+├── docs/           ← 97 个页面正文（markdown，保留原表格与链接）
+└── scripts/        ← crawl.py（抓取）/ build_index.py（生成索引）/ urls.txt / _manifest.json
+</code></pre>
+<h2 id="怎么用">怎么用</h2>
+<ul>
+<li>找某个用途的站：先看下面<strong>一、需求速查</strong>，命中后打开对应页面，页面里按小节列出了全部站点链接。</li>
+<li>只记得关键词：直接搜全文总表
+  <code>bash
+  cd resource-grocery/zyscj
+  grep -in "PNG" LINKS.md          # 搜站名/URL
+  grep -rn "免费 素材" docs/       # 搜页面正文</code></li>
+<li>索引只记录「有什么站」，是否能访问、是否需要科学上网、是否有版权风险，需自己判断。</li>
+</ul>
+<hr />
+<h2 id="一需求速查我要找什么-看哪页">一、需求速查（我要找什么 → 看哪页）</h2>
+<h3 id="图片-设计素材">图片 / 设计素材</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免抠 PNG、透明底图、纹理图案</td>
+<td>🔗png+纹理图案等素材</td>
+<td>83</td>
+<td><a href="./zyscj-doc-zy-office-png.html">docs/zy/office/png.md</a></td>
+</tr>
+<tr>
+<td>无版权图库、矢量素材、免费照片</td>
+<td>🔗无版权图库+矢量素材</td>
+<td>60</td>
+<td><a href="./zyscj-doc-zy-office-picture.html">docs/zy/office/picture.md</a></td>
+</tr>
+<tr>
+<td>图标 / logo / 图标库</td>
+<td>🔗图标logo素材资源</td>
+<td>104</td>
+<td><a href="./zyscj-doc-zy-office-icon.html">docs/zy/office/icon.md</a></td>
+</tr>
+<tr>
+<td>字体下载、字体识别</td>
+<td>🔗字体素材资源</td>
+<td>54</td>
+<td><a href="./zyscj-doc-zy-office-font.html">docs/zy/office/font.md</a></td>
+</tr>
+<tr>
+<td>配色方案、色卡、渐变</td>
+<td>🔗配色方案资源索引</td>
+<td>51</td>
+<td><a href="./zyscj-doc-zy-office-color.html">docs/zy/office/color.md</a></td>
+</tr>
+<tr>
+<td>壁纸、桌面美化</td>
+<td>🔗壁纸网站与桌面美化</td>
+<td>65</td>
+<td><a href="./zyscj-doc-zy-office-wallpaper.html">docs/zy/office/wallpaper.md</a></td>
+</tr>
+<tr>
+<td>PPT 模板、简历模板</td>
+<td>🔗PPT与简历制作</td>
+<td>48</td>
+<td><a href="./zyscj-doc-zy-office-ppt.html">docs/zy/office/ppt.md</a></td>
+</tr>
+<tr>
+<td>视频素材、音效、BGM</td>
+<td>🔗视频与音效素材网站</td>
+<td>35</td>
+<td><a href="./zyscj-doc-zy-office-video-audio.html">docs/zy/office/video-audio.md</a></td>
+</tr>
+<tr>
+<td>CAD 规范、制图软件</td>
+<td>🔗规范查询下载及CAD常用软件</td>
+<td>25</td>
+<td><a href="./zyscj-doc-zy-office-CAD-standard.html">docs/zy/office/CAD-standard.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="图片处理小工具">图片处理小工具</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在线 PS、抠图、去背景</td>
+<td>🔗PS在线编辑+抠图</td>
+<td>29</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-PS.html">docs/zy/tool/imagetool/PS.md</a></td>
+</tr>
+<tr>
+<td>图片压缩（含软件）</td>
+<td>🔗图片压缩+软件</td>
+<td>18</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-piccompress.html">docs/zy/tool/imagetool/piccompress.md</a></td>
+</tr>
+<tr>
+<td>图片编辑、裁剪、加水印</td>
+<td>🔗图片编辑处理</td>
+<td>29</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-picedit.html">docs/zy/tool/imagetool/picedit.md</a></td>
+</tr>
+<tr>
+<td>以图搜图、识图</td>
+<td>🔗以图搜图(识图)</td>
+<td>21</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-imagesearch.html">docs/zy/tool/imagetool/imagesearch.md</a></td>
+</tr>
+<tr>
+<td>免费图床</td>
+<td>🔗免费图床网站</td>
+<td>8</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-picupload.html">docs/zy/tool/imagetool/picupload.md</a></td>
+</tr>
+<tr>
+<td>头像生成器</td>
+<td>🔗在线头像生成器</td>
+<td>16</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-avatar.html">docs/zy/tool/imagetool/avatar.md</a></td>
+</tr>
+<tr>
+<td>favicon 图标下载/生成</td>
+<td>🔗网站favicon图标下载</td>
+<td>5</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-favicon.html">docs/zy/tool/imagetool/favicon.md</a></td>
+</tr>
+<tr>
+<td>表情包、GIF 制作</td>
+<td>🔗表情包与GIF</td>
+<td>34</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-gif.html">docs/zy/tool/imagetool/gif.md</a></td>
+</tr>
+<tr>
+<td>词云</td>
+<td>🔗词云制作</td>
+<td>11</td>
+<td><a href="./zyscj-doc-zy-tool-imagetool-wordcloud.html">docs/zy/tool/imagetool/wordcloud.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="阅读-书籍">阅读 / 书籍</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电子书 / 杂志下载站</td>
+<td>🔗电子书杂志网站</td>
+<td>71</td>
+<td><a href="./zyscj-doc-zy-book-ebook.html">docs/zy/book/ebook.md</a></td>
+</tr>
+<tr>
+<td>网络小说</td>
+<td>🔗免费网络小说</td>
+<td>106</td>
+<td><a href="./zyscj-doc-zy-book-fiction.html">docs/zy/book/fiction.md</a></td>
+</tr>
+<tr>
+<td>古籍、汉籍</td>
+<td>🔗汉古籍资源</td>
+<td>149</td>
+<td><a href="./zyscj-doc-zy-book-ancient.html">docs/zy/book/ancient.md</a></td>
+</tr>
+<tr>
+<td>漫画</td>
+<td>🔗免费漫画资源</td>
+<td>15</td>
+<td><a href="./zyscj-doc-zy-book-comic.html">docs/zy/book/comic.md</a></td>
+</tr>
+<tr>
+<td>英文电子书</td>
+<td>🔗英文电子书</td>
+<td>16</td>
+<td><a href="./zyscj-doc-zy-book-enbook.html">docs/zy/book/enbook.md</a></td>
+</tr>
+<tr>
+<td>Z-Library 镜像</td>
+<td>🔗Z-Library书籍资源</td>
+<td>14</td>
+<td><a href="./zyscj-doc-zy-book-zlibrary.html">docs/zy/book/zlibrary.md</a></td>
+</tr>
+<tr>
+<td>pixiv 插画</td>
+<td>🔗pixiv插画资源</td>
+<td>19</td>
+<td><a href="./zyscj-doc-zy-book-pixiv.html">docs/zy/book/pixiv.md</a></td>
+</tr>
+<tr>
+<td>阅读器 / 小说软件</td>
+<td>🔗小说书籍软件</td>
+<td>30</td>
+<td><a href="./zyscj-doc-zy-book-ebooksoft.html">docs/zy/book/ebooksoft.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="音乐-音频">音乐 / 音频</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>在线听歌网站</td>
+<td>🔗免费在线音乐网站</td>
+<td>35</td>
+<td><a href="./zyscj-doc-zy-music-musicwebsite.html">docs/zy/music/musicwebsite.md</a></td>
+</tr>
+<tr>
+<td>音乐下载/播放软件</td>
+<td>🔗音乐软件下载</td>
+<td>42</td>
+<td><a href="./zyscj-doc-zy-music-musicsoftware.html">docs/zy/music/musicsoftware.md</a></td>
+</tr>
+<tr>
+<td>有声书、电台</td>
+<td>🔗有声书与电台</td>
+<td>38</td>
+<td><a href="./zyscj-doc-zy-music-audiobook.html">docs/zy/music/audiobook.md</a></td>
+</tr>
+<tr>
+<td>白噪音、MV</td>
+<td>🔗白噪音与MV</td>
+<td>29</td>
+<td><a href="./zyscj-doc-zy-music-whitenoise.html">docs/zy/music/whitenoise.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="软件-系统">软件 / 系统</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常用 Windows 软件</td>
+<td>🔗常用Windows软件</td>
+<td>50</td>
+<td><a href="./zyscj-doc-zy-soft-winsoft.html">docs/zy/soft/winsoft.md</a></td>
+</tr>
+<tr>
+<td>Windows 效率工具</td>
+<td>🔗Windows效率工具</td>
+<td>56</td>
+<td><a href="./zyscj-doc-zy-soft-winefficiency.html">docs/zy/soft/winefficiency.md</a></td>
+</tr>
+<tr>
+<td>Mac 软件</td>
+<td>🔗苹果MAC软件</td>
+<td>77</td>
+<td><a href="./zyscj-doc-zy-soft-iosmac.html">docs/zy/soft/iosmac.md</a></td>
+</tr>
+<tr>
+<td>安卓 App</td>
+<td>🔗安卓软件与PO解</td>
+<td>29</td>
+<td><a href="./zyscj-doc-zy-soft-android.html">docs/zy/soft/android.md</a></td>
+</tr>
+<tr>
+<td>软件下载站聚合</td>
+<td>🔗发现网站与应用</td>
+<td>89</td>
+<td><a href="./zyscj-doc-zy-soft-findsoft.html">docs/zy/soft/findsoft.md</a></td>
+</tr>
+<tr>
+<td>软件博客 / 论坛</td>
+<td>🔗软件博客与论坛</td>
+<td>64</td>
+<td><a href="./zyscj-doc-zy-soft-blogforum.html">docs/zy/soft/blogforum.md</a></td>
+</tr>
+<tr>
+<td>浏览器与油猴脚本</td>
+<td>🔗浏览器及插件脚本</td>
+<td>43</td>
+<td><a href="./zyscj-doc-zy-soft-browser.html">docs/zy/soft/browser.md</a></td>
+</tr>
+<tr>
+<td>系统安装、激活</td>
+<td>🔗Win系统安装与激活</td>
+<td>33</td>
+<td><a href="./zyscj-doc-zy-soft-winsystem.html">docs/zy/soft/winsystem.md</a></td>
+</tr>
+<tr>
+<td>蓝奏云 / 安装包合集</td>
+<td>🔗蓝奏云与软件安装大全</td>
+<td>45</td>
+<td><a href="./zyscj-doc-zy-soft-lanzou.html">docs/zy/soft/lanzou.md</a></td>
+</tr>
+<tr>
+<td>网页小游戏</td>
+<td>🔗在线网页游戏</td>
+<td>47</td>
+<td><a href="./zyscj-doc-zy-soft-onlinegame.html">docs/zy/soft/onlinegame.md</a></td>
+</tr>
+<tr>
+<td>国外破解站</td>
+<td>🔒国外PO解站</td>
+<td>53</td>
+<td><a href="./zyscj-doc-zy-soft-crackabroad.html">docs/zy/soft/crackabroad.md</a></td>
+</tr>
+<tr>
+<td>破解游戏</td>
+<td>🔗PO解游戏网站</td>
+<td>65</td>
+<td><a href="./zyscj-doc-zy-soft-crackgame.html">docs/zy/soft/crackgame.md</a></td>
+</tr>
+<tr>
+<td>Telegram 客户端</td>
+<td>🔒TG电报软件</td>
+<td>47</td>
+<td><a href="./zyscj-doc-zy-soft-tgsoft.html">docs/zy/soft/tgsoft.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="影视-视频">影视 / 视频</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B站/各站视频下载</td>
+<td>🔗各种视频下载</td>
+<td>54</td>
+<td><a href="./zyscj-doc-zy-video-bilidownload.html">docs/zy/video/bilidownload.md</a></td>
+</tr>
+<tr>
+<td>字幕下载、字幕组</td>
+<td>🔗字幕组翻译</td>
+<td>27</td>
+<td><a href="./zyscj-doc-zy-video-subtitle.html">docs/zy/video/subtitle.md</a></td>
+</tr>
+<tr>
+<td>纪录片</td>
+<td>🔗纪录片合集</td>
+<td>34</td>
+<td><a href="./zyscj-doc-zy-video-documentary.html">docs/zy/video/documentary.md</a></td>
+</tr>
+<tr>
+<td>动漫</td>
+<td>🔗动漫网站与下载</td>
+<td>19</td>
+<td><a href="./zyscj-doc-zy-video-anime.html">docs/zy/video/anime.md</a></td>
+</tr>
+<tr>
+<td>TV 盒子 / 电视直播</td>
+<td>🔗TV盒子与直播</td>
+<td>58</td>
+<td><a href="./zyscj-doc-zy-video-tv.html">docs/zy/video/tv.md</a></td>
+</tr>
+<tr>
+<td>影视 App</td>
+<td>🔗免费影视软件</td>
+<td>15</td>
+<td><a href="./zyscj-doc-zy-video-videosoft.html">docs/zy/video/videosoft.md</a></td>
+</tr>
+<tr>
+<td>高清影视下载</td>
+<td>🔗高清4K影视下载</td>
+<td>44</td>
+<td><a href="./zyscj-doc-zy-video-HDvideo.html">docs/zy/video/HDvideo.md</a></td>
+</tr>
+<tr>
+<td>在线影视</td>
+<td>🔒在线影视精选</td>
+<td>10</td>
+<td><a href="./zyscj-doc-zy-video-onlinevideo.html">docs/zy/video/onlinevideo.md</a></td>
+</tr>
+<tr>
+<td>视频解析</td>
+<td>🔗视频解析</td>
+<td>26</td>
+<td><a href="./zyscj-doc-zy-video-videoparse.html">docs/zy/video/videoparse.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="搜索-网盘">搜索 / 网盘</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>网盘资源搜索</td>
+<td>🔗网盘资源合集</td>
+<td>116</td>
+<td><a href="./zyscj-doc-zy-search-diskresource.html">docs/zy/search/diskresource.md</a></td>
+</tr>
+<tr>
+<td>网盘不限速</td>
+<td>🔗网盘不限速</td>
+<td>12</td>
+<td><a href="./zyscj-doc-zy-search-spnetdisk.html">docs/zy/search/spnetdisk.md</a></td>
+</tr>
+<tr>
+<td>BT 磁力搜索</td>
+<td>🔒BT磁LI下载</td>
+<td>44</td>
+<td><a href="./zyscj-doc-zy-search-btcilidl.html">docs/zy/search/btcilidl.md</a></td>
+</tr>
+<tr>
+<td>BT 站点合集</td>
+<td>🔒BT种Z磁L网站合集</td>
+<td>55</td>
+<td><a href="./zyscj-doc-zy-search-btciliweb.html">docs/zy/search/btciliweb.md</a></td>
+</tr>
+<tr>
+<td>TG 群组 / 频道</td>
+<td>🔒TG群组频道资源</td>
+<td>36</td>
+<td><a href="./zyscj-doc-zy-search-tgchannel.html">docs/zy/search/tgchannel.md</a></td>
+</tr>
+<tr>
+<td>图片站</td>
+<td>🔒看妹子</td>
+<td>76</td>
+<td><a href="./zyscj-doc-zy-search-girl.html">docs/zy/search/girl.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="学习-办公文档">学习 / 办公文档</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编程学习</td>
+<td>🔗编程学习网站</td>
+<td>79</td>
+<td><a href="./zyscj-doc-zy-study-code.html">docs/zy/study/code.md</a></td>
+</tr>
+<tr>
+<td>英语学习</td>
+<td>🔗英语学习资源</td>
+<td>148</td>
+<td><a href="./zyscj-doc-zy-study-English.html">docs/zy/study/English.md</a></td>
+</tr>
+<tr>
+<td>论文 / 查重 / 降重</td>
+<td>🔗论文+查重降重</td>
+<td>51</td>
+<td><a href="./zyscj-doc-zy-study-paper.html">docs/zy/study/paper.md</a></td>
+</tr>
+<tr>
+<td>电子课本</td>
+<td>🔗电子课本下载</td>
+<td>23</td>
+<td><a href="./zyscj-doc-zy-study-textbook.html">docs/zy/study/textbook.md</a></td>
+</tr>
+<tr>
+<td>百度文库下载</td>
+<td>🔗百度文库下载</td>
+<td>11</td>
+<td><a href="./zyscj-doc-zy-study-wenku.html">docs/zy/study/wenku.md</a></td>
+</tr>
+<tr>
+<td>思维导图 / 笔记</td>
+<td>🔗思维导图与笔记</td>
+<td>66</td>
+<td><a href="./zyscj-doc-zy-study-mindmap.html">docs/zy/study/mindmap.md</a></td>
+</tr>
+<tr>
+<td>数据可视化 / 图表</td>
+<td>🔗信息可视化</td>
+<td>15</td>
+<td><a href="./zyscj-doc-zy-study-chart.html">docs/zy/study/chart.md</a></td>
+</tr>
+<tr>
+<td>在线课程 / 刷课</td>
+<td>🔗在线课堂与刷课</td>
+<td>21</td>
+<td><a href="./zyscj-doc-zy-study-onlinecourse.html">docs/zy/study/onlinecourse.md</a></td>
+</tr>
+<tr>
+<td>考试考证</td>
+<td>🔗考试考证资源</td>
+<td>12</td>
+<td><a href="./zyscj-doc-zy-study-certificate.html">docs/zy/study/certificate.md</a></td>
+</tr>
+<tr>
+<td>知识科普</td>
+<td>🔗知识科普站</td>
+<td>73</td>
+<td><a href="./zyscj-doc-zy-study-knowledge.html">docs/zy/study/knowledge.md</a></td>
+</tr>
+<tr>
+<td>心理测试</td>
+<td>🔗各类心理等测试</td>
+<td>29</td>
+<td><a href="./zyscj-doc-zy-study-psychology.html">docs/zy/study/psychology.md</a></td>
+</tr>
+<tr>
+<td>国内镜像站（下载加速）</td>
+<td>🔗各种学习镜像站</td>
+<td>30</td>
+<td><a href="./zyscj-doc-zy-study-mirror.html">docs/zy/study/mirror.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="通用工具">通用工具</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OCR 文字识别</td>
+<td>🔗OCR文字图片识别</td>
+<td>19</td>
+<td><a href="./zyscj-doc-zy-tool-ocr.html">docs/zy/tool/ocr.md</a></td>
+</tr>
+<tr>
+<td>PDF 处理 / 转换</td>
+<td>🔗PDF转换相关资源</td>
+<td>22</td>
+<td><a href="./zyscj-doc-zy-tool-pdf.html">docs/zy/tool/pdf.md</a></td>
+</tr>
+<tr>
+<td>文件格式转换、传文件</td>
+<td>🔗文件格式转换与传输</td>
+<td>28</td>
+<td><a href="./zyscj-doc-zy-tool-fileconvert.html">docs/zy/tool/fileconvert.md</a></td>
+</tr>
+<tr>
+<td>临时邮箱</td>
+<td>🔗临时邮箱</td>
+<td>8</td>
+<td><a href="./zyscj-doc-zy-tool-email.html">docs/zy/tool/email.md</a></td>
+</tr>
+<tr>
+<td>短信接码</td>
+<td>🔗短信接码</td>
+<td>14</td>
+<td><a href="./zyscj-doc-zy-tool-sms.html">docs/zy/tool/sms.md</a></td>
+</tr>
+<tr>
+<td>地图 / 地图资源下载</td>
+<td>🔗地图资源下载</td>
+<td>12</td>
+<td><a href="./zyscj-doc-zy-tool-map.html">docs/zy/tool/map.md</a></td>
+</tr>
+<tr>
+<td>在线查毒</td>
+<td>🔗在线查毒</td>
+<td>11</td>
+<td><a href="./zyscj-doc-zy-tool-virus.html">docs/zy/tool/virus.md</a></td>
+</tr>
+<tr>
+<td>电影台词搜索</td>
+<td>🔗电影台词搜索+拼接</td>
+<td>11</td>
+<td><a href="./zyscj-doc-zy-tool-actorline.html">docs/zy/tool/actorline.md</a></td>
+</tr>
+<tr>
+<td>综合工具箱</td>
+<td>🔗综合工具</td>
+<td>23</td>
+<td><a href="./zyscj-doc-zy-tool-tools.html">docs/zy/tool/tools.md</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-指南">AI / 指南</h3>
+<table>
+<thead>
+<tr>
+<th>我要找</th>
+<th>页面</th>
+<th>外链</th>
+<th>本地文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 工具导航</td>
+<td>🔗AI人工智能指南</td>
+<td>6</td>
+<td><a href="./zyscj-doc-zy-AI-AI导航.html">docs/zy/AI/AI导航.md</a></td>
+</tr>
+<tr>
+<td>修改 DNS 解决打不开</td>
+<td>🔗修改DNS防止网站无法访问</td>
+<td>10</td>
+<td><a href="./zyscj-doc-zy-guide-DNS.html">docs/zy/guide/DNS.md</a></td>
+</tr>
+<tr>
+<td>iOS 外区账号注册</td>
+<td>🔗ios外区账号注册</td>
+<td>4</td>
+<td><a href="./zyscj-doc-zy-guide-isoabroad.html">docs/zy/guide/isoabroad.md</a></td>
+</tr>
+<tr>
+<td>影视获取思路</td>
+<td>🔗影视资源指南</td>
+<td>12</td>
+<td><a href="./zyscj-doc-zy-guide-videoguide.html">docs/zy/guide/videoguide.md</a></td>
+</tr>
+<tr>
+<td>站点更新记录</td>
+<td>🔗资源铺更新记录</td>
+<td>0</td>
+<td><a href="./zyscj-doc-zy-AI-zypuu.html">docs/zy/AI/zypuu.md</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二分类树官方结构-每页小节">二、分类树（官方结构 + 每页小节）</h2>
+<h3 id="ai-人工智能2-页-6-条外链">AI 人工智能（2 页 · 6 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-AI-AI导航.html">🔗AI人工智能指南</a> · <strong>6 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-AI-zypuu.html">🔗资源铺更新记录</a> · <strong>0 条外链</strong></li>
+</ul>
+<h3 id="音乐动听4-页-144-条外链">音乐动听（4 页 · 144 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-music-musicsoftware.html">🔗音乐软件下载</a> · <strong>42 条外链</strong><br />
+  小节：<code>手机APP</code> · <code>Windows</code> · <code>音乐播放器</code></li>
+<li><a href="./zyscj-doc-zy-music-audiobook.html">🔗有声书与电台</a> · <strong>38 条外链</strong><br />
+  小节：<code>免费听书站</code> · <code>在线FM</code> · <code>有声读物</code> · <code>国外电台</code></li>
+<li><a href="./zyscj-doc-zy-music-musicwebsite.html">🔗免费在线音乐网站</a> · <strong>35 条外链</strong><br />
+  小节：<code>在线免费音乐</code> · <code>无损音乐站</code></li>
+<li><a href="./zyscj-doc-zy-music-whitenoise.html">🔗白噪音与MV</a> · <strong>29 条外链</strong><br />
+  小节：<code>白噪音</code> · <code>高清MV</code></li>
+</ul>
+<h3 id="阅读漫画8-页-420-条外链">阅读漫画（8 页 · 420 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-book-ancient.html">🔗汉古籍资源</a> · <strong>149 条外链</strong><br />
+  小节：<code>中国大陆</code> · <code>中国香港</code> · <code>中国台湾</code> · <code>越南</code> · <code>美国</code> · <code>英国</code> · <code>韩国</code> · <code>日本</code></li>
+<li><a href="./zyscj-doc-zy-book-fiction.html">🔗免费网络小说</a> · <strong>106 条外链</strong><br />
+  小节：<code>网络小说搜索</code> · <code>在线网站</code> · <code>精校小说</code> · <code>轻小说</code> · <code>英文玄幻小说</code></li>
+<li><a href="./zyscj-doc-zy-book-ebook.html">🔗电子书杂志网站</a> · <strong>71 条外链</strong><br />
+  小节：<code>出版电子书</code> · <code>电子书分享</code> · <code>论坛</code> · <code>网盘资源</code> · <code>杂志</code> · <code>收费电子书</code> · <code>专业书籍</code></li>
+<li><a href="./zyscj-doc-zy-book-ebooksoft.html">🔗小说书籍软件</a> · <strong>30 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-book-pixiv.html">🔗pixiv插画资源</a> · <strong>19 条外链</strong><br />
+  小节：<code>网站</code> · <code>软件</code> · <code>辅助工具</code></li>
+<li><a href="./zyscj-doc-zy-book-enbook.html">🔗英文电子书</a> · <strong>16 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-book-comic.html">🔗免费漫画资源</a> · <strong>15 条外链</strong><br />
+  小节：<code>在线网站</code> · <code>其他漫画</code> · <code>耽美漫画</code> · <code>免费漫画APP</code> · <code>kindle漫画</code></li>
+<li><a href="./zyscj-doc-zy-book-zlibrary.html">🔗Z-Library书籍资源</a> · <strong>14 条外链</strong><br />
+  小节：<code>🍉Z-Library官方</code> · <code>Z-Lib镜像/代理站</code> · <code>🥥安娜的档案</code> · <code>IPFS工具</code> · <code>收费方法</code> · <code>电子书工具</code></li>
+</ul>
+<h3 id="各种指南3-页-26-条外链">各种指南（3 页 · 26 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-guide-videoguide.html">🔗影视资源指南</a> · <strong>12 条外链</strong><br />
+  小节：<code>搜索引擎</code> · <code>在线影视站</code> · <code>官方影视解析</code> · <code>网盘搜索（高质量）</code> · <code>电视TV观影</code> · <code>影视下载（高质量）</code> · <code>字幕组</code></li>
+<li><a href="./zyscj-doc-zy-guide-DNS.html">🔗修改DNS防止网站无法访问</a> · <strong>10 条外链</strong><br />
+  小节：<code>软件修改方案</code> · <code>手动修改方案</code> · <code>DNS地址列表</code></li>
+<li><a href="./zyscj-doc-zy-guide-isoabroad.html">🔗ios外区账号注册</a> · <strong>4 条外链</strong></li>
+</ul>
+<h3 id="办公素材9-页-525-条外链">办公素材（9 页 · 525 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-office-icon.html">🔗图标logo素材资源</a> · <strong>104 条外链</strong><br />
+  小节：<code>ICON 素材</code> · <code>LOGO 素材</code> · <code>LOGO 设计</code></li>
+<li><a href="./zyscj-doc-zy-office-png.html">🔗png+纹理图案等素材</a> · <strong>83 条外链</strong><br />
+  小节：<code>PNG素材</code> · <code>插画素材</code> · <code>纹理素材</code> · <code>模板素材</code></li>
+<li><a href="./zyscj-doc-zy-office-wallpaper.html">🔗壁纸网站与桌面美化</a> · <strong>65 条外链</strong><br />
+  小节：<code>壁纸网站</code> · <code>二次元壁纸</code> · <code>特色壁纸</code> · <code>桌面美化</code></li>
+<li><a href="./zyscj-doc-zy-office-picture.html">🔗无版权图库+矢量素材</a> · <strong>60 条外链</strong><br />
+  小节：<code>图库素材</code> · <code>矢量素材</code> · <code>PSD素材</code></li>
+<li><a href="./zyscj-doc-zy-office-font.html">🔗字体素材资源</a> · <strong>54 条外链</strong><br />
+  小节：<code>字体素材</code> · <code>字体工具</code></li>
+<li><a href="./zyscj-doc-zy-office-color.html">🔗配色方案资源索引</a> · <strong>51 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-office-ppt.html">🔗PPT与简历制作</a> · <strong>48 条外链</strong><br />
+  小节：<code>PPT在线制作</code> · <code>PPT模板</code> · <code>简历制作</code> · <code>简历模板资源</code></li>
+<li><a href="./zyscj-doc-zy-office-video-audio.html">🔗视频与音效素材网站</a> · <strong>35 条外链</strong><br />
+  小节：<code>视频</code> · <code>音效</code></li>
+<li><a href="./zyscj-doc-zy-office-CAD-standard.html">🔗规范查询下载及CAD常用软件</a> · <strong>25 条外链</strong><br />
+  小节：<code>规范图集下载</code> · <code>软件下载</code></li>
+</ul>
+<h3 id="软件游戏13-页-698-条外链">软件游戏（13 页 · 698 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-soft-findsoft.html">🔗发现网站与应用</a> · <strong>89 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-soft-iosmac.html">🔗苹果MAC软件</a> · <strong>77 条外链</strong><br />
+  小节：<code>IOS软件下载</code> · <code>Mac软件下载网站与商店</code></li>
+<li><a href="./zyscj-doc-zy-soft-crackgame.html">🔗PO解游戏网站</a> · <strong>65 条外链</strong><br />
+  小节：<code>正版游戏平台</code> · <code>pojie版游戏下载网站</code> · <code>安卓游戏软件</code></li>
+<li><a href="./zyscj-doc-zy-soft-blogforum.html">🔗软件博客与论坛</a> · <strong>64 条外链</strong><br />
+  小节：<code>软件搜索</code> · <code>软件博客</code> · <code>软件论坛</code></li>
+<li><a href="./zyscj-doc-zy-soft-winefficiency.html">🔗Windows效率工具</a> · <strong>56 条外链</strong><br />
+  小节：<code>磁盘文件大小查看</code></li>
+<li><a href="./zyscj-doc-zy-soft-crackabroad.html">🔒国外PO解站</a> · <strong>53 条外链</strong><br />
+  小节：<code>国外综合破解站</code> · <code>安卓破解</code></li>
+<li><a href="./zyscj-doc-zy-soft-winsoft.html">🔗常用Windows软件</a> · <strong>50 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-soft-onlinegame.html">🔗在线网页游戏</a> · <strong>47 条外链</strong><br />
+  小节：<code>在线网页游戏</code> · <code>其他游戏相关</code> · <code>云游戏平台</code></li>
+<li><a href="./zyscj-doc-zy-soft-tgsoft.html">🔒TG电报软件</a> · <strong>47 条外链</strong><br />
+  小节：<code>國內软件频道</code> · <code>国外软件频道</code> · <code>马克丁软件</code></li>
+<li><a href="./zyscj-doc-zy-soft-lanzou.html">🔗蓝奏云与软件安装大全</a> · <strong>45 条外链</strong><br />
+  小节：<code>软件安装管家</code> · <code>蓝奏云破解软件</code></li>
+<li><a href="./zyscj-doc-zy-soft-browser.html">🔗浏览器及插件脚本</a> · <strong>43 条外链</strong><br />
+  小节：<code>浏览器推荐</code> · <code>Chrome插件下载</code> · <code>Chrome插件/脚本推荐</code> · <code>常用Chrome插件</code></li>
+<li><a href="./zyscj-doc-zy-soft-winsystem.html">🔗Win系统安装与激活</a> · <strong>33 条外链</strong><br />
+  小节：<code>Windows激活</code> · <code>系统下载</code> · <code>重装系统PE工具</code> · <code>系统安装教程</code></li>
+<li><a href="./zyscj-doc-zy-soft-android.html">🔗安卓软件与PO解</a> · <strong>29 条外链</strong><br />
+  小节：<code>应用商店</code> · <code>Google Play下载</code></li>
+</ul>
+<h3 id="资源搜索6-页-339-条外链">资源搜索（6 页 · 339 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-search-diskresource.html">🔗网盘资源合集</a> · <strong>116 条外链</strong><br />
+  小节：<code>综合搜索</code> · <code>博客分享</code> · <code>阿里云盘</code> · <code>论坛</code> · <code>在线文档</code> · <code>软件</code> · <code>百度网盘</code> · <code>蓝奏云</code></li>
+<li><a href="./zyscj-doc-zy-search-girl.html">🔒看妹子</a> · <strong>76 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-search-btciliweb.html">🔒BT种Z磁L网站合集</a> · <strong>55 条外链</strong><br />
+  小节：<code>🌐国外磁力代理</code> · <code>🎯磁力网站</code> · <code>🚁BT工具</code></li>
+<li><a href="./zyscj-doc-zy-search-btcilidl.html">🔒BT磁LI下载</a> · <strong>44 条外链</strong><br />
+  小节：<code>Windows</code> · <code>手机软件</code></li>
+<li><a href="./zyscj-doc-zy-search-tgchannel.html">🔒TG群组频道资源</a> · <strong>36 条外链</strong><br />
+  小节：<code>综合搜索</code> · <code>频道索引站点</code> · <code>telegram机器人索引</code> · <code>其他汇总页面</code></li>
+<li><a href="./zyscj-doc-zy-search-spnetdisk.html">🔗网盘不限速</a> · <strong>12 条外链</strong></li>
+</ul>
+<h3 id="实用工具9-页-148-条外链">实用工具（9 页 · 148 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-tool-fileconvert.html">🔗文件格式转换与传输</a> · <strong>28 条外链</strong><br />
+  小节：<code>文件格式转换</code> · <code>极速文件传输</code></li>
+<li><a href="./zyscj-doc-zy-tool-tools.html">🔗综合工具</a> · <strong>23 条外链</strong><br />
+  小节：<code>综合工具</code> · <code>分类工具</code></li>
+<li><a href="./zyscj-doc-zy-tool-pdf.html">🔗PDF转换相关资源</a> · <strong>22 条外链</strong><br />
+  小节：<code>PDF在线工具</code> · <code>PDF编辑器</code></li>
+<li><a href="./zyscj-doc-zy-tool-ocr.html">🔗OCR文字图片识别</a> · <strong>19 条外链</strong><br />
+  小节：<code>在线识别</code> · <code>电脑端</code> · <code>手机APP</code> · <code>微信小程序</code></li>
+<li><a href="./zyscj-doc-zy-tool-sms.html">🔗短信接码</a> · <strong>14 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-tool-map.html">🔗地图资源下载</a> · <strong>12 条外链</strong><br />
+  小节：<code>地图资源站</code> · <code>地图软件</code></li>
+<li><a href="./zyscj-doc-zy-tool-actorline.html">🔗电影台词搜索+拼接</a> · <strong>11 条外链</strong><br />
+  小节：<code>电影台词搜索</code> · <code>电影台词拼接</code></li>
+<li><a href="./zyscj-doc-zy-tool-virus.html">🔗在线查毒</a> · <strong>11 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-tool-email.html">🔗临时邮箱</a> · <strong>8 条外链</strong></li>
+</ul>
+<h3 id="图片工具9-页-171-条外链">图片工具（9 页 · 171 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-tool-imagetool-gif.html">🔗表情包与GIF</a> · <strong>34 条外链</strong><br />
+  小节：<code>GIF</code></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-picedit.html">🔗图片编辑处理</a> · <strong>29 条外链</strong><br />
+  小节：<code>在线设计</code> · <code>图片编辑与查看</code></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-PS.html">🔗PS在线编辑+抠图</a> · <strong>29 条外链</strong><br />
+  小节：<code>在线PS</code> · <code>在线抠图</code></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-imagesearch.html">🔗以图搜图(识图)</a> · <strong>21 条外链</strong><br />
+  小节：<code>综合识图</code> · <code>二次元识图</code> · <code>其他识图</code></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-piccompress.html">🔗图片压缩+软件</a> · <strong>18 条外链</strong><br />
+  小节：<code>在线图片压缩</code> · <code>图片压缩软件</code></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-avatar.html">🔗在线头像生成器</a> · <strong>16 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-wordcloud.html">🔗词云制作</a> · <strong>11 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-picupload.html">🔗免费图床网站</a> · <strong>8 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-tool-imagetool-favicon.html">🔗网站favicon图标下载</a> · <strong>5 条外链</strong><br />
+  小节：<code>0.网页插件</code> · <code>1.网站下载</code> · <code>2.直接访问favicon地址获取ico文件</code> · <code>3.使用API获取网站favicon</code></li>
+</ul>
+<h3 id="学习教育12-页-558-条外链">学习教育（12 页 · 558 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-study-English.html">🔗英语学习资源</a> · <strong>148 条外链</strong><br />
+  小节：<code>英语网站</code> · <code>英语资源</code> · <code>单词词汇</code> · <code>听力口语</code> · <code>阅读理解</code> · <code>写作词典</code> · <code>写作语法</code></li>
+<li><a href="./zyscj-doc-zy-study-code.html">🔗编程学习网站</a> · <strong>79 条外链</strong><br />
+  小节：<code>学习与教程</code> · <code>计算机书籍</code> · <code>社区</code> · <code>博客</code> · <code>趋势榜单</code> · <code>开源镜像</code></li>
+<li><a href="./zyscj-doc-zy-study-knowledge.html">🔗知识科普站</a> · <strong>73 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-study-mindmap.html">🔗思维导图与笔记</a> · <strong>66 条外链</strong><br />
+  小节：<code>思维导图</code> · <code>笔记</code> · <code>写作/Markdown</code> · <code>稍后阅读</code></li>
+<li><a href="./zyscj-doc-zy-study-paper.html">🔗论文+查重降重</a> · <strong>51 条外链</strong><br />
+  小节：<code>论文下载</code> · <code>论文查重降重</code></li>
+<li><a href="./zyscj-doc-zy-study-mirror.html">🔗各种学习镜像站</a> · <strong>30 条外链</strong><br />
+  小节：<code>Github访问</code> · <code>Sci-Hub</code> · <code>谷歌学术/谷歌镜像</code></li>
+<li><a href="./zyscj-doc-zy-study-psychology.html">🔗各类心理等测试</a> · <strong>29 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-study-textbook.html">🔗电子课本下载</a> · <strong>23 条外链</strong><br />
+  小节：<code>课程学习</code> · <code>课本下载</code> · <code>查题找答案</code></li>
+<li><a href="./zyscj-doc-zy-study-onlinecourse.html">🔗在线课堂与刷课</a> · <strong>21 条外链</strong><br />
+  小节：<code>在线课堂</code></li>
+<li><a href="./zyscj-doc-zy-study-chart.html">🔗信息可视化</a> · <strong>15 条外链</strong><br />
+  小节：<code>图表制作</code> · <code>信息图形</code> · <code>数据可视化</code></li>
+<li><a href="./zyscj-doc-zy-study-certificate.html">🔗考试考证资源</a> · <strong>12 条外链</strong></li>
+<li><a href="./zyscj-doc-zy-study-wenku.html">🔗百度文库下载</a> · <strong>11 条外链</strong><br />
+  小节：<code>文库下载</code></li>
+</ul>
+<h3 id="视频直播9-页-287-条外链">视频直播（9 页 · 287 条外链）</h3>
+<ul>
+<li><a href="./zyscj-doc-zy-video-tv.html">🔗TV盒子与直播</a> · <strong>58 条外链</strong><br />
+  小节：<code>电视盒子软件</code> · <code>电视直播网站</code> · <code>直播源</code> · <code>直播录制</code> · <code>体育直播</code></li>
+<li><a href="./zyscj-doc-zy-video-bilidownload.html">🔗各种视频下载</a> · <strong>54 条外链</strong><br />
+  小节：<code>B站视频下载/增强</code> · <code>视频号/公众号下载</code> · <code>小红书下载</code> · <code>YouTube视频下载</code> · <code>其他国外视频下载</code> · <code>在线视频下载-M3U8软件</code></li>
+<li><a href="./zyscj-doc-zy-video-HDvideo.html">🔗高清4K影视下载</a> · <strong>44 条外链</strong><br />
+  小节：<code>网盘下载</code> · <code>高清下载</code> · <code>4K下载</code></li>
+<li><a href="./zyscj-doc-zy-video-documentary.html">🔗纪录片合集</a> · <strong>34 条外链</strong><br />
+  小节：<code>在线网站</code></li>
+<li><a href="./zyscj-doc-zy-video-subtitle.html">🔗字幕组翻译</a> · <strong>27 条外链</strong><br />
+  小节：<code>国内字幕组</code> · <code>动漫字幕组</code> · <code>国外字幕组</code> · <code>字幕遮挡</code></li>
+<li><a href="./zyscj-doc-zy-video-videoparse.html">🔗视频解析</a> · <strong>26 条外链</strong><br />
+  小节：<code>影视解析</code> · <code>短视频解析</code></li>
+<li><a href="./zyscj-doc-zy-video-anime.html">🔗动漫网站与下载</a> · <strong>19 条外链</strong><br />
+  小节：<code>动漫站</code> · <code>BT种Z下载</code></li>
+<li><a href="./zyscj-doc-zy-video-videosoft.html">🔗免费影视软件</a> · <strong>15 条外链</strong><br />
+  小节：<code>在线聚合类</code> · <code>安卓视频软件破解资源</code></li>
+<li><a href="./zyscj-doc-zy-video-onlinevideo.html">🔒在线影视精选</a> · <strong>10 条外链</strong><br />
+  小节：<code>综合在线网站</code> · <code>影视搜索</code></li>
+</ul>
+<hr />
+<h2 id="三外链总表">三、外链总表</h2>
+<p>全部 3323 条外链按页面分组见 <a href="./zyscj-links.html">LINKS.md</a>（也可直接 grep）。</p>
+<hr />
+<h2 id="四维护">四、维护</h2>
+<ul>
+<li>
+<p>重新抓取：<code>python scripts/crawl.py</code>（读 scripts/urls.txt，需能访问 <a href="https://zyscj.com" target="_blank" rel="noopener noreferrer">zyscj.com</a>）</p>
+</li>
+<li>
+<p>重建索引：<code>python scripts/build_index.py</code></p>
+</li>
+<li>
+<p>站点有新页面时先更新 <code>scripts/urls.txt</code>（源：<a href="https://zyscj.com/sitemap.xml" target="_blank" rel="noopener noreferrer">https://zyscj.com/sitemap.xml</a>）</p>
+</li>
+<li>
+<p><code>scripts/head.md</code> 为手写部分（需求速查表），改完重跑 build 生效</p>
+</li>
+</ul>
+    </article>
+    <div class="article-foot">
+      <a href="./index.html">← 返回首页</a>
+      <span class="foot-issues"></span>
+    </div>
+  </main>
+</div>
+<button class="toc-fab" id="tocFab" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="打开章节目录"><span class="toc-fab-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>目录</span></button>
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<script src="./assets/app.js"></script>
+</body>
+</html>
