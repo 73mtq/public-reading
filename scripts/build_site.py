@@ -362,7 +362,7 @@ CSS = r"""
 :root{
   --paper:#fffdfa;--surface:#fffefb;--ink:#212427;--muted:#4f5452;--faint:#6f736f;
   --line:#e9e4d9;--line2:#d8d1c2;
-  --accent:#164e63;--accent-soft:#eaf2f5;--accent-line:#2291bc;
+  --accent:#164e63;--accent-soft:#eaf2f5;--accent-line:#2291bc;--mark:#b45309;
   --edge:rgba(255,255,255,.9);--warm-line:rgba(120,100,70,.09);
   --card-bg:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.6));
   --card-bg-soft:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.46));
@@ -433,12 +433,12 @@ button,input{font-family:inherit}
 .sidebar-foot a:hover{color:var(--accent)}
 
 .content{background:var(--card-bg);border-radius:var(--r-lg);padding:60px 68px 84px;min-width:0;box-shadow:var(--shadow-card);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}
-.content::before,.sidebar::before,.issue-card::before,.hero-facts::before{content:"";position:absolute;left:20px;right:20px;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--sheen) 22%,var(--sheen) 78%,transparent);pointer-events:none}
-.content,.sidebar,.issue-card,.hero-facts{position:relative}
+.content::before,.sidebar::before,.issue-card::before,.hero-spot::before{content:"";position:absolute;left:20px;right:20px;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--sheen) 22%,var(--sheen) 78%,transparent);pointer-events:none}
+.content,.sidebar,.issue-card{position:relative}
 .prose{font-size:17px;line-height:1.95;color:var(--ink)}
 .prose a{text-decoration:underline;text-decoration-color:var(--accent-line);text-decoration-thickness:1px;text-underline-offset:3px}
 .prose a:hover{color:var(--accent);text-decoration-color:var(--accent);text-decoration-thickness:2px}
-.prose .chip,.prose .read-link{text-decoration:none}
+.prose .chip{text-decoration:none}
 .prose>h1:first-child,.prose>.breadcrumb+h1{font-family:var(--serif);font-size:40px;line-height:1.28;margin:0 0 1.1em;font-weight:600;letter-spacing:-.02em;border-bottom:0;padding-bottom:0}
 .prose>h1:first-child::after,.prose>.breadcrumb+h1::after{content:"";display:block;width:52px;height:2px;margin-top:.55em;background:linear-gradient(90deg,var(--accent),rgba(22,78,99,0))}
 .breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0 0 20px;font-size:12.5px;line-height:1.7;color:var(--faint)}
@@ -474,7 +474,7 @@ button,input{font-family:inherit}
 .to-top:hover{border-color:var(--accent-line);transform:translateY(-2px)}
 
 .home{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding:112px 26px 132px}
-.hero{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(300px,.72fr);gap:64px;align-items:end;margin-bottom:96px}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(380px,.8fr);gap:64px;align-items:end;margin-bottom:96px}
 .eyebrow{display:block;font-size:11.5px;font-weight:600;letter-spacing:.2em;color:var(--accent);opacity:.72;margin:0 0 14px}
 .hero .eyebrow{margin:0 0 14px}
 .hero h1{font-family:var(--serif);font-size:clamp(38px,4.6vw,58px);line-height:1.12;font-weight:600;margin:0 0 22px;letter-spacing:-.028em;text-wrap:balance}
@@ -484,19 +484,60 @@ button,input{font-family:inherit}
 .hero-main>*:nth-child(2){animation-delay:.08s}
 .hero-main>*:nth-child(3){animation-delay:.16s}
 .hero-main>*:nth-child(4){animation-delay:.24s}
-.hero-facts{animation:rise .56s var(--ease-out) both;animation-delay:.2s}
+.hero-spot{animation:rise .56s var(--ease-out) both;animation-delay:.2s}
 .hero-links{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px}
 .hero-links a{color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .18s,border-color .18s}
 .hero-links a:hover{color:var(--accent);border-bottom-color:var(--accent-line)}
-.hero-facts{background:var(--card-bg);border-radius:var(--r-lg);padding:34px 30px 30px;box-shadow:var(--shadow-card);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}
-.hero-facts .eyebrow{margin-bottom:18px}
-.hero-facts dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px}
-.hero-facts dl>div{border-top:1px solid var(--line);padding-top:10px}
-.hero-facts dt{font-size:11.5px;color:var(--faint);letter-spacing:.08em;margin-bottom:2px}
-.hero-facts dd{margin:0;font-family:var(--serif);font-size:32px;line-height:1.1;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-.hero-facts dd small{font-family:var(--sans);font-size:11.5px;font-weight:400;color:var(--muted);margin-left:5px;letter-spacing:.02em}
 .section-title{font-family:var(--serif);font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;letter-spacing:-.02em;margin:120px 0 22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .section-no{display:inline-block;font-family:var(--serif);font-style:italic;font-size:13px;font-weight:400;letter-spacing:.18em;color:var(--accent);opacity:.55;margin-right:14px;vertical-align:3px;font-variant-numeric:tabular-nums}
+.hero-spot{position:relative;background:var(--card-bg);border-radius:var(--r-lg);padding:32px 30px 28px;box-shadow:var(--shadow-card);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}
+.hero-spot-kicker{font-size:11.5px;font-weight:600;letter-spacing:.16em;color:var(--mark);margin:0 0 14px}
+.hero-spot-title{font-family:var(--serif);font-size:24px;line-height:1.35;font-weight:600;letter-spacing:-.012em;margin:0 0 18px}
+.hero-spot-list{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:9px;font-size:13px;line-height:1.65;color:var(--muted)}
+.hero-spot-list li{position:relative;padding-left:16px}
+.hero-spot-list li::before{content:"";position:absolute;left:0;top:.68em;width:7px;height:1px;background:var(--mark);opacity:.7}
+.hero-spot-link{font-size:13px;color:var(--accent);font-weight:600;display:inline-flex;gap:6px;border-bottom:1px solid transparent;transition:border-color .18s}
+.hero-spot-link:hover{border-bottom-color:var(--accent-line)}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--faint);margin:0 0 8px;padding:15px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.hero-meta span+span::before{content:"·";margin:0 14px;color:var(--line2)}
+.issue-list{border-top:1px solid var(--line)}
+.issue-row{display:grid;grid-template-columns:116px minmax(0,1fr) 116px;gap:36px;align-items:start;padding:28px 0 30px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;transition:background-color .24s var(--ease-out)}
+.issue-row:hover{background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,0));text-decoration:none}
+.issue-row-no{font-family:var(--serif);font-size:84px;line-height:.86;font-weight:600;color:var(--ink);opacity:.13;font-variant-numeric:tabular-nums;transition:color .24s var(--ease-out),opacity .24s var(--ease-out)}
+.issue-row:hover .issue-row-no{color:var(--accent);opacity:.85}
+.issue-row.featured .issue-row-no{color:var(--mark);opacity:.85}
+.issue-row-main{display:flex;flex-direction:column;gap:11px;min-width:0}
+.issue-row-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+.issue-row-label{color:var(--mark);font-weight:600;letter-spacing:.1em}
+.issue-row-title{font-family:var(--serif);font-size:26px;line-height:1.34;font-weight:600;letter-spacing:-.014em;margin:0;text-wrap:balance}
+.issue-row-desc{font-size:13.5px;line-height:1.78;color:var(--muted);max-width:720px;margin:0;overflow:hidden}
+.issue-row-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 26px;list-style:none;margin:2px 0 0;padding:0;font-size:12.5px;line-height:1.6;color:var(--muted)}
+.issue-row-points li{position:relative;padding-left:14px}
+.issue-row-points li::before{content:"";position:absolute;left:0;top:.66em;width:6px;height:1px;background:var(--mark);opacity:.55}
+.issue-row-cta{align-self:center;font-size:12.5px;color:var(--faint);letter-spacing:.04em;white-space:nowrap;transition:color .2s}
+.issue-row:hover .issue-row-cta{color:var(--accent)}
+.guide-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px;border-top:1px solid var(--line)}
+.guide-row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:4px 12px;align-items:baseline;padding:16px 0 15px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;transition:padding-left .2s var(--ease-out)}
+.guide-row:hover{padding-left:6px;text-decoration:none}
+.guide-row-no{font-family:var(--serif);font-size:13px;font-style:italic;color:var(--mark);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.guide-row-name{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:-.008em}
+.guide-row-date{font-size:11.5px;color:var(--faint);font-variant-numeric:tabular-nums}
+.guide-row-desc{grid-column:2 / 4;font-size:12.5px;line-height:1.7;color:var(--muted);margin:2px 0 0}
+.people-block{margin-top:52px}
+.people-block-head{display:flex;align-items:baseline;gap:14px;margin:0 0 12px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+.people-block-no{font-family:var(--serif);font-size:13px;font-style:italic;color:var(--mark);letter-spacing:.08em}
+.people-block-title{font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.008em;margin:0}
+.people-block-count{margin-left:auto;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+.people-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 44px}
+.people-row{display:grid;grid-template-columns:26px 118px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(120,100,70,.09);font-size:13px;transition:background-color .16s}
+.people-row:hover{background:rgba(255,255,255,.4)}
+.people-row-no{font-size:10.5px;color:var(--faint);font-variant-numeric:tabular-nums}
+.people-row-name{color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-decoration:none}
+.people-row-name:hover{color:var(--accent)}
+.people-row-topic{color:var(--faint);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.people-row-home{font-size:10.5px;color:var(--accent);white-space:nowrap;text-decoration:none;border-bottom:1px solid transparent}
+.people-row-home:hover{border-bottom-color:var(--accent-line)}
+.people-row-home.is-empty{color:var(--line2);border:0}
 .section-title.sub{font-size:19px;color:var(--muted);letter-spacing:0;margin:38px 0 14px;padding-bottom:10px}
 .issue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .issue-card{display:block;background:var(--card-bg);border-radius:var(--r-lg);padding:32px 32px 30px;color:var(--ink);box-shadow:var(--shadow-card);-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);transition:transform .22s var(--ease-out),box-shadow .22s var(--ease-out)}
@@ -517,43 +558,26 @@ button,input{font-family:inherit}
 .quick-grid a{display:block;background:var(--chip-bg);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;color:var(--ink);transition:border-color .18s,background-color .18s,transform .18s var(--ease-out)}
 .quick-grid a:hover{border-color:var(--accent-line);background:var(--accent-soft);color:var(--accent);transform:translateY(-1px)}
 .quick-grid a small{display:block;color:var(--faint);font-size:11.5px;margin-top:4px;letter-spacing:.04em}
-.people-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px}
-.people-grid a{display:block;background:var(--chip-bg);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 12px;font-size:13px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.people-grid a:hover{border-color:var(--accent-line);background:var(--accent-soft);color:var(--accent);text-decoration:none}
-.people-grid a b{color:var(--accent);font-weight:600;margin-right:6px}
 .site-foot{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);display:flex;gap:20px;flex-wrap:wrap}
 .site-foot a{color:var(--faint);border-bottom:1px solid transparent}
 .site-foot a:hover{color:var(--accent);border-bottom-color:var(--accent-line)}
 .notice{background:linear-gradient(180deg,var(--notice-sheen-top),var(--notice-sheen-bottom)),var(--notice-bg);border:1px solid var(--line);border-left:3px solid var(--accent-line);border-radius:var(--r-md);padding:16px 20px;font-size:13.5px;line-height:1.85;color:var(--notice-ink);margin:0 0 4px;box-shadow:0 1px 2px rgba(74,55,30,.04),0 12px 24px -18px rgba(74,55,30,.24)}
 .notice a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent-line);text-underline-offset:3px}
 
-.people-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(316px,1fr));gap:14px}
-.person-card{background:var(--card-bg);border-radius:var(--r-md);padding:18px 18px 16px;display:flex;flex-direction:column;box-shadow:var(--shadow-pop);transition:transform .18s var(--ease-out),box-shadow .18s var(--ease-out)}
-.person-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-pop-hover)}
-.person-head{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
-.person-name{font-family:var(--serif);font-size:16.5px;font-weight:600;color:var(--ink)}
-.person-name:hover{color:var(--accent);text-decoration:none}
-.person-num{color:var(--accent);font-size:11.5px;letter-spacing:.08em}
-.person-topic{font-size:12px;color:var(--faint);margin:0 0 12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
 .chip{display:inline-block;font-size:12px;line-height:1.5;padding:4px 10px;border:1px solid var(--line2);border-radius:var(--r-pill);color:var(--muted);background:var(--chip-bg);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;text-decoration:none;transition:border-color .16s,color .16s,background-color .16s}
 .chip:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-soft);text-decoration:none}
 .chip.home{border-color:var(--accent-line);color:var(--accent);background:var(--accent-soft)}
 .chip::after{content:" \2197";font-size:.78em;color:var(--accent-line);margin-left:.22em}
-.no-links{font-size:12px;color:var(--faint)}
-.read-link{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--accent);font-weight:600;align-self:flex-start;border-bottom:1px solid transparent;transition:border-color .18s}
-.read-link:hover{border-bottom-color:var(--accent-line);text-decoration:none}
 .index-note{font-size:14px;line-height:1.85;color:var(--muted);margin:0 0 20px;max-width:760px}
 .inline-links{margin:16px 0 22px;padding:12px 14px;background:var(--chip-bg);border:1px solid var(--line);border-radius:var(--r-md);display:flex;flex-wrap:wrap;align-items:center;gap:7px}
 .inline-label{font-size:11.5px;color:var(--faint);margin-right:4px;letter-spacing:.08em}
-.issue-sub{font-family:var(--serif);font-size:16px;color:var(--muted);margin:30px 0 14px;font-weight:600;letter-spacing:.01em}
 
 /* 阅读器外壳：抽屉、目录、表格、打印与夜间 */
 html{scroll-padding-top:calc(var(--topbar-h) + 24px)}
 a,button,input{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:2px solid var(--accent-line);outline-offset:3px;border-radius:4px}
 .prose h1,.prose h2,.hero h1,.issue-card h2,.section-title{text-wrap:balance}
-.person-num,.issue-no,.issue-meta,.site-foot,.hero-facts{font-variant-numeric:tabular-nums}
+.issue-no,.issue-meta,.site-foot,.issue-row-no,.issue-row-top,.hero-meta,.people-row-no,.people-block-count,.guide-row-no,.guide-row-date{font-variant-numeric:tabular-nums}
 .prose table{scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
 .table-wrap{position:relative;margin:1.5em 0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
 .table-wrap table{margin:0;border:0}
@@ -572,7 +596,6 @@ section#tab-thursday,section#handbook,section#resources{scroll-margin-top:calc(v
 
 @media (max-width:1040px){
   .hero{grid-template-columns:1fr;gap:34px;align-items:start}
-  .hero-facts dl{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media (max-width:960px){
   html{scroll-padding-top:calc(var(--topbar-h) + env(safe-area-inset-top) + 12px)}
@@ -605,21 +628,30 @@ section#tab-thursday,section#handbook,section#resources{scroll-margin-top:calc(v
   .toc-fab{display:inline-flex;align-items:center;gap:9px;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:57;min-height:48px;padding:0 18px;border:1px solid var(--line2);border-radius:var(--r-pill);background:var(--surface);color:var(--ink);font-size:13.5px;box-shadow:var(--shadow-pop);cursor:pointer}
   .theme-toggle{right:16px;bottom:calc(84px + env(safe-area-inset-bottom))}
   .to-top{right:16px;bottom:calc(140px + env(safe-area-inset-bottom));width:44px;height:44px}
-  .issue-card:hover,.person-card:hover,.quick-grid a:hover{transform:none}
+  .issue-card:hover,.quick-grid a:hover,.guide-row:hover{padding-left:0;transform:none}
+  .issue-row:hover{background:none}
   .home{padding:52px 18px calc(104px + env(safe-area-inset-bottom))}
   .hero{margin-bottom:40px}
   .hero h1{font-size:34px}
   .hero .hero-lede{font-size:16.5px}
   .hero-links{gap:12px 18px}
-  .hero-facts dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-spot{padding:26px 22px 24px}
+  .issue-row{grid-template-columns:64px minmax(0,1fr);gap:18px;padding:26px 0 28px}
+  .issue-row-no{font-size:52px}
+  .issue-row-cta{display:none}
+  .issue-row-title{font-size:21px}
+  .issue-row-points{grid-template-columns:1fr;gap:6px}
+  .guide-list{grid-template-columns:1fr}
+  .people-list{grid-template-columns:1fr}
+  .people-row{grid-template-columns:24px 104px minmax(0,1fr) auto;padding:12px 0}
+  .people-block{margin-top:40px}
   .section-title{font-size:26px;margin:64px 0 16px;padding-bottom:14px}
-  .content,.sidebar,.issue-card,.hero-facts{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .hero-main>*,.hero-facts{animation:none}
+  .content,.sidebar,.issue-card,.hero-spot{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hero-main>*,.hero-spot{animation:none}
   .section-title.sub{font-size:17.5px;margin:34px 0 12px}
   .issue-grid{grid-template-columns:1fr;gap:14px}
   .issue-card{padding:24px 20px}
   .issue-card h2{font-size:21px}
-  .people-cards{grid-template-columns:1fr;gap:10px}
   .person-card{padding:16px}
   .chip{min-height:36px;display:inline-flex;align-items:center;padding:6px 12px;font-size:12.5px}
   .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -633,8 +665,9 @@ section#tab-thursday,section#handbook,section#resources{scroll-margin-top:calc(v
   .topbar nav a.nav-official,.topbar nav a.nav-repo{display:none}
   .content{padding:22px 16px 42px}
   .prose table{font-size:12.8px}
-  .hero-facts{padding:22px 20px 18px}
-  .hero-facts dd{font-size:22px}
+  .hero-spot{padding:24px 20px 22px}
+  .issue-row{grid-template-columns:1fr;gap:14px}
+  .issue-row-no{font-size:44px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -885,22 +918,20 @@ HOME_TPL = r"""<!doctype html>
         <a href="{{REPO}}" target="_blank" rel="noopener noreferrer">仓库与 Markdown 原文</a>
       </div>
     </div>
-    <aside class="hero-facts" aria-label="内容概览">
-      <p class="eyebrow">内容概览</p>
-      <dl>
-{{FACTS}}
-      </dl>
+    <aside class="hero-spot" aria-label="本期看点">
+{{SPOT}}
     </aside>
   </section>
+  <p class="hero-meta">{{HERO_META}}</p>
 
   <div class="notice">{{NOTICE}}</div>
 
   <section id="tab-thursday">
     <h2 class="section-title"><span class="section-no">01</span>活动精读 · {{ISSUE_COUNT}}期</h2>
     <p class="index-note">{{ISSUE_NOTE}}</p>
-    <section class="issue-grid">
+    <div class="issue-list">
 {{CARDS}}
-    </section>
+    </div>
     <div class="hero-links official-row">
 {{OFFICIAL_LINKS}}
       <a href="https://tabthursday.com/about" target="_blank" rel="noopener noreferrer">活动规则</a>
@@ -914,9 +945,9 @@ HOME_TPL = r"""<!doctype html>
   <section id="handbook">
     <h2 class="section-title"><span class="section-no">02</span>学习手册 · {{GUIDE_COUNT}}</h2>
     <p class="index-note">{{GUIDE_NOTE}}</p>
-    <section class="issue-grid guide-grid">
+    <div class="guide-list">
 {{GUIDE_CARDS}}
-    </section>
+    </div>
   </section>
 
   <section id="resources">
@@ -1161,28 +1192,36 @@ def chapter_index(heads) -> list[tuple[str, str, str, str]]:
     return out
 
 
-def person_card(num: str, person: dict, anchor: str, topic: str, issue_key: str) -> str:
-    full = "%s %s：%s" % (num, person["name"], topic)
-    name = html.escape(person["name"])
+def person_row(num: str, person: dict, anchor: str, topic: str, issue_key: str) -> str:
+    full = "%s · %s" % (person["name"], topic)
     href = (
         "./issue-%s.html#%s" % (issue_key, html.escape(anchor, quote=True))
         if anchor
         else "./issue-%s.html" % issue_key
     )
-    chips = []
     if person.get("homepage"):
-        chips.append(chip_html(person["homepage"], "home"))
-    chips.extend(chip_html(x) for x in person.get("links", []))
-    chips_html = "".join(chips) or '<span class="no-links">汇总页未附主页或项目链接</span>'
+        home = (
+            '<a class="people-row-home" href="%s" target="_blank" rel="noopener noreferrer">主页 ↗</a>'
+            % html.escape(person["homepage"]["url"], quote=True)
+        )
+    else:
+        home = '<span class="people-row-home is-empty">—</span>'
     return (
-        '    <div class="person-card">\n'
-        '      <div class="person-head"><span class="person-num">%s</span>'
-        '<a class="person-name" href="%s">%s</a></div>\n'
-        '      <p class="person-topic" title="%s">%s</p>\n'
-        '      <div class="chips">%s</div>\n'
-        '      <a class="read-link" href="%s">阅读精读 →</a>\n'
-        '    </div>'
-        % (num, href, name, html.escape(full, quote=True), html.escape(topic), chips_html, href)
+        '      <div class="people-row">\n'
+        '        <span class="people-row-no">%s</span>\n'
+        '        <a class="people-row-name" href="%s" title="%s">%s</a>\n'
+        '        <span class="people-row-topic" title="%s">%s</span>\n'
+        '        %s\n'
+        '      </div>'
+        % (
+            num,
+            href,
+            html.escape(full, quote=True),
+            html.escape(person["name"]),
+            html.escape(topic, quote=True),
+            html.escape(topic),
+            home,
+        )
     )
 
 
@@ -1288,14 +1327,13 @@ def guide_prev_next(idx: int) -> tuple[str, str]:
     return prev_html, next_html
 
 
-def guide_card(idx: int, guide: dict) -> str:
+def guide_row(idx: int, guide: dict) -> str:
     return (
-        '    <a class="issue-card guide-card" href="./guide-%s.html">\n'
-        '      <div class="issue-no">第 %d 篇</div>\n'
-        '      <h2>%s</h2>\n'
-        '      <div class="issue-meta">复核 %s</div>\n'
-        '      <p class="issue-theme">%s</p>\n'
-        '      <span class="cta">开始阅读 →</span>\n'
+        '    <a class="guide-row" href="./guide-%s.html">\n'
+        '      <span class="guide-row-no">%02d</span>\n'
+        '      <span class="guide-row-name">%s</span>\n'
+        '      <span class="guide-row-date">复核 %s</span>\n'
+        '      <span class="guide-row-desc">%s</span>\n'
         '    </a>'
         % (
             guide["key"],
@@ -1307,14 +1345,13 @@ def guide_card(idx: int, guide: dict) -> str:
     )
 
 
-def template_card(idx: int, template: dict) -> str:
+def template_row(idx: int, template: dict) -> str:
     return (
-        '    <a class="issue-card guide-card" href="./template-%s.html">\n'
-        '      <div class="issue-no">模板 %d</div>\n'
-        '      <h2>%s</h2>\n'
-        '      <div class="issue-meta">可直接复制 · 复核 %s</div>\n'
-        '      <p class="issue-theme">%s</p>\n'
-        '      <span class="cta">打开模板 →</span>\n'
+        '    <a class="guide-row" href="./template-%s.html">\n'
+        '      <span class="guide-row-no">T%d</span>\n'
+        '      <span class="guide-row-name">%s</span>\n'
+        '      <span class="guide-row-date">可直接复制 · 复核 %s</span>\n'
+        '      <span class="guide-row-desc">%s</span>\n'
         '    </a>'
         % (
             template["key"],
@@ -1582,26 +1619,30 @@ def main() -> None:
 
     latest = ISSUES[-1]
     cards = []
-    for issue in ISSUES:
+    for idx, issue in enumerate(ISSUES, 1):
         _, _, cjk = converted[issue["key"]]
-        bullets = "\n".join("        <li>%s</li>" % html.escape(b) for b in issue["bullets"])
+        points = "".join("<li>%s</li>" % html.escape(b) for b in issue["bullets"])
         cards.append(
-            '    <a class="issue-card%s" href="./issue-%s.html">\n'
-            '      <div class="issue-no">#%s</div>\n'
-            '      <h2>%s · %s</h2>\n'
-            '      <div class="issue-meta">%s · %s · 约 %.1f 万汉字</div>\n'
-            '      <p class="issue-theme">%s</p>\n'
-            '      <p class="issue-desc">%s</p>\n'
-            '      <ul>\n%s\n      </ul>\n'
-            '      <span class="cta">开始阅读 →</span>\n'
+            '    <a class="issue-row%s" href="./issue-%s.html">\n'
+            '      <span class="issue-row-no">%s</span>\n'
+            '      <div class="issue-row-main">\n'
+            '        <div class="issue-row-top"><span class="issue-row-label">%s</span>'
+            '<span>%s · %s</span><span>%s</span><span>约 %.1f 万汉字</span></div>\n'
+            '        <h3 class="issue-row-title">%s</h3>\n'
+            '        <p class="issue-row-desc">%s</p>\n'
+            '        <ol class="issue-row-points">%s</ol>\n'
+            '      </div>\n'
+            '      <span class="issue-row-cta">开始阅读 →</span>\n'
             '    </a>'
             % (
                 " featured" if issue["key"] == latest["key"] else "",
-                issue["key"], issue["key"],
-                html.escape(issue["label"]), html.escape(issue["count"]),
-                html.escape(issue["date"]), html.escape(issue["place"]), cjk / 10000,
+                issue["key"], "%02d" % idx,
+                html.escape(issue["label"]),
+                html.escape(issue["date"]), html.escape(issue["place"]),
+                html.escape(issue["count"]),
+                cjk / 10000,
                 html.escape(issue["theme"]), html.escape(issue["desc"]),
-                bullets,
+                points,
             )
         )
 
@@ -1624,7 +1665,7 @@ def main() -> None:
 
     index_blocks = []
     total_cards = 0
-    for issue in ISSUES:
+    for idx, issue in enumerate(ISSUES, 1):
         _, heads, _ = converted[issue["key"]]
         chapters = chapter_index(heads)
         entries = links.get(issue["key"], [])
@@ -1647,11 +1688,22 @@ def main() -> None:
                 raise RuntimeError(
                     "issue %s: 章节 %s 找不到对应分享者" % (issue["key"], num)
                 )
-            cards_html.append(person_card(num, person, hid, topic, issue["key"]))
+            cards_html.append(person_row(num, person, hid, topic, issue["key"]))
         total_cards += len(entries)
         index_blocks.append(
-            '  <div class="issue-sub">%s · %s</div>\n  <section class="people-cards">\n%s\n  </section>'
-            % (html.escape(issue["label"]), html.escape(issue["count"]), "\n".join(cards_html))
+            '  <div class="people-block">\n'
+            '    <div class="people-block-head"><span class="people-block-no">%02d</span>'
+            '<h3 class="people-block-title">%s</h3>'
+            '<span class="people-block-count">%s · %d 位</span></div>\n'
+            '    <div class="people-list">\n%s\n    </div>\n'
+            '  </div>'
+            % (
+                idx,
+                html.escape(issue["label"]),
+                html.escape(issue["count"]),
+                len(cards_html),
+                "\n".join(cards_html),
+            )
         )
         print("  issue %s: %d sharer cards, %d chapter anchors" % (
             issue["key"], len(entries), len(chapters)
@@ -1728,33 +1780,45 @@ def main() -> None:
     ) % len(RESOURCE_DOCS)
 
     total_cjk = sum(cjk for _, _, cjk in converted.values())
-    facts = [
-        ("活动精读", "%d" % len(ISSUES), "期"),
-        ("分享席位", "%d" % total_cards, "个"),
-        ("分享者", "%d" % unique_people, "位"),
-        ("精读正文", "%.1f" % (total_cjk / 10000), "万汉字"),
-        ("学习手册", "%d" % len(GUIDES), "篇"),
-        ("资源索引", "%d" % len(RESOURCE_DOCS), "页"),
-    ]
-    facts_html = "\n".join(
-        '        <div><dt>%s</dt><dd>%s<small>%s</small></dd></div>'
-        % (html.escape(label), value, html.escape(unit))
-        for label, value, unit in facts
+    spot_points = "".join("<li>%s</li>" % html.escape(b) for b in latest["bullets"])
+    spot_html = (
+        '<p class="hero-spot-kicker">本期 · #%s · %s</p>'
+        '<h2 class="hero-spot-title">%s</h2>'
+        '<ol class="hero-spot-list">%s</ol>'
+        '<a class="hero-spot-link" href="./issue-%s.html">读%s <span aria-hidden="true">→</span></a>'
+        % (
+            latest["key"],
+            html.escape(latest["date"]),
+            html.escape(latest["theme"]),
+            spot_points,
+            latest["key"],
+            html.escape(latest["label"]),
+        )
     )
+    meta_items = [
+        "%d 期" % len(ISSUES),
+        "%d 个分享席位" % total_cards,
+        "%d 位分享者" % unique_people,
+        "%.1f 万汉字" % (total_cjk / 10000),
+        "%d 篇手册" % len(GUIDES),
+        "%d 页资源索引" % len(RESOURCE_DOCS),
+    ]
+    meta_html = "".join("<span>%s</span>" % html.escape(x) for x in meta_items)
 
     home = render(
         HOME_TPL,
         REPO=REPO_URL,
         HOME_DESC=html.escape(home_desc),
         HERO=html.escape(hero),
-        FACTS=facts_html,
+        SPOT=spot_html,
+        HERO_META=meta_html,
         NOTICE=notice,
         NAV=nav_html("home"),
         OFFICIAL_LINKS=official_links,
         CARDS="\n".join(cards),
         GUIDE_CARDS="\n".join(
-            [guide_card(i, guide) for i, guide in enumerate(GUIDES, 1)]
-            + [template_card(i, template) for i, template in enumerate(TEMPLATES, 1)]
+            [guide_row(i, guide) for i, guide in enumerate(GUIDES, 1)]
+            + [template_row(i, template) for i, template in enumerate(TEMPLATES, 1)]
         ),
         RESOURCE_CARDS="\n".join(resource_cards),
         RESOURCE_PAGE_COUNT=str(len(RESOURCE_DOCS) + 2),
