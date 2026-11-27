@@ -328,7 +328,7 @@ section#tab-thursday,section#handbook,section#resources{scroll-margin-top:calc(v
 :root[data-theme="dark"]{
   --paper:#0f131c;--surface:#151b26;--ink:#e9e6dd;--muted:#b6b1a6;--faint:#9a958b;
   --line:#26303d;--line2:#33404f;
-  --accent:#82c8dc;--accent-soft:#16242c;--accent-line:#5fa8c4;
+  --accent:#82c8dc;--accent-soft:#16242c;--accent-line:#5fa8c4;--mark:#e8a06a;
   --edge:rgba(255,255,255,.08);--warm-line:rgba(255,255,255,.06);
   --card-bg:linear-gradient(180deg,rgba(36,45,58,.92),rgba(22,29,40,.68));
   --card-bg-soft:linear-gradient(180deg,rgba(30,38,50,.9),rgba(19,25,35,.66));
