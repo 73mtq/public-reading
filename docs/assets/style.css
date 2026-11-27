@@ -74,7 +74,7 @@ button,input{font-family:inherit}
 
 .content{background:var(--card-bg);border-radius:var(--r-lg);padding:60px 68px 84px;min-width:0;box-shadow:var(--shadow-card);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2)}
 .content::before,.sidebar::before,.issue-card::before,.hero-spot::before{content:"";position:absolute;left:20px;right:20px;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--sheen) 22%,var(--sheen) 78%,transparent);pointer-events:none}
-.content,.sidebar,.issue-card{position:relative}
+.content,.issue-card{position:relative}
 .prose{font-size:17px;line-height:1.95;color:var(--ink)}
 .prose a{text-decoration:underline;text-decoration-color:var(--accent-line);text-decoration-thickness:1px;text-underline-offset:3px}
 .prose a:hover{color:var(--accent);text-decoration-color:var(--accent);text-decoration-thickness:2px}
