@@ -95,6 +95,24 @@ ISSUES = [
             "智能可以租用，记忆与判断需要自己持有",
         ],
     },
+    {
+        "key": "005",
+        "src": "tab-thursday/第五期-19位分享者内容精读.md",
+        "label": "第五期",
+        "date": "2026-11-26",
+        "place": "上海幸福里",
+        "count": "19 位分享者",
+        "theme": "执行交出去以后，人留下什么",
+        "title": "第五期 · 19 位分享者内容精读",
+        "desc": "《绿野仙踪》、星拍游乐场、涅瓦、一人 Agent 公司复盘、Omarchy 与 Taku OS、Stage 8、Beeuni、Today AI、Jina Reader、Agent 广告、SpringBrand、Exporter、页边电台、Musecube、Float Lyrics、openSiri、Hacker News、上海天文馆、阿豪——19 个方向收敛出 5 条判断，并与前四期逐条对照。",
+        "bullets": [
+            "门槛从写出代码，移到审美、验证与协调",
+            "多 Agent 的组织方式收敛到调度者加对立验证",
+            "内容与网页的计价方式正在重写",
+            "本地与设备重新成为可控性的来源",
+            "生产可以外包，判断与在场留下",
+        ],
+    },
 ]
 
 GUIDES = [
@@ -159,13 +177,13 @@ TEMPLATES = [
     },
 ]
 
-STAMP = "2026-11-26"
+STAMP = "2026-11-27"
 NEXT_EVENT = {
-    "label": "#005",
-    "date": "2026-11-26",
+    "label": "#006",
+    "date": "2026-12-03",
     "time": "19:00–21:30",
     "place": "上海·长宁幸福里",
-    "url": "https://luma.com/pmb99b5m",
+    "url": "https://luma.com/00e50b3w",
 }
 NAME_ALIASES = {
     "yytyyf": "杨云童",

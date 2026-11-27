@@ -13,8 +13,9 @@ PAGES = {
     "002": "https://tabthursday.com/002.md",
     "003": "https://tabthursday.com/003.md",
     "004": "https://tabthursday.com/004.md",
+    "005": "https://tabthursday.com/005.md",
 }
-EXPECTED = {"001": 18, "002": 21, "003": 22, "004": 21}
+EXPECTED = {"001": 18, "002": 21, "003": 22, "004": 21, "005": 19}
 UA = "Mozilla/5.0 (compatible; public-reading-link-builder/1.1)"
 MEDIA_HOST = "media.jant.me"
 

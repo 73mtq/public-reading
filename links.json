@@ -1382,5 +1382,349 @@
         }
       ]
     }
+  ],
+  "005": [
+    {
+      "name": "Jerry Yan",
+      "homepage": {
+        "label": "ycdjry.com",
+        "url": "https://ycdjry.com/"
+      },
+      "links": [
+        {
+          "label": "x.com/ycdjry",
+          "url": "https://x.com/ycdjry"
+        },
+        {
+          "label": "绿野仙踪",
+          "url": "https://wizofoz.cc/"
+        },
+        {
+          "label": "开发攻略",
+          "url": "https://wizofoz.cc/article/zh.html"
+        }
+      ]
+    },
+    {
+      "name": "Eazy Lee",
+      "homepage": {
+        "label": "eazylee.si",
+        "url": "https://eazylee.si/"
+      },
+      "links": [
+        {
+          "label": "星拍游乐场",
+          "url": "https://mp.weixin.qq.com/s/P7A9Lvx9DVS9I0DydS1MXQ"
+        }
+      ]
+    },
+    {
+      "name": "yue xu（Gloria）",
+      "homepage": {
+        "label": "gloriaxu.com",
+        "url": "https://gloriaxu.com/"
+      },
+      "links": [
+        {
+          "label": "涅瓦（Nevatown）",
+          "url": "https://nevatown.com/"
+        },
+        {
+          "label": "三国·城主",
+          "url": "https://sanguo.nevatown.com/"
+        },
+        {
+          "label": "车库到 IPO",
+          "url": "https://startup.nevatown.com/"
+        },
+        {
+          "label": "见字如面",
+          "url": "https://postcard.nevatown.com/"
+        }
+      ]
+    },
+    {
+      "name": "杨云童",
+      "homepage": {
+        "label": "yytyyf.com",
+        "url": "https://yytyyf.com/"
+      },
+      "links": [
+        {
+          "label": "一人 Agent 公司",
+          "url": "https://my.feishu.cn/wiki/UGMGwHblAiRMAOk3Vyfcx6XSnUg"
+        },
+        {
+          "label": "Dispatch",
+          "url": "https://dispatch.yytyyf.com/"
+        },
+        {
+          "label": "Transparent（翻译玻璃）",
+          "url": "https://transparent.vision/"
+        }
+      ]
+    },
+    {
+      "name": "Ricky Lin",
+      "homepage": {
+        "label": "linkedin.com/in/chien-lin-b92385253",
+        "url": "https://www.linkedin.com/in/chien-lin-b92385253/"
+      },
+      "links": [
+        {
+          "label": "在线讲稿",
+          "url": "https://omarchy-aios.vercel.app/cn/#/1"
+        },
+        {
+          "label": "Omarchy",
+          "url": "https://omarchy.org/"
+        },
+        {
+          "label": "Taku OS",
+          "url": "https://taku.ai/"
+        }
+      ]
+    },
+    {
+      "name": "狄敬超",
+      "homepage": {
+        "label": "x.com/alswl",
+        "url": "https://x.com/alswl"
+      },
+      "links": [
+        {
+          "label": "AI Native 实践续篇：迈向 Stage 8",
+          "url": "https://blog.alswl.com/2026/10/ai-native-stage-8/"
+        },
+        {
+          "label": "lbkit",
+          "url": "https://github.com/alswl/lbkit"
+        },
+        {
+          "label": "chatta",
+          "url": "https://github.com/alswl/chatta"
+        },
+        {
+          "label": "skm",
+          "url": "https://github.com/alswl/skm"
+        }
+      ]
+    },
+    {
+      "name": "demon",
+      "homepage": {
+        "label": "小红书",
+        "url": "https://xhslink.cn/o/1OLIBlm2fbX"
+      },
+      "links": [
+        {
+          "label": "Beeuni",
+          "url": "https://beeuni.ai/"
+        }
+      ]
+    },
+    {
+      "name": "Mingxuan Wang",
+      "homepage": {
+        "label": "github.com/lennondotw",
+        "url": "https://github.com/lennondotw"
+      },
+      "links": [
+        {
+          "label": "Today AI",
+          "url": "https://today.ai/"
+        }
+      ]
+    },
+    {
+      "name": "张飒（Sa Zhang）",
+      "homepage": {
+        "label": "github.com/hey-sa",
+        "url": "https://github.com/hey-sa/"
+      },
+      "links": [
+        {
+          "label": "Jina Reader",
+          "url": "https://jina.ai/reader"
+        }
+      ]
+    },
+    {
+      "name": "张潘（Cecil）",
+      "homepage": {
+        "label": "cecil.codeberg.page",
+        "url": "https://cecil.codeberg.page/"
+      },
+      "links": [
+        {
+          "label": "agent 的广告业务",
+          "url": "https://prepre.surge.sh/"
+        }
+      ]
+    },
+    {
+      "name": "Lafe",
+      "homepage": {
+        "label": "x.com/Lafe8088",
+        "url": "https://x.com/Lafe8088"
+      },
+      "links": [
+        {
+          "label": "英文长文",
+          "url": "https://x.com/Lafe8088/status/2124147638048002174"
+        },
+        {
+          "label": "SpringBrand",
+          "url": "https://springbrand.ai/"
+        }
+      ]
+    },
+    {
+      "name": "火箭君CC",
+      "homepage": {
+        "label": "xlrocket.blog",
+        "url": "https://xlrocket.blog/"
+      },
+      "links": [
+        {
+          "label": "Exporter",
+          "url": "https://exporter.dev/"
+        }
+      ]
+    },
+    {
+      "name": "Peter Lei",
+      "homepage": {
+        "label": "github.com/Peterleixx",
+        "url": "https://github.com/Peterleixx"
+      },
+      "links": [
+        {
+          "label": "页边电台（Margin Radio）",
+          "url": "https://github.com/Peterleixx/margin-radio-local"
+        }
+      ]
+    },
+    {
+      "name": "Nan（祝以南）",
+      "homepage": {
+        "label": "小红书",
+        "url": "https://xhslink.cn/o/5DhoeI1oBcx"
+      },
+      "links": [
+        {
+          "label": "Musecube",
+          "url": "https://musecube.app/"
+        }
+      ]
+    },
+    {
+      "name": "Chester",
+      "homepage": {
+        "label": "x.com/chesterlee14",
+        "url": "https://x.com/chesterlee14?s=11&t=L7BHNsHV4y3Xouo82Sb5hg"
+      },
+      "links": [
+        {
+          "label": "Float Lyrics",
+          "url": "https://github.com/WYSIATI/FloatLyrics"
+        }
+      ]
+    },
+    {
+      "name": "August",
+      "homepage": {
+        "label": "github.com/TobeBetterV",
+        "url": "https://github.com/TobeBetterV"
+      },
+      "links": [
+        {
+          "label": "openSiri",
+          "url": "https://opensiri.ai/"
+        }
+      ]
+    },
+    {
+      "name": "Owen Young",
+      "homepage": {
+        "label": "owenyoung.com",
+        "url": "https://www.owenyoung.com/"
+      },
+      "links": [
+        {
+          "label": "Hacker News",
+          "url": "https://news.ycombinator.com/"
+        },
+        {
+          "label": "Dropbox",
+          "url": "https://news.ycombinator.com/item?id=8863"
+        },
+        {
+          "label": "Stripe",
+          "url": "https://news.ycombinator.com/item?id=3053883"
+        },
+        {
+          "label": "收购 Lemon Squeezy",
+          "url": "https://news.ycombinator.com/item?id=41080018"
+        },
+        {
+          "label": "Docker",
+          "url": "https://news.ycombinator.com/item?id=5445387"
+        },
+        {
+          "label": "hn.buzzing.cc",
+          "url": "https://hn.buzzing.cc/"
+        },
+        {
+          "label": "hnnew.buzzing.cc",
+          "url": "https://hnnew.buzzing.cc/"
+        },
+        {
+          "label": "HN Algolia",
+          "url": "https://hn.algolia.com/"
+        },
+        {
+          "label": "HN Vault",
+          "url": "https://hnvault.owenyoung.com/"
+        },
+        {
+          "label": "未记录功能清单",
+          "url": "https://github.com/minimaxir/hacker-news-undocumented/blob/master/README.md"
+        },
+        {
+          "label": "特稿",
+          "url": "https://www.newyorker.com/news/letter-from-silicon-valley/the-lonely-work-of-moderating-hacker-news"
+        },
+        {
+          "label": "Buzzing",
+          "url": "https://www.buzzing.cc/"
+        },
+        {
+          "label": "翻译插件",
+          "url": "https://immersivetranslate.com/"
+        }
+      ]
+    },
+    {
+      "name": "草原张（Naren）",
+      "homepage": {
+        "label": "paradigmroadmap.com",
+        "url": "https://paradigmroadmap.com/"
+      },
+      "links": [
+        {
+          "label": "线上导览画布",
+          "url": "https://www.icloud.com/freeform/0d8_QauDy-cLZh1ZiJ7-xcQAA"
+        }
+      ]
+    },
+    {
+      "name": "海涛",
+      "homepage": {
+        "label": "haitao.wiki",
+        "url": "https://haitao.wiki/"
+      },
+      "links": []
+    }
   ]
 }
