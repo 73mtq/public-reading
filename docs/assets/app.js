@@ -57,12 +57,32 @@
   }
   if(toTop)toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
 
+  var themeToggle=document.getElementById('themeToggle');
+  function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+  function paintToggle(){
+    if(!themeToggle)return;
+    themeToggle.textContent=isDark()?'\u2600':'\u263E';
+    themeToggle.setAttribute('aria-pressed',isDark()?'true':'false');
+    themeToggle.setAttribute('aria-label',isDark()?'切换到日间模式':'切换到夜间模式');
+  }
+  if(themeToggle){
+    themeToggle.addEventListener('click',function(){
+      var next=isDark()?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      try{localStorage.setItem('pr-theme',next);}catch(e){}
+      paintToggle();
+    });
+    paintToggle();
+  }
+
+  var topbar=document.querySelector('.topbar');
   var heads=Array.prototype.slice.call(document.querySelectorAll('.prose h1[id],.prose h2[id]'));
   function update(){
     var d=document.documentElement;
     var max=d.scrollHeight-d.clientHeight;
     if(progress)progress.style.width=(max>0?(d.scrollTop/max*100):0)+'%';
     if(toTop)toTop.classList.toggle('show',d.scrollTop>420);
+    if(topbar)topbar.classList.toggle('is-stuck',d.scrollTop>8);
     if(!toc||!heads.length)return;
     var active=null;
     for(var i=0;i<heads.length;i++){

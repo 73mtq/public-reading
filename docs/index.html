@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>公开材料精读 · 活动精读与学习手册</title>
 <meta name="description" content="公开材料精读：Tab 星期四四期分享的深度精读（82 个分享席位、56 位分享者）、五篇研究生学习手册与两份可复制模板，以及一个资源导航站的全站索引（98 个页面、3323 条外链）。">
+<meta name="theme-color" content="#fffdfa" media="(prefers-color-scheme:light)">
+<meta name="theme-color" content="#0f131c" media="(prefers-color-scheme:dark)">
+<script>(function(){try{var t=localStorage.getItem('pr-theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
@@ -20,15 +23,30 @@
   </nav>
 </header>
 <main class="home">
+  <div class="hero-glow" aria-hidden="true"></div>
   <section class="hero">
-    <span class="kicker">活动分享 · 免费资源 · 读论文的方法</span>
-    <h1>公开材料精读</h1>
-    <p>三类整理放在一起：Tab 星期四四期共 82 个分享席位（56 位分享者）的逐章精读；面向计算机视觉方向研究生的学习手册；以及一个资源导航站的全站索引（98 个页面、3323 条外链）。每条数字都标了来源等级与复核日期，推断与事实分开写。</p>
-    <div class="hero-links">
-      <a href="#tab-thursday">活动精读</a>
-      <a href="#handbook">学习手册</a>
-      <a href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">仓库与 Markdown 原文</a>
+    <div class="hero-main">
+      <p class="eyebrow">Tab 星期四 · 学习手册 · 资源索引</p>
+      <h1>公开材料精读</h1>
+      <p class="hero-lede">三类整理放在一起：Tab 星期四四期共 82 个分享席位（56 位分享者）的逐章精读；面向计算机视觉方向研究生的学习手册；以及一个资源导航站的全站索引（98 个页面、3323 条外链）。每条数字都标了来源等级与复核日期，推断与事实分开写。</p>
+      <div class="hero-links">
+        <a href="#tab-thursday">活动精读</a>
+        <a href="#handbook">学习手册</a>
+        <a href="#resources">资源索引</a>
+        <a href="https://github.com/73mtq/public-reading" target="_blank" rel="noopener noreferrer">仓库与 Markdown 原文</a>
+      </div>
     </div>
+    <aside class="hero-facts" aria-label="内容概览">
+      <p class="eyebrow">内容概览</p>
+      <dl>
+        <div><dt>活动精读</dt><dd>4<small>期</small></dd></div>
+        <div><dt>分享席位</dt><dd>82<small>个</small></dd></div>
+        <div><dt>分享者</dt><dd>56<small>位</small></dd></div>
+        <div><dt>精读正文</dt><dd>14.0<small>万汉字</small></dd></div>
+        <div><dt>学习手册</dt><dd>5<small>篇</small></dd></div>
+        <div><dt>资源索引</dt><dd>98<small>页</small></dd></div>
+      </dl>
+    </aside>
   </section>
 
   <div class="notice">正文里的外部链接都会在新标签页打开；文章页左侧目录可以按章节标题筛选，点击直达对应位置。下一期 #005 正在报名：2026-11-26 19:00–21:30 · 上海·长宁幸福里 · <a href="https://luma.com/pmb99b5m" target="_blank" rel="noopener noreferrer">Luma 报名</a>。</div>
@@ -42,7 +60,7 @@
       <h2>第一期 · 18 位分享者</h2>
       <div class="issue-meta">2026-10-29 · 706 上海（迎龙大厦） · 约 2.4 万汉字</div>
       <p class="issue-theme">一个人能做出什么东西</p>
-      <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px">3D 场景、浏览器、播客集邮册、像素宠物、Kindle 插件、独立游戏——18 个互不相干的方向，收敛出 5 条可操作的判断。</p>
+      <p class="issue-desc">3D 场景、浏览器、播客集邮册、像素宠物、Kindle 插件、独立游戏——18 个互不相干的方向，收敛出 5 条可操作的判断。</p>
       <ul>
         <li>先盘活存量，再考虑新增</li>
         <li>「可编辑」比「能生成」值钱</li>
@@ -57,7 +75,7 @@
       <h2>第二期 · 21 位分享者 + 线上补充</h2>
       <div class="issue-meta">2026-11-05 · 上海幸福里 · 约 3.5 万汉字</div>
       <p class="issue-theme">怎么组织工作、怎么决定看什么</p>
-      <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px">从「做得出」转向「怎么组织工作、怎么决定看什么」：Agent 的任务化、筛选权回流、被 AI 选中、判断的结构化。含与第一期判断的逐条对照和更严格的事实核查。</p>
+      <p class="issue-desc">从「做得出」转向「怎么组织工作、怎么决定看什么」：Agent 的任务化、筛选权回流、被 AI 选中、判断的结构化。含与第一期判断的逐条对照和更严格的事实核查。</p>
       <ul>
         <li>组织单位从会话 / 产品变成任务 / skill / MCP</li>
         <li>筛选权回流个人，同时争取被 AI 选中</li>
@@ -72,7 +90,7 @@
       <h2>第三期 · 22 位分享者</h2>
       <div class="issue-meta">2026-11-12 · 上海幸福里 · 约 4.1 万汉字</div>
       <p class="issue-theme">把信息入口、交付形式与本地工具重新组织</p>
-      <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px">ChatGPT Live 陪玩、mymind、MarkText、RSSWise、Pebble、Dispatch、Trancy、Starland、tldraw office、hmod、Chatlog、Shapr3D、力生物学——22 个方向收敛出 5 条判断，并补上与前两期的重复分享者对照。</p>
+      <p class="issue-desc">ChatGPT Live 陪玩、mymind、MarkText、RSSWise、Pebble、Dispatch、Trancy、Starland、tldraw office、hmod、Chatlog、Shapr3D、力生物学——22 个方向收敛出 5 条判断，并补上与前两期的重复分享者对照。</p>
       <ul>
         <li>信息入口先过机器：AI 先读、先判断</li>
         <li>苦劳与价值分离，交付形式决定内容的位置</li>
@@ -87,7 +105,7 @@
       <h2>第四期 · 21 位分享者</h2>
       <div class="issue-meta">2026-11-19 · 上海幸福里 · 约 4.0 万汉字</div>
       <p class="issue-theme">上下文、验证与门槛：AI 之下的新分工</p>
-      <p style="font-size:13.5px;color:var(--muted);margin:0 0 14px">Ulysses、Pinky、ARTEX、《精益创业》重读、开源掌机、iPhone 本地沙盒、AI 短片《该》、AirBuild、TOI-7930、NX2Apple、WatchWithU、VoHive、Supernote——21 个方向收敛出 5 条判断，并与前三期逐条对照。</p>
+      <p class="issue-desc">Ulysses、Pinky、ARTEX、《精益创业》重读、开源掌机、iPhone 本地沙盒、AI 短片《该》、AirBuild、TOI-7930、NX2Apple、WatchWithU、VoHive、Supernote——21 个方向收敛出 5 条判断，并与前三期逐条对照。</p>
       <ul>
         <li>上下文正在变成可以托管、复用与共享的资产</li>
         <li>一次证伪比十次证明更省成本</li>
@@ -715,6 +733,7 @@
   </div>
 </main>
 <button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="切换到夜间模式" aria-pressed="false">☾</button>
 <script src="./assets/app.js"></script>
 </body>
 </html>
